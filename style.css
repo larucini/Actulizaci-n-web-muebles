@@ -280,7 +280,9 @@
   .service-steps {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
+    gap: 12px;
+    max-width: 900px;
+    margin: 0 auto;
   }
   .service-card {
     border-radius: 6px;
@@ -290,11 +292,11 @@
   }
   .service-card-img {
     height: 240px;
-    background: rgba(57,47,40,0.13);
+    background: rgba(57,47,40,0.08);
     flex-shrink: 0;
   }
   .service-card-body {
-    background: rgba(57,47,40,0.22);
+    background: var(--cream-dark);
     padding: 24px 24px 28px;
     flex: 1;
     display: flex;
