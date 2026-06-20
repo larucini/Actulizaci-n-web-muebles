@@ -8,7 +8,7 @@ Landing page institucional para RAÍZ, estudio de restauración de muebles.
 raiz/
 ├── index.html          # Página principal
 ├── style.css           # Estilos globales
-├── script.js           # Interacciones (navbar, flip cards, fade-up)
+├── script.js           # Interacciones (navbar, flip cards, typewriter, fade-up)
 ├── assets/
 │   └── images/         # Agregar aquí las fotografías
 └── README.md

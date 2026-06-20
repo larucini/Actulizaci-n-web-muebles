@@ -29,3 +29,39 @@ const navbar = document.getElementById('navbar');
       card.addEventListener('mouseleave', () => card.classList.remove('flipped'));
     }
   });
+
+  /* ── Typewriter ──────────────────────── */
+  (function () {
+    const phrase  = 'El tiempo deja marcas. Nosotros, posibilidades.';
+    const textEl  = document.getElementById('typewriter-text');
+    const cursor  = document.getElementById('typewriter-cursor');
+    const block   = document.getElementById('typewriter-block');
+    if (!textEl || !block) return;
+    let started = false;
+
+    function type(i) {
+      if (i <= phrase.length) {
+        textEl.textContent = phrase.slice(0, i);
+        textEl.appendChild(cursor);
+        const ch    = phrase[i - 1];
+        const delay = i === 0 ? 0
+          : ch === '.' ? 400
+          : 36 + Math.random() * 20;
+        setTimeout(() => type(i + 1), delay);
+      } else {
+        setTimeout(() => cursor.classList.add('done'), 500);
+      }
+    }
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !started) {
+          started = true;
+          setTimeout(() => type(0), 300);
+          obs.unobserve(block);
+        }
+      });
+    }, { threshold: 0.4 });
+
+    obs.observe(block);
+  })();
