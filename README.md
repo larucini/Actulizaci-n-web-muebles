@@ -8,41 +8,41 @@ Landing page institucional para RAÍZ, estudio de restauración de muebles.
 raiz/
 ├── index.html          # Página principal
 ├── style.css           # Estilos globales
-├── script.js           # Interacciones (navbar scroll, flip cards, fade-up)
+├── script.js           # Interacciones (navbar, flip cards, fade-up)
 ├── assets/
-│   └── images/         # Imágenes del proyecto (agregar aquí)
+│   └── images/         # Agregar aquí las fotografías
 └── README.md
 ```
 
-## Cómo usar
+## Cómo agregar imágenes
 
-1. Cloná o descargá el repositorio
-2. Abrí `index.html` en tu navegador para ver la página localmente
-3. Agregá las fotografías de los proyectos en `assets/images/`
-4. Reemplazá los placeholders `.hero-img-placeholder`, `.service-card-img`, `.project-card-img`, etc. con etiquetas `<img src="assets/images/tu-foto.jpg">` en el HTML
+Los placeholders en el HTML tienen clases como `.hero-img-placeholder`,
+`.service-card-img`, `.project-card-img`, etc.
+Reemplazalos con etiquetas `<img>`:
 
-## GitHub Pages
+```html
+<img src="assets/images/nombre.jpg" alt="Descripción" style="width:100%; height:100%; object-fit:cover;">
+```
 
-Para publicar en GitHub Pages:
+## Publicar en GitHub Pages
+
 1. Subí el repositorio a GitHub
-2. Entrá a **Settings → Pages**
-3. En **Source**, seleccioná la rama `main` y carpeta `/ (root)`
-4. GitHub Pages publicará el sitio automáticamente en `https://tu-usuario.github.io/raiz/`
+2. Settings → Pages → Source: rama `main`, carpeta `/ (root)`
+3. El sitio queda en `https://tu-usuario.github.io/raiz/`
 
-## Tipografías
+## Tipografías (Google Fonts)
 
-Las fuentes se cargan desde Google Fonts:
-- **Raleway** (300, 400, 500, 700, 900)
-- **Cormorant Garamond** (400, 500, 600 — regular e italic)
+- **Raleway** — 300, 400, 500, 700, 900
+- **Cormorant Garamond** — 400, 500, 600 (regular e italic)
 
 ## Paleta de colores
 
-| Nombre     | Hex       |
-|------------|-----------|
-| Cream      | `#efece3` |
-| Cream dark | `#e3d6c5` |
-| Sage       | `#8b937e` |
-| Rust       | `#984516` |
-| Walnut     | `#6f533b` |
-| Espresso   | `#392f28` |
-| Near black | `#21191a` |
+| Token        | Hex       |
+|--------------|-----------|
+| Cream        | `#efece3` |
+| Cream dark   | `#e3d6c5` |
+| Sage         | `#8b937e` |
+| Rust         | `#984516` |
+| Walnut       | `#6f533b` |
+| Espresso     | `#392f28` |
+| Near black   | `#21191a` |
