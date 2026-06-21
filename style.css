@@ -570,6 +570,14 @@
     height: 180px;
     background: rgba(239,236,227,0.13);
     flex-shrink: 0;
+    overflow: hidden;
+  }
+  .course-card-top img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
   .course-tag {
     position: absolute;
@@ -798,13 +806,24 @@
     text-align: center;
   }
   .contact-headline {
-    font-family: 'Cormorant Garamond', serif;
     font-size: clamp(48px, 7vw, 96px);
-    font-weight: 500;
     line-height: 0.95;
     color: var(--cream);
     text-align: center;
     width: 100%;
+  }
+  .contact-headline-main {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    display: block;
+  }
+  .contact-headline em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    color: rgba(239,236,227,0.55);
+    display: block;
   }
   .contact-headline em {
     font-style: italic;
