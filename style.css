@@ -305,6 +305,11 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(57,47,40,0.13), 0 4px 12px rgba(57,47,40,0.08);
   }
   .service-card-img {
     height: 240px;
@@ -414,10 +419,21 @@
     cursor: pointer;
   }
   .project-card-img {
-    background: rgba(239,236,227,0.08);
     width: 100%;
+    overflow: hidden;
   }
-  .project-card.tall .project-card-img { height: 520px; }
+  .project-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  .project-card:hover .project-card-img img {
+    transform: scale(1.03);
+  }
+  .project-card.tall .project-card-img { height: 686px; }
   .project-card.medium .project-card-img { height: 340px; }
 
   .project-card-overlay {
