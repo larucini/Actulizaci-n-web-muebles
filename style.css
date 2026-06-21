@@ -512,109 +512,94 @@
   #cursos .section-eyebrow { color: var(--cream); }
   #cursos .section-title { color: var(--cream); }
 
-  .courses-layout {
+  .courses-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6px;
-    margin-bottom: 6px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 56px;
   }
-  .course-card-main {
-    background: rgba(239,236,227,0.1);
-    border-radius: 6px;
+  .course-card {
+    border-radius: 10px;
     overflow: hidden;
-    border: 1px solid rgba(239,236,227,0.15);
+    display: flex;
+    flex-direction: column;
+    background: rgba(239,236,227,0.08);
+    border: 1px solid rgba(239,236,227,0.13);
   }
-  .course-img { height: 320px; background: rgba(239,236,227,0.08); }
-  .course-body { padding: 32px 28px; }
+  .course-card-top {
+    position: relative;
+    height: 220px;
+    background: rgba(239,236,227,0.13);
+    flex-shrink: 0;
+  }
   .course-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
     font-size: 9px;
-    letter-spacing: 0.22em;
+    font-weight: 600;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    background: rgba(239,236,227,0.15);
+    background: rgba(239,236,227,0.18);
     color: var(--cream);
     padding: 5px 12px;
     border-radius: 20px;
-    display: inline-block;
-    margin-bottom: 16px;
+    border: 1px solid rgba(239,236,227,0.25);
   }
-  .course-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
-    font-weight: 500;
-    color: var(--cream);
-    margin-bottom: 14px;
-    line-height: 1.2;
-  }
-  .course-desc {
-    font-size: 13px;
-    line-height: 1.7;
-    color: rgba(239,236,227,0.72);
-    margin-bottom: 24px;
-  }
-  .course-meta {
-    display: flex;
-    gap: 24px;
-  }
-  .course-meta-item {
+  .course-inscribir {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Raleway', sans-serif;
     font-size: 10px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(239,236,227,0.55);
-  }
-  .course-meta-value {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--cream);
-    display: block;
-    margin-top: 2px;
-  }
-
-  .courses-side {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-  .course-card-mini {
-    background: rgba(239,236,227,0.08);
-    border: 1px solid rgba(239,236,227,0.12);
-    border-radius: 6px;
-    padding: 28px 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex: 1;
-  }
-  .course-mini-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    font-weight: 500;
-    color: var(--cream);
-    margin-bottom: 10px;
-    line-height: 1.2;
-  }
-  .course-mini-desc {
-    font-size: 12px;
-    line-height: 1.6;
-    color: rgba(239,236,227,0.65);
-    margin-bottom: 20px;
-  }
-  .course-link {
-    font-size: 10px;
+    font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: rgba(239,236,227,0.55);
+    padding: 11px 22px;
+    background: transparent;
+    color: var(--cream);
+    border: 1px solid rgba(239,236,227,0.5);
+    border-radius: 40px;
+    cursor: pointer;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    transition: color 0.2s;
+    white-space: nowrap;
+    transition: background 0.25s, border-color 0.25s;
   }
-  .course-link:hover { color: var(--cream); }
-  .course-link-arrow { font-size: 14px; }
+  .course-inscribir:hover {
+    background: rgba(239,236,227,0.12);
+    border-color: var(--cream);
+  }
+  .course-card-body {
+    padding: 20px 20px 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .course-card-title {
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cream);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .course-card-desc {
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: rgba(239,236,227,0.65);
+  }
 
   .cursos-footer-note {
-    margin-top: 64px;
+    margin-top: 48px;
     display: flex;
     align-items: center;
     gap: 32px;
@@ -627,7 +612,7 @@
     color: rgba(239,236,227,0.65);
   }
 
-  /* ─── PROCESO ─────────────────────────── */
+    /* ─── PROCESO ─────────────────────────── */
   /* ─── LINE DRAW SECTION ─────────────── */
   .linedraw-section {
     background: var(--cream);
