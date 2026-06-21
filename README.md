@@ -12,7 +12,8 @@ raiz/
 ```
 
 ## Agregar imágenes
-Reemplazá los divs placeholder por `<img src="assets/images/foto.jpg" style="width:100%;height:100%;object-fit:cover;">` en el HTML.
+Reemplazá los divs placeholder por:
+`<img src="assets/images/foto.jpg" style="width:100%;height:100%;object-fit:cover;">`
 
 ## GitHub Pages
 Settings → Pages → Source: rama `main`, carpeta `/ (root)`

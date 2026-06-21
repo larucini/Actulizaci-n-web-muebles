@@ -65,3 +65,45 @@ const navbar = document.getElementById('navbar');
 
     obs.observe(block);
   })();
+
+  /* ── Line draw ───────────────────────── */
+  (function () {
+    const block   = document.getElementById('linedraw-block');
+    const line    = document.getElementById('linedraw-line');
+    const eyebrow = document.getElementById('ld-eyebrow');
+    if (!block || !line) return;
+
+    const items = [
+      { text: document.getElementById('ld-w0'), sub: document.getElementById('ld-s0'), dot: document.getElementById('ld-d0'), delay: 400  },
+      { text: document.getElementById('ld-w1'), sub: document.getElementById('ld-s1'), dot: document.getElementById('ld-d1'), delay: 850  },
+      { text: document.getElementById('ld-w2'), sub: document.getElementById('ld-s2'), dot: document.getElementById('ld-d2'), delay: 1300 },
+    ];
+
+    let started = false;
+
+    function run() {
+      if (eyebrow) eyebrow.classList.add('visible');
+      setTimeout(() => {
+        line.classList.add('drawn');
+        items.forEach(w => {
+          setTimeout(() => {
+            if (w.dot)  w.dot.classList.add('visible');
+            if (w.text) w.text.classList.add('visible');
+            if (w.sub)  setTimeout(() => w.sub.classList.add('visible'), 240);
+          }, w.delay);
+        });
+      }, 400);
+    }
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !started) {
+          started = true;
+          run();
+          obs.unobserve(block);
+        }
+      });
+    }, { threshold: 0.4 });
+
+    obs.observe(block);
+  })();
