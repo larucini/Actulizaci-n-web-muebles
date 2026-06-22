@@ -1019,12 +1019,9 @@
     padding-top: 32px;
   }
   .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
-    font-style: italic;
-    font-weight: 500;
-    color: rgba(239,236,227,0.3);
     text-decoration: none;
+    display: inline-flex;
+    align-items: center;
   }
   .footer-copy {
     font-size: 11px;
