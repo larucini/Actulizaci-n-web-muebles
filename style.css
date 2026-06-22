@@ -342,6 +342,26 @@
   #servicio {
     background: var(--cream);
     padding: 96px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .tex-layer {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity 0.6s ease;
+  }
+  .tex-layer.visible { opacity: 0.4; }
+  #servicio > .section-header,
+  #servicio > .service-steps,
+  #servicio > .typewriter-section {
+    position: relative;
+    z-index: 1;
   }
 
   .service-steps {
@@ -711,10 +731,22 @@
   /* ─── LINE DRAW SECTION ─────────────── */
   .linedraw-section {
     background: var(--cream);
-    padding: 120px 0;
+    padding: 180px 0;
     overflow: hidden;
     position: relative;
   }
+  .num-layer {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity 0.6s ease;
+  }
+  .num-layer.visible { opacity: 0.5; }
   .linedraw-eyebrow {
     font-size: 10px;
     font-weight: 600;

@@ -93,6 +93,13 @@ const navbar = document.getElementById('navbar');
           }, w.delay);
         });
       }, 400);
+
+      // Numbers appear after line + words finish (~2000ms), in order 1 → 2 → 3
+      const nums = ['num-1', 'num-2', 'num-3'];
+      nums.forEach((id, i) => {
+        const el = document.getElementById(id);
+        if (el) setTimeout(() => el.classList.add('visible'), 2000 + i * 450);
+      });
     }
 
     const obs = new IntersectionObserver((entries) => {
@@ -106,4 +113,32 @@ const navbar = document.getElementById('navbar');
     }, { threshold: 0.4 });
 
     obs.observe(block);
+  })();
+
+  /* ── Sequenced texture reveal ───────── */
+  (function () {
+    const section = document.getElementById('servicio');
+    if (!section) return;
+    // Order: mesa → proporcion → cola → vetas
+    const sequence = ['tex-mesa', 'tex-proporcion', 'tex-cola', 'tex-vetas'];
+    let started = false;
+
+    function reveal() {
+      sequence.forEach((id, i) => {
+        const el = document.getElementById(id);
+        if (el) setTimeout(() => el.classList.add('visible'), 200 + i * 450);
+      });
+    }
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !started) {
+          started = true;
+          reveal();
+          obs.unobserve(section);
+        }
+      });
+    }, { threshold: 0.25 });
+
+    obs.observe(section);
   })();

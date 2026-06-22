@@ -1,3 +1,3 @@
 # RAÍZ
 GitHub Pages: Settings → Pages → rama `main` / root.
-Imágenes en `assets/images/`.
+Imágenes y texturas en `assets/images/`.
