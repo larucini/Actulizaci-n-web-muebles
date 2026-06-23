@@ -1,6 +1,6 @@
 # RAÍZ — Landing Page
 
-## Estructura de archivos
+## Estructura
 ```
 raiz/
 ├── index.html
@@ -9,32 +9,19 @@ raiz/
     ├── style.css
     ├── script.js
     └── images/
-        ├── hero-01.jpg … hero-04.jpg        (marquee del hero)
-        ├── service-01.jpg … service-03.jpg   (sección Servicio)
-        ├── proj-01.jpg … proj-06.jpg         (sección Proyectos)
-        ├── course-01.jpg … course-04.jpg     (sección Cursos)
-        ├── tex-mesa.png … tex-vetas.png      (texturas sección Servicio)
-        └── num-1.png … num-3.png             (texturas sección Proceso)
+        ├── hero-01.jpg … hero-04.jpg
+        ├── service-01.jpg … service-03.jpg
+        ├── proj-01.jpg … proj-06.jpg
+        ├── course-01.jpg … course-04.jpg
+        ├── tex-mesa.png … tex-vetas.png
+        └── num-1.png … num-3.png
 ```
 
 ## Deploy
-
-### GitHub Pages
-1. Subí toda la carpeta a un repositorio público.
-2. Settings → Pages → Branch: `main` / root (`/`).
-
-### Netlify / Vercel
-Arrastrá la carpeta al dashboard o conectá el repositorio.
-
-### Local
-Usar un servidor local — index.html no funciona abriéndolo directamente:
-```bash
-cd raiz
-python3 -m http.server 8080
-# abrir http://localhost:8080
-```
-O en VS Code: extensión **Live Server** → "Open with Live Server".
+- **GitHub Pages**: subir carpeta, Settings → Pages → Branch main / root
+- **Netlify / Vercel**: arrastrar carpeta al dashboard
+- **Local**: `python3 -m http.server 8080` o Live Server en VS Code
 
 ## Fuentes (requieren internet)
-- **Raleway** 300 / 400 / 500 / 700 / 900
-- **Cormorant Garamond** 400 / 500 / 600 (regular + italic)
+- Raleway 300/400/500/700/900
+- Cormorant Garamond 400/500/600 (regular + italic)

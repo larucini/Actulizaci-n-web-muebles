@@ -66,7 +66,7 @@ const navbar = document.getElementById('navbar');
 
       // p2: fade in and scale from 0.92 → 1
       p2.style.opacity  = phase2;
-      p2.style.transform = `translate(-50%, -50%) scale(${lerp(0.92, 1, phase2)})`;
+      p2.style.transform = `translate(-50%, -15%) scale(${lerp(0.92, 1, phase2)})`;
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });
