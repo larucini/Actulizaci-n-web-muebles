@@ -30,40 +30,47 @@ const navbar = document.getElementById('navbar');
     }
   });
 
-  /* ── Typewriter ──────────────────────── */
+  /* ── Bridge scroll color-flip ─────────── */
   (function () {
-    const phrase  = 'El tiempo deja marcas. Nosotros, posibilidades.';
-    const textEl  = document.getElementById('typewriter-text');
-    const cursor  = document.getElementById('typewriter-cursor');
-    const block   = document.getElementById('typewriter-block');
-    if (!textEl || !block) return;
-    let started = false;
+    const section  = document.getElementById('bridge-section');
+    const overlay  = document.getElementById('bridge-overlay');
+    const p1       = document.getElementById('bridge-p1');
+    const p2       = document.getElementById('bridge-p2');
+    const eyebrow  = document.querySelector('.bridge-eyebrow');
+    if (!section || !overlay) return;
 
-    function type(i) {
-      if (i <= phrase.length) {
-        textEl.textContent = phrase.slice(0, i);
-        textEl.appendChild(cursor);
-        const ch    = phrase[i - 1];
-        const delay = i === 0 ? 0
-          : ch === '.' ? 400
-          : 36 + Math.random() * 20;
-        setTimeout(() => type(i + 1), delay);
-      } else {
-        setTimeout(() => cursor.classList.add('done'), 500);
-      }
+    function lerp(a, b, t) { return a + (b - a) * t; }
+    function clamp(v, lo, hi) { return Math.min(Math.max(v, lo), hi); }
+    function ease(t) { return t < 0.5 ? 2*t*t : -1+(4-2*t)*t; }
+
+    function onScroll() {
+      const rect     = section.getBoundingClientRect();
+      const total    = section.offsetHeight - window.innerHeight;
+      const scrolled = -rect.top;
+      const raw      = clamp(scrolled / total, 0, 1);
+
+      // Phase 1: 0→0.45  — overlay scales in, p1 fades out
+      // Phase 2: 0.45→1  — p2 fades in + scales to 1
+      // Fade starts at 30%, dark content appears at 55%, lingers until 100%
+      const phase1 = ease(clamp((raw - 0.30) / 0.25, 0, 1));
+      const phase2 = ease(clamp((raw - 0.55) / 0.35, 0, 1));
+
+      // Overlay: opacity fade 0 → 1
+      overlay.style.opacity = phase1;
+
+      // p1 + eyebrow: fade out and slight scale down together
+      const p1Opacity = 1 - phase1;
+      p1.style.opacity = p1Opacity;
+      p1.style.transform = `translate(-50%, -50%) scale(${lerp(1, 0.94, phase1)})`;
+      if (eyebrow) { eyebrow.style.opacity = p1Opacity; }
+
+      // p2: fade in and scale from 0.92 → 1
+      p2.style.opacity  = phase2;
+      p2.style.transform = `translate(-50%, -50%) scale(${lerp(0.92, 1, phase2)})`;
     }
 
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting && !started) {
-          started = true;
-          setTimeout(() => type(0), 300);
-          obs.unobserve(block);
-        }
-      });
-    }, { threshold: 0.4 });
-
-    obs.observe(block);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   })();
 
   /* ── Line draw ───────────────────────── */

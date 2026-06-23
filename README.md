@@ -27,13 +27,13 @@ raiz/
 Arrastrá la carpeta al dashboard o conectá el repositorio.
 
 ### Local
-Usar un servidor local — el archivo index.html no funciona abriéndolo directamente:
+Usar un servidor local — index.html no funciona abriéndolo directamente:
 ```bash
 cd raiz
 python3 -m http.server 8080
 # abrir http://localhost:8080
 ```
-O en VS Code: extensión **Live Server** → clic en "Open with Live Server".
+O en VS Code: extensión **Live Server** → "Open with Live Server".
 
 ## Fuentes (requieren internet)
 - **Raleway** 300 / 400 / 500 / 700 / 900
