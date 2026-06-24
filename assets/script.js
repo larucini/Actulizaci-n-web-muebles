@@ -12,7 +12,18 @@ const navbar = document.getElementById('navbar');
     });
   }, { threshold: 0.12 });
 
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  document.querySelectorAll('.fade-up:not(.fade-up-proj)').forEach(el => observer.observe(el));
+
+  const observerProj = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observerProj.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.20 });
+
+  document.querySelectorAll('.fade-up-proj').forEach(el => observerProj.observe(el));
 
   /* ── Flip cards ─────────────────────── */
   const isTouchDevice = () => window.matchMedia('(hover: none)').matches;
