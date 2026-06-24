@@ -203,10 +203,7 @@
 
 <!-- ── SERVICIO ───────────────────────── -->
 <section id="servicio">
-  <div class="tex-layer" id="tex-mesa" style="background-image:url('assets/images/tex-mesa.png')"></div>
-  <div class="tex-layer" id="tex-proporcion" style="background-image:url('assets/images/tex-proporcion.png')"></div>
-  <div class="tex-layer" id="tex-cola" style="background-image:url('assets/images/tex-cola.png')"></div>
-  <div class="tex-layer" id="tex-vetas" style="background-image:url('assets/images/tex-vetas.png')"></div>
+
   <div class="section-header fade-up">
     <span class="section-eyebrow">Servicio</span>
     <h2 class="section-title">Cada pieza requiere una intervención diferente.</h2>
@@ -362,56 +359,78 @@
     <h2 class="section-title">El conocimiento también se transmite.</h2>
   </div>
 
-  <div class="courses-grid">
+  <!-- ── Carousel ── -->
+  <div class="crs-carousel" id="crsCarousel">
 
-    <div class="course-card fade-up">
-      <div class="course-card-top">
-          <img src="assets/images/course-01.jpg" alt="Introducción a la restauración de muebles">
-        <span class="course-tag">Curso principal</span>
-        <a href="#contacto" class="course-arrow">→</a>
+    <!-- Sliding image track -->
+    <div class="crs-track" id="crsTrack">
+      <div class="crs-slide is-active" id="crsSlide0">
+        <img src="assets/images/course-01.jpg" alt="">
+        <span class="crs-num">(01)</span>
+        <span class="crs-tag">Curso principal</span>
       </div>
-      <div class="course-card-body">
-        <div class="course-card-title">Introducción a la restauración de muebles</div>
-        <p class="course-card-desc">Fundamentos del oficio: diagnóstico de piezas, técnicas de consolidación, terminaciones y el criterio detrás de cada intervención.</p>
+      <div class="crs-slide is-preview" id="crsSlide1">
+        <img src="assets/images/course-02.jpg" alt="">
+        <span class="crs-num">(02)</span>
+        <span class="crs-tag">Avanzado</span>
+      </div>
+      <div class="crs-slide is-hidden" id="crsSlide2">
+        <img src="assets/images/course-03.jpg" alt="">
+        <span class="crs-num">(03)</span>
+        <span class="crs-tag">Taller</span>
+      </div>
+      <div class="crs-slide is-hidden" id="crsSlide3">
+        <img src="assets/images/course-04.jpg" alt="">
+        <span class="crs-num">(04)</span>
+        <span class="crs-tag">Intensivo</span>
       </div>
     </div>
 
-    <div class="course-card fade-up fade-up-d1">
-      <div class="course-card-top">
-          <img src="assets/images/course-02.jpg" alt="Terminaciones en madera maciza">
-        <span class="course-tag">Avanzado</span>
-        <a href="#contacto" class="course-arrow">→</a>
-      </div>
-      <div class="course-card-body">
-        <div class="course-card-title">Terminaciones en madera maciza</div>
-        <p class="course-card-desc">Aceites, ceras y lacas naturales. El resultado visual como parte de la decisión de diseño.</p>
-      </div>
+    <!-- Info panel -->
+    <div class="crs-info" id="crsInfo">
+      <span class="crs-info-num" id="crsInfoNum">(01)</span>
+      <h3 class="crs-title" id="crsTitle">Introducción a la<br>restauración de muebles</h3>
+      <button class="crs-arrow-btn" id="crsArrowBtn" aria-label="Siguiente curso">→</button>
+      <p class="crs-desc" id="crsDesc">Fundamentos del oficio: diagnóstico de piezas, técnicas de consolidación, terminaciones y el criterio detrás de cada intervención.</p>
+      <a href="#contacto" class="btn-light crs-btn">Me interesa</a>
     </div>
 
-    <div class="course-card fade-up fade-up-d2">
-      <div class="course-card-top">
-          <img src="assets/images/course-03.jpg" alt="Tapicería y restauración textil">
-        <span class="course-tag">Taller</span>
-        <a href="#contacto" class="course-arrow">→</a>
-      </div>
-      <div class="course-card-body">
-        <div class="course-card-title">Tapicería y restauración textil</div>
-        <p class="course-card-desc">Recuperación de asientos y respaldos. Materiales contemporáneos y técnicas tradicionales.</p>
+  </div>
+
+  <!-- ── Mobile stack (visible only on mobile) ── -->
+  <div class="crs-mobile-stack">
+    <div class="crs-mobile-card">
+      <img src="assets/images/course-01.jpg" alt="">
+      <div class="crs-mobile-gradient"></div>
+      <div class="crs-mobile-body">
+        <span class="crs-mobile-step">(01) Curso principal</span>
+        <div class="crs-mobile-title">Introducción a la<br>restauración de muebles</div>
       </div>
     </div>
-
-    <div class="course-card fade-up fade-up-d3">
-      <div class="course-card-top">
-          <img src="assets/images/course-04.jpg" alt="Diagnóstico y valoración de piezas">
-        <span class="course-tag">Intensivo</span>
-        <a href="#contacto" class="course-arrow">→</a>
-      </div>
-      <div class="course-card-body">
-        <div class="course-card-title">Diagnóstico y valoración de piezas</div>
-        <p class="course-card-desc">Cómo leer un mueble: materiales, técnicas constructivas y valor histórico.</p>
+    <div class="crs-mobile-card">
+      <img src="assets/images/course-02.jpg" alt="">
+      <div class="crs-mobile-gradient"></div>
+      <div class="crs-mobile-body">
+        <span class="crs-mobile-step">(02) Avanzado</span>
+        <div class="crs-mobile-title">Terminaciones en<br>madera maciza</div>
       </div>
     </div>
-
+    <div class="crs-mobile-card">
+      <img src="assets/images/course-03.jpg" alt="">
+      <div class="crs-mobile-gradient"></div>
+      <div class="crs-mobile-body">
+        <span class="crs-mobile-step">(03) Taller</span>
+        <div class="crs-mobile-title">Tapicería y<br>restauración textil</div>
+      </div>
+    </div>
+    <div class="crs-mobile-card">
+      <img src="assets/images/course-04.jpg" alt="">
+      <div class="crs-mobile-gradient"></div>
+      <div class="crs-mobile-body">
+        <span class="crs-mobile-step">(04) Intensivo</span>
+        <div class="crs-mobile-title">Diagnóstico y<br>valoración de piezas</div>
+      </div>
+    </div>
   </div>
 
   <div class="cursos-footer-note fade-up">

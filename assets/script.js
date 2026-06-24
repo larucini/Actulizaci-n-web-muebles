@@ -122,30 +122,91 @@ const navbar = document.getElementById('navbar');
     obs.observe(block);
   })();
 
-  /* ── Sequenced texture reveal ───────── */
+  /* ── Courses carousel ────────────────── */
   (function () {
-    const section = document.getElementById('servicio');
-    if (!section) return;
-    // Order: mesa → proporcion → cola → vetas
-    const sequence = ['tex-mesa', 'tex-proporcion', 'tex-cola', 'tex-vetas'];
-    let started = false;
+    const courses = [
+      {
+        title: 'Introducción a la<br>restauración de muebles',
+        desc:  'Fundamentos del oficio: diagnóstico de piezas, técnicas de consolidación, terminaciones y el criterio detrás de cada intervención.'
+      },
+      {
+        title: 'Terminaciones en<br>madera maciza',
+        desc:  'Aceites, ceras y lacas naturales. El resultado visual como parte de la decisión de diseño.'
+      },
+      {
+        title: 'Tapicería y<br>restauración textil',
+        desc:  'Recuperación de asientos y respaldos. Materiales contemporáneos y técnicas tradicionales.'
+      },
+      {
+        title: 'Diagnóstico y<br>valoración de piezas',
+        desc:  'Cómo leer un mueble: materiales, técnicas constructivas y valor histórico.'
+      }
+    ];
 
-    function reveal() {
-      sequence.forEach((id, i) => {
-        const el = document.getElementById(id);
-        if (el) setTimeout(() => el.classList.add('visible'), 200 + i * 450);
+    const COUNT     = courses.length;
+    const ACTIVE_W  = 420;   // px — active slide width
+    const PREVIEW_W = 200;   // px — preview slide width
+
+    const track    = document.getElementById('crsTrack');
+    const slides   = Array.from({ length: COUNT }, (_, i) => document.getElementById('crsSlide' + i));
+    const titleEl  = document.getElementById('crsTitle');
+    const descEl   = document.getElementById('crsDesc');
+    const infoEl   = document.getElementById('crsInfo');
+    const infoNum  = document.getElementById('crsInfoNum');
+    const arrowBtn = document.getElementById('crsArrowBtn');
+
+    if (!track || !arrowBtn) return;
+
+    let current   = 0;
+    let animating = false;
+
+    // Apply classes based on index relative to current
+    function applySlideStates(idx) {
+      slides.forEach((sl, i) => {
+        sl.classList.remove('is-active', 'is-preview', 'is-hidden');
+        if (i === idx) {
+          sl.classList.add('is-active');
+        } else if (i === (idx + 1) % COUNT) {
+          sl.classList.add('is-preview');
+        } else {
+          sl.classList.add('is-hidden');
+        }
       });
     }
 
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting && !started) {
-          started = true;
-          reveal();
-          obs.unobserve(section);
-        }
-      });
-    }, { threshold: 0.25 });
+    // Position track so the active slide is flush-left (translateX = 0 always — slides
+    // change width so no track movement needed; the visual slide is the width change)
+    function advance() {
+      if (animating) return;
+      animating = true;
 
-    obs.observe(section);
+      const next = (current + 1) % COUNT;
+
+      // 1. Fade out text
+      infoEl.classList.add('fading');
+
+      // 2. After short delay, swap slide states (CSS transition handles the width animation)
+      setTimeout(() => {
+        applySlideStates(next);
+        current = next;
+
+        // 3. Update text content while it's invisible
+        titleEl.innerHTML  = courses[current].title;
+        descEl.textContent = courses[current].desc;
+        if (infoNum) infoNum.textContent = '(0' + (current + 1) + ')';
+
+        // 4. Fade text back in
+        setTimeout(() => {
+          infoEl.classList.remove('fading');
+          animating = false;
+        }, 350);
+
+      }, 250);
+    }
+
+    arrowBtn.addEventListener('click', advance);
+
+    // Init
+    applySlideStates(0);
   })();
+
