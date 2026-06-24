@@ -168,7 +168,7 @@
 
   .hero-tagline {
     font-family: 'Raleway', sans-serif;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 500;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -734,7 +734,7 @@
     display: flex;
     margin-top: 56px;
     height: 480px;
-    overflow: hidden;   /* clips the sliding track */
+    overflow: hidden;
     position: relative;
   }
 
@@ -819,10 +819,29 @@
   .crs-info {
     flex: 1;
     padding: 40px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    column-gap: 48px;
+    align-content: start;
+    flex-shrink: 0;
+  }
+  .crs-info-left {
+    grid-column: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    flex-shrink: 0;
+  }
+  .crs-info-right {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 24px;
+    transition: opacity 0.3s ease;
+  }
+  .crs-info.fading .crs-info-right {
+    opacity: 0;
   }
   .crs-info-num {
     font-family: 'Cormorant Garamond', serif;
@@ -870,7 +889,7 @@
   .crs-desc {
     margin-top: 28px;
     font-family: 'Raleway', sans-serif;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 400;
     line-height: 1.7;
     color: rgba(239,236,227,0.72);
@@ -887,6 +906,44 @@
   .crs-info.fading .crs-desc,
   .crs-info.fading .crs-btn {
     opacity: 0;
+  }
+
+  /* Testimonial */
+  .crs-testimonial-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 2.2vw, 30px);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--cream);
+    line-height: 1.4;
+    opacity: 0.9;
+    margin-bottom: 24px;
+  }
+  .crs-testimonial-quote::before {
+    content: '\201C';
+    font-size: 1.2em;
+    opacity: 0.5;
+    margin-right: 2px;
+  }
+  .crs-testimonial-quote::after {
+    content: '\201D';
+    font-size: 1.2em;
+    opacity: 0.5;
+    margin-left: 2px;
+  }
+  .crs-testimonial-sep {
+    width: 32px;
+    height: 1px;
+    background: rgba(239,236,227,0.35);
+    margin-bottom: 16px;
+  }
+  .crs-testimonial-author {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(239,236,227,0.5);
   }
 
   .cursos-footer-note {

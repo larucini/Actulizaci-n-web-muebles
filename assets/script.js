@@ -127,19 +127,27 @@ const navbar = document.getElementById('navbar');
     const courses = [
       {
         title: 'Introducción a la<br>restauración de muebles',
-        desc:  'Fundamentos del oficio: diagnóstico de piezas, técnicas de consolidación, terminaciones y el criterio detrás de cada intervención.'
+        desc:  'Fundamentos del oficio: diagnóstico de piezas<br>y el criterio detrás de cada intervención.',
+        testimonial: 'Entré sin saber nada sobre madera. Salí entendiendo por qué cada pieza tiene su propia lógica.',
+        author: 'Valentina M. — Buenos Aires'
       },
       {
         title: 'Terminaciones en<br>madera maciza',
-        desc:  'Aceites, ceras y lacas naturales. El resultado visual como parte de la decisión de diseño.'
+        desc:  'Aceites, ceras y lacas naturales. El resultado visual<br>como parte de la decisión de diseño.',
+        testimonial: 'Aprendí a ver la madera de otra manera. Ahora entiendo que la terminación es donde el mueble cobra vida.',
+        author: 'Rodrigo S. — Córdoba'
       },
       {
         title: 'Tapicería y<br>restauración textil',
-        desc:  'Recuperación de asientos y respaldos. Materiales contemporáneos y técnicas tradicionales.'
+        desc:  'Recuperación de asientos y respaldos con<br>materiales contemporáneos y técnicas tradicionales.',
+        testimonial: 'Un sillón de mi abuela que nadie se animaba a tocar. Hoy es la pieza más querida de mi casa.',
+        author: 'Lucía P. — Rosario'
       },
       {
         title: 'Diagnóstico y<br>valoración de piezas',
-        desc:  'Cómo leer un mueble: materiales, técnicas constructivas y valor histórico.'
+        desc:  'Cómo leer un mueble: materiales, técnicas<br>constructivas y su valor histórico.',
+        testimonial: 'Cambió completamente cómo recorro las ferias. Ya no veo muebles viejos, veo posibilidades.',
+        author: 'Martín G. — Buenos Aires'
       }
     ];
 
@@ -149,11 +157,13 @@ const navbar = document.getElementById('navbar');
 
     const track    = document.getElementById('crsTrack');
     const slides   = Array.from({ length: COUNT }, (_, i) => document.getElementById('crsSlide' + i));
-    const titleEl  = document.getElementById('crsTitle');
-    const descEl   = document.getElementById('crsDesc');
-    const infoEl   = document.getElementById('crsInfo');
-    const infoNum  = document.getElementById('crsInfoNum');
-    const arrowBtn = document.getElementById('crsArrowBtn');
+    const titleEl       = document.getElementById('crsTitle');
+    const descEl        = document.getElementById('crsDesc');
+    const infoEl        = document.getElementById('crsInfo');
+    const infoNum       = document.getElementById('crsInfoNum');
+    const testimonialQ  = document.getElementById('crsTestimonialQuote');
+    const testimonialA  = document.getElementById('crsTestimonialAuthor');
+    const arrowBtn      = document.getElementById('crsArrowBtn');
 
     if (!track || !arrowBtn) return;
 
@@ -192,8 +202,10 @@ const navbar = document.getElementById('navbar');
 
         // 3. Update text content while it's invisible
         titleEl.innerHTML  = courses[current].title;
-        descEl.textContent = courses[current].desc;
+        descEl.innerHTML   = courses[current].desc;
         if (infoNum) infoNum.textContent = '(0' + (current + 1) + ')';
+        if (testimonialQ) testimonialQ.textContent = courses[current].testimonial;
+        if (testimonialA) testimonialA.textContent = courses[current].author;
 
         // 4. Fade text back in
         setTimeout(() => {
