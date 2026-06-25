@@ -62,9 +62,9 @@ const navbar = document.getElementById('navbar');
 
       // Phase 1: 0→0.45  — overlay scales in, p1 fades out
       // Phase 2: 0.45→1  — p2 fades in + scales to 1
-      // Fade starts at 30%, dark content appears at 55%, lingers until 100%
-      const phase1 = ease(clamp((raw - 0.30) / 0.25, 0, 1));
-      const phase2 = ease(clamp((raw - 0.55) / 0.35, 0, 1));
+      // Fade starts at 20%, dark content appears at 45%, lingers until 100%
+      const phase1 = ease(clamp((raw - 0.20) / 0.25, 0, 1));
+      const phase2 = ease(clamp((raw - 0.45) / 0.35, 0, 1));
 
       // Overlay: opacity fade 0 → 1
       overlay.style.opacity = phase1;
@@ -128,7 +128,7 @@ const navbar = document.getElementById('navbar');
           obs.unobserve(block);
         }
       });
-    }, { threshold: 0.4 });
+    }, { threshold: 0.65 });
 
     obs.observe(block);
   })();
