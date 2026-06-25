@@ -455,6 +455,8 @@
     position: relative;
     width: 100%;
     height: 500vh;           /* extra height so dark state lingers */
+    margin: 0;
+    padding: 0;
   }
   .bridge-sticky {
     position: sticky;
@@ -570,6 +572,7 @@
     background: var(--near-black);
     padding: 24px 48px 96px;
     color: var(--cream);
+    margin-top: 0;
   }
   #proyectos .section-eyebrow { color: var(--cream); }
   #proyectos .section-title { color: var(--cream); white-space: nowrap; }
@@ -966,8 +969,8 @@
   /* ─── MUEBLES CÁPSULA ─────────────── */
   #capsula {
     background: #161112;
-    padding: 28px 0 200px;
-    overflow: visible;
+    padding: 28px 0 48px;
+    overflow: hidden;
     border-top: none;
     position: relative;
   }
@@ -1709,39 +1712,39 @@
 
     /* ── MUEBLES CÁPSULA ── */
     #capsula {
-      padding: 48px 0 48px;
+      padding: 36px 0 48px;
+      border-top: none;
+      margin-top: 0;
+    }
+    #capsula::before {
+      display: none;
     }
     .capsula-header {
       padding: 0 20px;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
       text-align: center;
     }
     .capsula-title {
       font-size: clamp(28px, 9vw, 40px);
     }
+    /* Keep marquee on mobile but taller items */
     .capsula-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 180px 180px 180px;
+      display: block;
+      height: 320px;
+      overflow: hidden;
+    }
+    .capsula-track {
+      display: flex;
+      height: 100%;
       gap: 6px;
-      padding: 0 6px;
-      height: auto;
-      align-items: stretch;
+      width: max-content;
+      animation: capsScroll 20s linear infinite;
     }
     .capsula-item {
-      height: auto;
-      flex: none;
+      flex-shrink: 0;
+      width: 220px;
+      height: 100%;
       border-radius: 4px;
-      transition: none;
-    }
-    .capsula-item:nth-child(5) {
-      grid-column: 1 / -1;
-    }
-    .capsula-item:hover {
-      height: auto;
-    }
-    .capsula-grid:has(.capsula-item:hover) .capsula-item:not(:hover) {
-      height: auto;
     }
 
   }
