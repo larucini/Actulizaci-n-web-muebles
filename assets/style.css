@@ -966,7 +966,7 @@
   /* ─── MUEBLES CÁPSULA ─────────────── */
   #capsula {
     background: var(--near-black);
-    padding: 80px 0 72px;
+    padding: 28px 0 200px;
     overflow: visible;
     border-top: none;
     position: relative;
@@ -982,11 +982,11 @@
   }
   .capsula-marquee {
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    left: 0; right: 0; bottom: 0;
+    height: 200px;
     overflow: hidden;
     display: flex;
-    align-items: flex-start;
-    padding-top: 90px;
+    align-items: center;
     pointer-events: none;
     z-index: 0;
   }
