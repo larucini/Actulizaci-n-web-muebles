@@ -76,6 +76,27 @@
   .nav-links a:hover::after { width: 100%; }
   .nav-links li:first-child a::after { width: 100%; }
 
+  .nav-cta {
+    position: absolute;
+    right: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream);
+    background: var(--near-black);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 999px;
+    transition: background 0.2s ease;
+  }
+  .nav-cta:hover {
+    background: var(--espresso);
+  }
+
   /* ─── HERO BG MARQUEE ───────────────────── */
   .hero-bg-marquee {
     position: absolute;
@@ -83,7 +104,7 @@
     overflow: hidden;
     display: flex;
     align-items: center;
-    padding-top: 350px;
+    padding-top: 520px;
     pointer-events: none;
     z-index: 0;
   }
@@ -120,7 +141,7 @@
     min-height: 100vh;
     background: var(--cream);
     padding-top: 80px;
-    padding-bottom: 40px;
+    padding-bottom: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -147,49 +168,53 @@
   }
   .hero-headline h1 {
     font-family: 'Raleway', sans-serif;
-    font-weight: 900;
+    font-weight: 400;
     font-size: clamp(44px, 6.5vw, 92px);
     line-height: 0.95;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.05em;
     text-transform: uppercase;
     color: var(--espresso);
   }
   .hero-headline h1 span.italic-word {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-weight: 500;
+    font-weight: 700;
     font-size: clamp(52px, 7.8vw, 112px);
     text-transform: none;
     color: var(--espresso);
     display: block;
-    line-height: 1.05;
-    margin-top: -8px;
+    line-height: 1.0;
+    margin-top: -4px;
   }
 
   .hero-tagline {
     font-family: 'Raleway', sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: none;
     color: var(--espresso);
-    opacity: 0.6;
+    opacity: 0.65;
     line-height: 1.7;
-    margin: 16px 0 20px;
+    margin: 14px 0 28px;
     text-align: center;
-    width: 560px;
+    width: 420px;
   }
 
   /* ─── HERO MARQUEE ───────────────────── */
   .hero-marquee-wrap {
-    width: 680px;
+    width: 100vw;
     overflow: hidden;
-    margin: 0 0 24px;
-    height: 320px;
+    margin: 0;
+    height: 300px;
+    position: relative;
+    left: 0;
+    transform: none;
   }
   .hero-marquee-track {
     display: flex;
     height: 100%;
+    gap: 32px;
     width: max-content;
     animation: marquee-scroll 22s linear infinite;
     will-change: transform;
@@ -202,6 +227,7 @@
     height: 100%;
     width: auto;
     display: block;
+    border-radius: 0;
   }
   @keyframes marquee-scroll {
     0%   { transform: translateX(0); }
@@ -209,10 +235,7 @@
   }
 
   .hero-buttons {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: none;
   }
 
   /* ─── STATS / FLIP CARDS ─────────────── */
@@ -1491,6 +1514,9 @@
       font-size: 8px;
       letter-spacing: 0.1em;
     }
+    .nav-cta {
+      display: none;
+    }
 
     /* ── HERO ── */
     .hero-content {
@@ -1510,6 +1536,9 @@
       width: 100%;
       padding: 0 20px;
       font-size: 11px;
+    }
+    .hero-marquee-wrap {
+      height: 200px;
     }
 
     /* ── STATS ── */
