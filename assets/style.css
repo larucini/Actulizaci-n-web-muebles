@@ -365,36 +365,102 @@
   /* ── SERVICIO — accordion list ── */
   #servicio {
     background: var(--cream);
-    padding: 80px 0 96px;
+    padding: 140px 48px 140px;
     position: relative;
   }
-  #servicio .section-header {
-    text-align: center;
-    margin-bottom: 40px;
+
+  /* ── Two-column layout ── */
+  .srv-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: end;
+  }
+
+  /* LEFT */
+  .srv-left-header {
+    margin-bottom: 32px;
+  }
+  .srv-left-title {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    color: var(--espresso);
+    line-height: 1.2;
+    margin: 0 0 16px;
+    white-space: nowrap;
+  }
+  .srv-title-plain {
+    font-size: clamp(18px, 1.8vw, 24px);
+  }
+  .srv-title-italic {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(24px, 2.4vw, 34px);
+  }
+  .srv-left-body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--espresso);
+    opacity: 0.65;
+    line-height: 1.3;
+    margin: 0;
+  }
+  .srv-left-imgs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .srv-left-imgs img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* RIGHT */
+  .srv-right {
+    padding-left: 32px;
+  }
+  .srv-right .section-header {
+    text-align: left;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .srv-right .section-eyebrow {
+    display: block;
+    margin-bottom: 20px;
   }
   .srv-list {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 0 48px;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
     border-top: 1px solid rgba(57,47,40,0.18);
   }
+
   .srv-item {
     border-bottom: 1px solid rgba(57,47,40,0.18);
     overflow: hidden;
   }
+
+  /* The clickable row */
   .srv-row {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     gap: 48px;
     cursor: pointer;
     position: relative;
-    margin: 0 -48px;
-    padding: 20px 48px;
+    padding: 28px 0 28px 48px;
   }
   .srv-row::before {
     content: '';
     position: absolute;
-    inset: 0;
+    inset: 0 -48px;
     background: #8b937e;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -432,31 +498,41 @@
   .srv-item.open .srv-title {
     color: var(--cream);
   }
-  /* Expanded panel — closed by default */
-  .srv-panel {
+
+  /* Description — hidden by default, expands on .open */
+  .srv-desc {
     display: grid;
     grid-template-rows: 0fr;
     transition: grid-template-rows 0.5s cubic-bezier(0.77, 0, 0.18, 1);
   }
-  .srv-panel > * {
+  .srv-desc > p {
     overflow: hidden;
+    padding: 0 0 0 108px;
+    transition: padding 0.5s cubic-bezier(0.77, 0, 0.18, 1),
+                opacity 0.4s ease;
+    opacity: 0;
   }
-  .srv-item.open .srv-panel {
+  .srv-item.open .srv-desc {
     grid-template-rows: 1fr;
   }
-  .srv-panel-inner {
-    padding: 16px 0 24px 108px;
-    overflow: hidden;
+  .srv-item.open .srv-desc > p {
+    padding: 12px 0 20px 108px;
+    opacity: 1;
   }
-  .srv-desc {
+  .srv-desc p {
     font-family: 'Raleway', sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 400;
     color: var(--espresso);
     opacity: 0.75;
-    line-height: 1.8;
+    line-height: 1.75;
     margin: 0;
   }
+  .srv-item.open .srv-desc p {
+    opacity: 0.75;
+  }
+
+
 
 
   #proyectos {
@@ -1324,10 +1400,17 @@
 
     /* ── SERVICIO ── */
     #servicio {
-      padding: 48px 0 64px;
+      padding: 48px 20px 64px;
     }
-    .srv-list {
-      padding: 0 20px;
+    .srv-layout {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .srv-left-title {
+      font-size: 22px;
+    }
+    .srv-left-imgs {
+      gap: 6px;
     }
     .srv-num {
       font-size: 28px;
@@ -1335,15 +1418,6 @@
     }
     .srv-title {
       font-size: 18px;
-    }
-    .srv-panel-inner {
-      flex-direction: column;
-      padding: 0 0 20px 0;
-      gap: 16px;
-    }
-    .srv-img-wrap {
-      width: 100%;
-      height: 180px;
     }
 
     /* ── CURSOS ── */

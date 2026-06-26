@@ -140,3 +140,15 @@ const navbar = document.getElementById('navbar');
     obs.observe(block);
   })();
 
+
+  /* ── SERVICE ACCORDION ─────────────── */
+  (function () {
+    const items = document.querySelectorAll('.srv-item');
+    items.forEach(item => {
+      item.querySelector('.srv-row').addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        items.forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  })();
