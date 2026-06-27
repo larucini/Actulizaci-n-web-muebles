@@ -979,163 +979,131 @@
   }
 
     /* ─── MUEBLES CÁPSULA ─────────────── */
+  /* ── MUEBLES CÁPSULA (nueva composición) ── */
   #capsula {
-    background: #161112;
-    padding: 28px 0 48px;
+    background: #190f09;
+    padding: 0;
     overflow: hidden;
-    border-top: none;
     position: relative;
   }
-  #capsula::before {
-    display: none;
-  }
-  .capsula-marquee {
-    position: absolute;
-    left: 0; right: 0; bottom: 0;
-    height: 200px;
-    overflow: hidden;
+
+  .cap-composicion {
     display: flex;
-    align-items: center;
-    pointer-events: none;
-    z-index: 0;
+    flex-direction: row;
+    align-items: stretch;
+    padding: 72px 64px 72px 72px;
+    box-sizing: border-box;
+    width: 100%;
+    gap: 0;
   }
-  .capsula-marquee-track {
+
+  /* IZQUIERDA: título ocupa ~50% */
+  .cap-texto {
+    flex: 0 0 46%;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    width: max-content;
-    animation: capsula-scroll 100s linear infinite;
-    will-change: transform;
-  }
-  .capsula-marquee-svg {
-    height: 160px;
-    width: auto;
-    flex-shrink: 0;
-    margin-right: 40px;
-    opacity: 0.14;
-    display: block;
-  }
-  @keyframes capsula-scroll {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  .capsula-header {
     text-align: center;
-    padding: 0 48px;
-    margin-bottom: 48px;
-    position: relative;
-    z-index: 1;
+    padding-bottom: 8px;
+    padding-right: 48px;
+    box-sizing: border-box;
   }
-  .capsula-eyebrow {
+  .cap-proximo {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 16px;
     font-style: italic;
     font-weight: 400;
-    color: rgba(239,236,227,0.6);
+    font-size: 19px;
+    color: rgba(252,239,220,0.6);
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
     display: block;
-    margin-bottom: 10px;
-    letter-spacing: 0.02em;
   }
-  .capsula-title {
+  .cap-titulo {
     font-family: 'Raleway', sans-serif;
-    font-size: clamp(36px, 5vw, 64px);
-    font-weight: 400;
+    font-weight: 300;
+    font-size: clamp(51px, 7vw, 105px);
     letter-spacing: -0.05em;
-    text-transform: uppercase;
-    color: var(--cream);
-    line-height: 1;
+    line-height: 0.92;
+    color: #fcefdc;
     margin: 0;
   }
-  /* Marquee wrapper — clips the track */
-  .capsula-grid {
-    width: 100%;
-    height: 380px;
-    overflow: hidden;
-    position: relative;
-    z-index: 1;
-    cursor: pointer;
-  }
-  /* Scrolling track — duplicated items for seamless loop */
-  .capsula-track {
+
+  /* DERECHA: bloque de imágenes ~50% */
+  .cap-bloque {
+    flex: 0 0 54%;
     display: flex;
-    height: 100%;
+    flex-direction: column;
     gap: 6px;
-    width: max-content;
-    animation: capsScroll 30s linear infinite;
-    will-change: transform;
   }
-  .capsula-track:hover {
-    animation-play-state: paused;
-  }
-  @keyframes capsScroll {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  .capsula-item {
-    flex-shrink: 0;
-    width: 280px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 4px;
-    height: 100%;
-  }
-  .capsula-item:hover {
-    /* no scale — just shadow removed */
-  }
-  .capsula-img-wrap {
-    position: absolute;
-    inset: 0;
-  }
-  .capsula-img-wrap img {
+
+  /* Imagen horizontal superior — mismo ancho que las 3 verticales + 2 gutters */
+  .cap-fila-top {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-    filter: grayscale(20%);
-    transition: filter 0.4s ease;
   }
-  /* Shadow overlay — visible by default, disappears on hover */
-  .capsula-item::after {
+  .cap-img-top {
+    width: 100%;
+    overflow: hidden;
+  }
+  .cap-img-top img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 16 / 5.5;
+  }
+
+  /* Tres verticales inferiores */
+  .cap-fila-bottom {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    width: 100%;
+  }
+  .cap-img-v {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    cursor: none;
+  }
+  .cap-img-v img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 3 / 4;
+  }
+
+  /* Overlay oscuro permanente en todas las imágenes cápsula */
+  .cap-img-top,
+  .cap-img-v {
+    position: relative;
+  }
+  .cap-img-top::after,
+  .cap-img-v::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(22, 17, 18, 0.55);
-    transition: background 0.4s ease;
+    background: rgba(20, 10, 5, 0.88);
+    transition: none;
     pointer-events: none;
-    z-index: 1;
-  }
-  .capsula-item:hover::after {
-    background: rgba(22, 17, 18, 0);
-  }
-  .capsula-item:hover .capsula-img-wrap img {
-    filter: grayscale(0%);
-  }
-  /* Text overlay */
-  .capsula-overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding: 24px;
     z-index: 2;
-    background: linear-gradient(to top, rgba(10,10,10,0.6) 0%, transparent 50%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-  .capsula-item:hover .capsula-overlay {
-    opacity: 1;
-  }
-  .capsula-name {
-    font-family: 'Raleway', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--cream);
   }
 
-    /* ─── PROCESO ─────────────────────────── */
+  /* Spotlight: revelar solo donde pasa el cursor */
+  .cap-img-top,
+  .cap-img-v {
+    --mx: 50%;
+    --my: 50%;
+  }
+  .cap-img-top.cap-hovered::after,
+  .cap-img-v.cap-hovered::after {
+    background: radial-gradient(
+      circle 160px at var(--mx) var(--my),
+      transparent 0%,
+      transparent 40%,
+      rgba(20, 10, 5, 0.88) 80%
+    );
+  }
+
   /* ─── LINE DRAW SECTION ─────────────── */
   .linedraw-section {
     background: var(--cream);

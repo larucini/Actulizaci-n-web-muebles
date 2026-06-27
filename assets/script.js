@@ -245,3 +245,27 @@ const navbar = document.getElementById('navbar');
 
     observer.observe(header);
   })();
+
+  /* ── CÁPSULA SPOTLIGHT ───────────────── */
+  (function () {
+    const targets = document.querySelectorAll('.cap-img-top, .cap-img-v');
+    if (!targets.length) return;
+
+    targets.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        el.classList.add('cap-hovered');
+      });
+
+      el.addEventListener('mousemove', (e) => {
+        const rect = el.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        el.style.setProperty('--mx', x + 'px');
+        el.style.setProperty('--my', y + 'px');
+      });
+
+      el.addEventListener('mouseleave', () => {
+        el.classList.remove('cap-hovered');
+      });
+    });
+  })();
