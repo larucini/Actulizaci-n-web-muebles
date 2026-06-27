@@ -420,6 +420,19 @@
     aspect-ratio: 2/3;
     object-fit: cover;
     display: block;
+    transition: filter 0.45s ease, opacity 0.45s ease, transform 0.45s cubic-bezier(0.77, 0, 0.18, 1);
+  }
+  /* When any item is hovered, tint inactive images warm brown */
+  .srv-left-imgs.has-hover img {
+    filter: sepia(0.85) brightness(0.55) contrast(0.9) blur(1.2px);
+    opacity: 0.75;
+    transform: scale(0.98);
+  }
+  /* Active image stays bright, sharp and slightly larger */
+  .srv-left-imgs.has-hover img.img-active {
+    filter: grayscale(0) blur(0) brightness(1) sepia(0) hue-rotate(0deg);
+    opacity: 1;
+    transform: scale(1.03);
   }
 
   /* RIGHT */
