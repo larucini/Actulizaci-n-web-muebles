@@ -249,23 +249,44 @@ const navbar = document.getElementById('navbar');
   /* ── CÁPSULA SPOTLIGHT ───────────────── */
   (function () {
     const targets = document.querySelectorAll('.cap-img-top, .cap-img-v');
+    const titulo = document.querySelector('.cap-titulo');
+    const proximo = document.querySelector('.cap-proximo');
     if (!targets.length) return;
+
+    let activeCount = 0;
 
     targets.forEach(el => {
       el.addEventListener('mouseenter', () => {
         el.classList.add('cap-hovered');
+        activeCount++;
+        if (titulo) {
+          titulo.style.color = '#ffffff';
+          titulo.style.textShadow = '0 0 40px rgba(252,239,220,0.35)';
+        }
+        if (proximo) {
+          proximo.style.color = 'rgba(252,239,220,0.95)';
+        }
       });
 
       el.addEventListener('mousemove', (e) => {
         const rect = el.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        el.style.setProperty('--mx', x + 'px');
-        el.style.setProperty('--my', y + 'px');
+        el.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
+        el.style.setProperty('--my', (e.clientY - rect.top) + 'px');
       });
 
       el.addEventListener('mouseleave', () => {
         el.classList.remove('cap-hovered');
+        activeCount--;
+        if (activeCount <= 0) {
+          activeCount = 0;
+          if (titulo) {
+            titulo.style.color = '';
+            titulo.style.textShadow = '';
+          }
+          if (proximo) {
+            proximo.style.color = '';
+          }
+        }
       });
     });
   })();
