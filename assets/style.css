@@ -558,7 +558,7 @@
 
   /* Header: frase + subtítulo */
   .proy-header {
-    padding: 140px 72px 120px;
+    padding: 200px 72px 180px;
     max-width: 1300px;
     margin: 0 auto;
     display: flex;
@@ -567,7 +567,7 @@
     text-align: center;
   }
   .proy-frase {
-    margin-bottom: 64px;
+    margin-bottom: 120px;
   }
   .proy-frase-line1,
   .proy-frase-line2 {
@@ -578,7 +578,7 @@
   }
   .proy-raleway {
     font-family: 'Raleway', sans-serif;
-    font-weight: 400;
+    font-weight: 300;
     color: #efece3;
     letter-spacing: -0.05em;
   }
@@ -586,16 +586,35 @@
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-weight: 400;
+    font-size: 1.15em;
     color: #efece3;
     letter-spacing: -0.05em;
   }
   .proy-sub {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
-    font-size: 17px;
+    font-size: 22px;
     letter-spacing: -0.05em;
     color: #efece3;
     margin: 0;
+  }
+
+  /* ── ANIMACIÓN FRASE: fade-up por palabra ── */
+  .pw {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 1.0s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1.0s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .pw.pw-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* Posibilidades: sin transform, solo aparece en su sitio y se escribe */
+  .pw-typewriter {
+    transform: none !important;
+    transition: opacity 0.3s ease;
   }
 
   /* ── Estilos compartidos ── */

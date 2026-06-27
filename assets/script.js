@@ -190,3 +190,58 @@ const navbar = document.getElementById('navbar');
 
 
 
+
+  /* ── FRASE ATADA AL SCROLL ───────────── */
+  (function () {
+    const words = document.querySelectorAll('.pw');
+    const header = document.querySelector('.proy-header');
+    if (!words.length || !header) return;
+
+    let twInterval = null;
+
+    function resetAll() {
+      words.forEach(w => w.classList.remove('pw-visible'));
+      const tw = document.querySelector('.pw-typewriter');
+      if (tw) tw.textContent = '';
+      if (twInterval) { clearInterval(twInterval); twInterval = null; }
+    }
+
+    function triggerAnimation() {
+      resetAll();
+
+      // Fade-up para todas las palabras excepto posibilidades
+      words.forEach(w => {
+        if (w.classList.contains('pw-typewriter')) return;
+        const delay = parseInt(w.dataset.delay || 0);
+        setTimeout(() => w.classList.add('pw-visible'), delay);
+      });
+
+      // Typewriter para "posibilidades."
+      const tw = document.querySelector('.pw-typewriter');
+      if (tw) {
+        const fullText = tw.dataset.text;
+        const delay = parseInt(tw.dataset.delay || 0);
+        tw.classList.add('pw-visible');
+        setTimeout(() => {
+          let i = 0;
+          twInterval = setInterval(() => {
+            tw.textContent = fullText.slice(0, i + 1);
+            i++;
+            if (i >= fullText.length) { clearInterval(twInterval); twInterval = null; }
+          }, 65);
+        }, delay);
+      }
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          triggerAnimation();
+        } else {
+          resetAll();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(header);
+  })();
