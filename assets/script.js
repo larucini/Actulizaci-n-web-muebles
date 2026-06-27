@@ -187,3 +187,46 @@ const navbar = document.getElementById('navbar');
       });
     });
   })();
+
+
+  /* ── FRASE LINES SIZING ─────────────── */
+  (function () {
+    function sizeFraseLines() {
+      const row1    = document.querySelector('.frase-row-1');
+      const topLine = document.querySelector('.frase-top-line');
+      if (!row1 || !topLine) return;
+
+      const containerLeft = row1.getBoundingClientRect().left;
+      const lineW = row1.offsetWidth + containerLeft;
+
+      topLine.style.width = lineW + 'px';
+      topLine.style.marginLeft = -containerLeft + 'px';
+    }
+
+    sizeFraseLines();
+    window.addEventListener('resize', sizeFraseLines);
+  })();
+
+  /* ── FRASE WORD ANIMATION ───────────── */
+  (function () {
+    const section = document.getElementById('frase-scroll');
+    if (!section) return;
+
+    const words = section.querySelectorAll('.frase-anim');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          words.forEach(word => {
+            const delay = parseInt(word.dataset.delay || 0);
+            setTimeout(() => word.classList.add('visible'), delay);
+          });
+        } else {
+          // Reversible: reset when section leaves viewport
+          words.forEach(word => word.classList.remove('visible'));
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(section);
+  })();
