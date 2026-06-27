@@ -316,80 +316,107 @@
   </div>
 </section>
 
-<!-- ── FRASE ESTÁTICA ─────────────────── -->
-<section id="frase-scroll">
-  <div class="frase-sticky">
-    <div class="frase-top-line"></div>
-    <div class="frase-row-1">
-      <span class="frase-anim" data-delay="0"><span class="frase-raleway">EL TIEMPO</span></span>
-      <span class="frase-anim" data-delay="130"><span class="frase-raleway">DEJA</span></span>
-      <span class="frase-anim" data-delay="260"><span class="frase-cormorant">marcas</span></span>
-    </div>
-    <div class="frase-row-2">
-      <span class="frase-anim" data-delay="450"><span class="frase-nosotros">Nosotros,</span></span>
-      <span class="frase-anim" data-delay="600"><span class="frase-posibilidades">posibilidades.</span></span>
-    </div>
-    <div class="frase-divider-2"></div>
-    <div class="frase-anim frase-sub" data-delay="780">Tu mueble está en buenas manos.</div>
-  </div>
-</section>
-
 <!-- ── PROYECTOS ──────────────────────── -->
 <section id="proyectos">
-  <div class="projects-grid fade-up fade-up-proj" style="margin-top: 0;">
-    <div class="project-card tall">
-      <div class="project-card-img"><img src="assets/images/proj-01.jpg" alt="Armario porteño, 1940" style="object-position: top;"></div>
-      <div class="project-card-overlay">
-        <div class="project-card-label">Restauración completa</div>
-        <div class="project-card-name">Armario porteño, 1940</div>
+
+  <!-- Frase header -->
+  <div class="proy-header">
+    <div class="proy-frase">
+      <div class="proy-frase-line1">
+        <span class="proy-raleway">El tiempo deja marcas.</span>
+      </div>
+      <div class="proy-frase-line2">
+        <span class="proy-raleway">Nosotros,&nbsp;</span><span class="proy-cormorant">posibilidades.</span>
       </div>
     </div>
-    <div style="display: flex; flex-direction: column; gap: 6px;">
-      <div class="project-card medium">
-        <div class="project-card-img"><img src="assets/images/proj-02.jpg" alt="Sillón de cuero y pino"></div>
-      <div class="project-card-overlay">
-          <div class="project-card-label">Intervención puntual</div>
-          <div class="project-card-name">Sillón de cuero y pino</div>
-        </div>
-      </div>
-      <div class="project-card medium">
-        <div class="project-card-img"><img src="assets/images/proj-03.jpg" alt="Mesa de comedor, quebracho"></div>
-      <div class="project-card-overlay">
-          <div class="project-card-label">Puesta en valor</div>
-          <div class="project-card-name">Mesa de comedor, quebracho</div>
-        </div>
-      </div>
-    </div>
+    <p class="proy-sub">Tu mueble está en buenas manos.</p>
   </div>
 
-  <div class="projects-row-3 fade-up fade-up-proj">
-    <div class="project-card small">
-      <div class="project-card-img"><img src="assets/images/proj-04.jpg" alt="Tallas en cedro"></div>
-      <div class="project-card-overlay">
-        <div class="project-card-label">Detalle</div>
-        <div class="project-card-name">Tallas en cedro</div>
+  <!-- ── PROYECTOS: 3 filas flex manuales ── -->
+  <div class="projects-list fade-up fade-up-proj">
+
+    <!-- FILA 1: sillón grande izq + banco + vitrina der -->
+    <div class="project-row">
+      <div class="proj-item pi-wide">
+        <div class="proj-img pi-wide-img">
+          <img src="assets/images/proy-sillon.jpg" alt="Sillón de autor">
+        </div>
+        <div class="proy-caption">
+          <span class="proy-caption-tipo">Restauración completa</span>
+          <span class="proy-caption-nombre">Sillón de autor</span>
+        </div>
+      </div>
+      <div class="proj-item pi-narrow">
+        <div class="proj-img pi-narrow-tall-img">
+          <img src="assets/images/proy-banco.jpg" alt="Banco de roble macizo">
+        </div>
+        <div class="proy-caption">
+          <span class="proy-caption-tipo">Puesta en valor</span>
+          <span class="proy-caption-nombre">Banco de roble macizo</span>
+        </div>
+      </div>
+      <div class="proj-item pi-narrow">
+        <div class="proj-img pi-narrow-tall-img">
+          <img src="assets/images/proy-vitrina.jpg" alt="Vitrina colonial">
+        </div>
+        <div class="proy-caption">
+          <span class="proy-caption-tipo">Intervención puntual</span>
+          <span class="proy-caption-nombre">Vitrina colonial</span>
+        </div>
       </div>
     </div>
-    <div class="project-card small">
-      <div class="project-card-img"><img src="assets/images/proj-05.jpg" alt="Consolidación de ensambles"></div>
-      <div class="project-card-overlay">
-        <div class="project-card-label">Proceso</div>
-        <div class="project-card-name">Consolidación de ensambles</div>
+
+    <!-- FILA 2: detalle vertical izq + armario grande der -->
+    <div class="project-row">
+      <div class="proj-item pi-narrow">
+        <div class="proj-img pi-narrow-tall-img">
+          <img src="assets/images/proy-talla.jpg" alt="Detalle de talla en cedro">
+        </div>
+        <div class="proy-caption">
+          <span class="proy-caption-tipo">Detalle de talla</span>
+          <span class="proy-caption-nombre">Friso en cedro</span>
+        </div>
+      </div>
+      <div class="proj-item pi-wide">
+        <div class="proj-img pi-wide-img">
+          <img src="assets/images/proy-armario.jpg" alt="Armario porteño">
+        </div>
+        <div class="proy-caption">
+          <span class="proy-caption-tipo">Restauración completa</span>
+          <span class="proy-caption-nombre">Armario porteño</span>
+        </div>
       </div>
     </div>
-    <div class="project-card small">
-      <div class="project-card-img"><img src="assets/images/proj-06.jpg" alt="Cómoda nogal, 1920"></div>
-      <div class="project-card-overlay">
-        <div class="project-card-label">Terminación</div>
-        <div class="project-card-name">Cómoda nogal, 1920</div>
+
+    <!-- FILA 3: cómoda horizontal izq + lámpara vertical der -->
+    <div class="project-row">
+      <div class="proj-item pi-xwide">
+        <div class="proj-img pi-xwide-img">
+          <img src="assets/images/proy-comoda.jpg" alt="Cómoda nogal, 1920">
+        </div>
+        <div class="proy-caption">
+          <span class="proy-caption-tipo">Terminación y consolidación</span>
+          <span class="proy-caption-nombre">Cómoda nogal, 1920</span>
+        </div>
+      </div>
+      <div class="proj-item pi-narrow">
+        <div class="proj-img pi-xwide-narrow-img">
+          <img src="assets/images/proy-lampara.jpg" alt="Lámpara en quebracho">
+        </div>
+        <div class="proy-caption">
+          <span class="proy-caption-tipo">Fabricación a medida</span>
+          <span class="proy-caption-nombre">Lámpara en quebracho</span>
+        </div>
       </div>
     </div>
+
   </div>
 
-  <div class="projects-cta fade-up fade-up-proj">
-    <p class="projects-cta-text">Cada pieza tiene una historia. Y un futuro.</p>
+  <!-- CTA -->
+  <div class="proy-cta fade-up fade-up-proj">
     <a href="#contacto" class="btn-light">Ver todos los proyectos →</a>
   </div>
+
 </section>
 
 <!-- ── MUEBLES CÁPSULA ──────────────── -->
