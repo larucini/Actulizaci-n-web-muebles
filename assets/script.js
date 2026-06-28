@@ -219,3 +219,23 @@ const navbar = document.getElementById('navbar');
       });
     });
   })();
+
+  // ── Veta hotspots (toggle on click for mobile) ──
+  (function initVetaDots() {
+    const dots = document.querySelectorAll('.veta-dot');
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const isOpen = dot.classList.contains('is-open');
+        // Close all
+        dots.forEach(d => d.classList.remove('is-open'));
+        // Toggle current
+        if (!isOpen) dot.classList.add('is-open');
+      });
+    });
+    // Close on outside click
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.veta-dot')) {
+        dots.forEach(d => d.classList.remove('is-open'));
+      }
+    });
+  })();

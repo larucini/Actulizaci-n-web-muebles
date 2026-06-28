@@ -741,6 +741,144 @@
   }
   .btn-light:hover { background: rgba(239,236,227,0.1); border-color: var(--cream); transform: translateY(-1px); }
 
+  /* ─── VETAS ───────────────────────────── */
+  #vetas {
+    background: var(--cream);
+    padding: 72px 0 0;
+  }
+
+  .vetas-titulo {
+    padding: 0 48px 48px;
+  }
+
+  .vetas-titulo-text {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  .vetas-titulo-text em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /* Strip / banda */
+  .veta-strip {
+    position: relative;
+    width: 100%;
+    height: clamp(180px, 22vw, 300px);
+    overflow: hidden;
+  }
+
+  .veta-strip + .veta-strip {
+    margin-top: 0;
+  }
+
+  .veta-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .veta-strip:hover .veta-img {
+    transform: scale(1.03);
+  }
+
+  /* Hotspot dot */
+  .veta-dot {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.92);
+    border: 2px solid rgba(255,255,255,0.6);
+    cursor: pointer;
+    padding: 0;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 0 rgba(255,255,255,0.5);
+    animation: veta-pulse 2.4s ease-in-out infinite;
+    transition: transform 0.2s;
+    z-index: 2;
+  }
+
+  @keyframes veta-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.55); }
+    50%       { box-shadow: 0 0 0 14px rgba(255,255,255,0); }
+  }
+
+  .veta-dot:hover,
+  .veta-dot:focus {
+    transform: translate(-50%, -50%) scale(1.2);
+    outline: none;
+  }
+
+  /* Tooltip — glass card */
+  .veta-tooltip {
+    position: absolute;
+    bottom: calc(100% + 18px);
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    background: rgba(20, 14, 10, 0.52);
+    backdrop-filter: blur(14px) saturate(1.4);
+    -webkit-backdrop-filter: blur(14px) saturate(1.4);
+    color: #f5f0e8;
+    padding: 14px 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.18);
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.25s, transform 0.25s;
+    z-index: 10;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.28);
+  }
+
+  .veta-tooltip strong {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  .veta-tooltip span {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(245, 240, 232, 0.88);
+    font-weight: 400;
+  }
+
+  /* Arrow */
+  .veta-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 7px solid transparent;
+    border-top-color: rgba(20, 14, 10, 0.52);
+  }
+
+  /* Show on hover or active */
+  .veta-dot:hover .veta-tooltip,
+  .veta-dot:focus .veta-tooltip,
+  .veta-dot.is-open .veta-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
   /* ─── CURSOS ──────────────────────────── */
   #cursos {
     background: var(--sage, #8b937e);
