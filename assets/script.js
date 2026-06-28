@@ -41,103 +41,63 @@ const navbar = document.getElementById('navbar');
     }
   });
 
-  /* ── Line draw ───────────────────────── */
+  /* ── PROCESO: scroll-driven ────────────── */
   (function () {
-    const block   = document.getElementById('linedraw-block');
-    const line    = document.getElementById('linedraw-line');
-    const eyebrow = document.getElementById('ld-eyebrow');
-    if (!block || !line) return;
+    const section = document.getElementById('proceso');
+    const imgs    = document.querySelectorAll('.proc-img');
+    const frases  = document.querySelectorAll('.proc-frase');
+    const dots    = document.querySelectorAll('.proc-dot');
+    const words   = document.querySelectorAll('.proc-word');
+    const bar     = document.getElementById('proc-bar');
+    if (!section || !bar) return;
 
-    const items = [
-      { text: document.getElementById('ld-w0'), sub: document.getElementById('ld-s0'), dot: document.getElementById('ld-d0'), delay: 400  },
-      { text: document.getElementById('ld-w1'), sub: document.getElementById('ld-s1'), dot: document.getElementById('ld-d1'), delay: 850  },
-      { text: document.getElementById('ld-w2'), sub: document.getElementById('ld-s2'), dot: document.getElementById('ld-d2'), delay: 1300 },
-    ];
+    const TOTAL  = imgs.length;
+    let lastIdx  = 0;
 
-    let started = false;
+    function setSlide(idx) {
+      if (idx === lastIdx) return;
 
-    function run() {
-      if (eyebrow) eyebrow.classList.add('visible');
-      setTimeout(() => {
-        line.classList.add('drawn');
-        items.forEach(w => {
-          setTimeout(() => {
-            if (w.dot)  w.dot.classList.add('visible');
-            if (w.text) w.text.classList.add('visible');
-            if (w.sub)  setTimeout(() => w.sub.classList.add('visible'), 240);
-          }, w.delay);
-        });
-      }, 400);
+      // Imágenes
+      imgs[lastIdx].classList.remove('proc-img--active');
+      imgs[lastIdx].classList.add('proc-img--exit');
+      setTimeout(() => imgs[lastIdx] && imgs[lastIdx].classList.remove('proc-img--exit'), 900);
+      imgs[idx].classList.add('proc-img--active');
 
-      // Numbers appear after line + words finish (~2000ms), in order 1 → 2 → 3
-      const nums = ['num-1', 'num-2', 'num-3'];
-      nums.forEach((id, i) => {
-        const el = document.getElementById(id);
-        if (el) setTimeout(() => el.classList.add('visible'), 2000 + i * 450);
-      });
+      // Frases
+      frases[lastIdx].classList.remove('proc-frase--active');
+      frases[lastIdx].classList.add('proc-frase--exit');
+      setTimeout(() => frases[lastIdx] && frases[lastIdx].classList.remove('proc-frase--exit'), 600);
+      frases[idx].classList.add('proc-frase--active');
+
+      // Dots y palabras
+      dots.forEach((d, i)  => d.classList.toggle('proc-dot--active',  i === idx));
+      words.forEach((w, i) => w.classList.toggle('proc-word--active', i === idx));
+
+      lastIdx = idx;
     }
 
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting && !started) {
-          started = true;
-          run();
-          obs.unobserve(block);
-        }
-      });
-    }, { threshold: 0.65 });
+    // Inicializar
+    imgs[0].classList.add('proc-img--active');
+    frases[0].classList.add('proc-frase--active');
+    dots[0].classList.add('proc-dot--active');
+    words[0].classList.add('proc-word--active');
 
-    obs.observe(block);
-  })();
+    function onScroll() {
+      const rect       = section.getBoundingClientRect();
+      const scrollZone = section.offsetHeight - window.innerHeight;
+      if (scrollZone <= 0) return;
 
+      const traveled = -rect.top;
+      const progress = Math.max(0, Math.min(1, traveled / scrollZone));
 
-  /* ── Line draw ───────────────────────── */
-  (function () {
-    const block   = document.getElementById('linedraw-block');
-    const line    = document.getElementById('linedraw-line');
-    const eyebrow = document.getElementById('ld-eyebrow');
-    if (!block || !line) return;
+      bar.style.width = (progress * 100) + '%';
 
-    const items = [
-      { text: document.getElementById('ld-w0'), sub: document.getElementById('ld-s0'), dot: document.getElementById('ld-d0'), delay: 400  },
-      { text: document.getElementById('ld-w1'), sub: document.getElementById('ld-s1'), dot: document.getElementById('ld-d1'), delay: 850  },
-      { text: document.getElementById('ld-w2'), sub: document.getElementById('ld-s2'), dot: document.getElementById('ld-d2'), delay: 1300 },
-    ];
-
-    let started = false;
-
-    function run() {
-      if (eyebrow) eyebrow.classList.add('visible');
-      setTimeout(() => {
-        line.classList.add('drawn');
-        items.forEach(w => {
-          setTimeout(() => {
-            if (w.dot)  w.dot.classList.add('visible');
-            if (w.text) w.text.classList.add('visible');
-            if (w.sub)  setTimeout(() => w.sub.classList.add('visible'), 240);
-          }, w.delay);
-        });
-      }, 400);
-
-      // Numbers appear after line + words finish (~2000ms), in order 1 → 2 → 3
-      const nums = ['num-1', 'num-2', 'num-3'];
-      nums.forEach((id, i) => {
-        const el = document.getElementById(id);
-        if (el) setTimeout(() => el.classList.add('visible'), 2000 + i * 450);
-      });
+      const idx = Math.min(Math.floor(progress * TOTAL), TOTAL - 1);
+      setSlide(idx);
     }
 
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting && !started) {
-          started = true;
-          run();
-          obs.unobserve(block);
-        }
-      });
-    }, { threshold: 0.65 });
-
-    obs.observe(block);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   })();
 
 

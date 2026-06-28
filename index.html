@@ -490,41 +490,49 @@
 
 </section>
 
-<!-- ── LINE DRAW ─────────────────────── -->
-<div class="linedraw-section" id="linedraw-block">
-  <div class="num-layer" id="num-1" style="background-image:url('assets/images/num-1.png')"></div>
-  <div class="num-layer" id="num-2" style="background-image:url('assets/images/num-2.png')"></div>
-  <div class="num-layer" id="num-3" style="background-image:url('assets/images/num-3.png')"></div>
-  <span class="linedraw-eyebrow" id="ld-eyebrow">Proceso</span>
-  <div class="linedraw-track">
-    <div class="linedraw-line" id="linedraw-line"></div>
-    <div class="linedraw-words">
-      <div class="linedraw-word">
-        <span class="linedraw-word-text raleway" id="ld-w0">Preciso.</span>
-      </div>
-      <div class="linedraw-word">
-        <span class="linedraw-word-text raleway" id="ld-w1">Consciente.</span>
-      </div>
-      <div class="linedraw-word">
-        <span class="linedraw-word-text cormorant" id="ld-w2">Duradero.</span>
-      </div>
-    </div>
-    <div class="linedraw-dot" id="ld-d0"></div>
-    <div class="linedraw-dot" id="ld-d1"></div>
-    <div class="linedraw-dot" id="ld-d2"></div>
+<!-- ── PROCESO ───────────────────────── -->
+<section id="proceso">
+
+  <div class="proc-titulo">
+    <h2 class="proc-titulo-text">
+      <span class="proc-titulo-raleway">Esta es nuestra </span><span class="proc-titulo-cormorant">filosofía</span>
+    </h2>
   </div>
-  <div class="linedraw-subs">
-    <div class="linedraw-sub-item">
-      <span class="linedraw-word-sub" id="ld-s0">Cada decisión, medida.</span>
+
+  <div class="proc-layout">
+
+    <!-- Imagen centrada -->
+    <div class="proc-img-wrap">
+      <img class="proc-img proc-img--active" src="assets/images/srv-img-01.png" alt="Respeto">
+      <img class="proc-img" src="assets/images/srv-img-02.png" alt="Detalle">
+      <img class="proc-img" src="assets/images/srv-img-03.png" alt="Oficio">
     </div>
-    <div class="linedraw-sub-item">
-      <span class="linedraw-word-sub" id="ld-s1">Cada intervención, justificada.</span>
+
+    <!-- Frase corta deslizante -->
+    <div class="proc-frase-wrap">
+      <p class="proc-frase proc-frase--active" data-index="0"><span class="proc-step-label">01 — Respeto</span>Se conserva la identidad original del mueble.</p>
+      <p class="proc-frase" data-index="1"><span class="proc-step-label">02 — Detalle</span>Cada unión y terminación recibe la misma atención.</p>
+      <p class="proc-frase" data-index="2"><span class="proc-step-label">03 — Oficio</span>La experiencia guía cada decisión.</p>
     </div>
-    <div class="linedraw-sub-item">
-      <span class="linedraw-word-sub" id="ld-s2">Cada resultado, para siempre.</span>
+
+    <!-- Línea de progreso + palabras -->
+    <div class="proc-progress-wrap">
+      <div class="proc-progress-track">
+        <div class="proc-progress-bar" id="proc-bar"></div>
+        <div class="proc-dot proc-dot--active" data-step="0"></div>
+        <div class="proc-dot" data-step="1"></div>
+        <div class="proc-dot" data-step="2"></div>
+      </div>
+      <div class="proc-words">
+        <span class="proc-word proc-word--active" data-step="0">Respeto</span>
+        <span class="proc-word" data-step="1">Detalle</span>
+        <span class="proc-word" data-step="2">Oficio</span>
+      </div>
     </div>
+
   </div>
-</div>
+
+</section>
 
 <!-- ── CONTACTO ───────────────────────── -->
 <section id="contacto">

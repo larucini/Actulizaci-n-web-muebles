@@ -1100,144 +1100,179 @@
     );
   }
 
-  /* ─── LINE DRAW SECTION ─────────────── */
-  .linedraw-section {
+  /* ── PROCESO ── */
+  #proceso {
     background: var(--cream);
-    padding: 180px 0;
-    overflow: hidden;
+    height: 300vh;
     position: relative;
   }
-  .num-layer {
+
+  .proc-titulo {
+    position: relative;
+    z-index: 10;
+    background: var(--cream);
+    padding: 100px 72px 32px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  .proc-titulo-text {
+    margin: 0;
+    font-size: clamp(32px, 3.75vw, 50px);
+    line-height: 1.1;
+  }
+  .proc-titulo-raleway {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    letter-spacing: -0.05em;
+    color: var(--espresso);
+  }
+  .proc-titulo-cormorant {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1.35em;
+    letter-spacing: -0.05em;
+    color: var(--espresso);
+  }
+
+  .proc-layout {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 0px 72px 48px;
+    box-sizing: border-box;
+  }
+
+  /* Imagen centrada */
+  .proc-img-wrap {
+    position: relative;
+    width: 320px;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .proc-img {
     position: absolute;
     inset: 0;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     opacity: 0;
-    pointer-events: none;
-    z-index: 0;
-    transition: opacity 0.6s ease;
+    transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  .num-layer.visible { opacity: 0.5; }
-  .linedraw-eyebrow {
+  .proc-img--active {
+    opacity: 1;
+  }
+  .proc-img--exit {
+    opacity: 0;
+  }
+
+  /* Frase corta */
+  .proc-frase-wrap {
+    position: relative;
+    height: 5em;
+    width: 100%;
+    max-width: 640px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .proc-step-label {
+    display: block;
+    font-family: 'Raleway', sans-serif;
     font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.28em;
+    font-weight: 500;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--espresso);
-    display: block;
-    text-align: center;
-    margin-bottom: 56px;
-    opacity: 0;
-    transition: opacity 0.6s ease;
+    opacity: 0.45;
+    margin-bottom: 10px;
   }
-  .linedraw-eyebrow.visible { opacity: 0.5; }
-  .linedraw-track {
+  .proc-frase {
+    position: absolute;
+    left: 0; right: 0;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: clamp(18px, 2vw, 28px);
+    letter-spacing: -0.02em;
+    color: var(--espresso);
+    margin: 0;
+    opacity: 0;
+    transform: translateX(48px);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .proc-frase--active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .proc-frase--exit {
+    opacity: 0;
+    transform: translateX(-48px);
+  }
+
+  /* Línea de progreso */
+  .proc-progress-wrap {
+    width: 100%;
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .proc-progress-track {
     position: relative;
     width: 100%;
     height: 1px;
-    background: rgba(57,47,40,0.1);
-    margin: 80px 0 0;
+    background: rgba(57,47,40,0.15);
   }
-  .linedraw-line {
+  .proc-progress-bar {
     position: absolute;
-    top: 0; left: 0;
-    height: 1px;
-    width: 0;
-    background: var(--espresso);
-    transition: width 1.6s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .linedraw-line.drawn { width: 100%; }
-
-  .linedraw-words {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    left: 0; top: 0;
     height: 100%;
-    pointer-events: none;
+    width: 0%;
+    background: var(--espresso);
   }
-  .linedraw-word {
-    position: absolute;
-    transform: translateX(-50%);
-    text-align: left;
-  }
-  .linedraw-word:nth-child(1) { left: 16.5%; top: -64px; }
-  .linedraw-word:nth-child(2) { left: 50%;   top: -64px; }
-  .linedraw-word:nth-child(3) { left: 83.5%; top: -64px; }
 
-  .linedraw-word-text {
-    display: block;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    white-space: nowrap;
-  }
-  .linedraw-word-text.raleway {
-    font-family: 'Raleway', sans-serif;
-    font-size: clamp(28px, 3vw, 44px);
-    font-weight: 500;
-    font-style: normal;
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-    color: var(--espresso);
-  }
-  .linedraw-word-text.cormorant {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(32px, 3.5vw, 50px);
-    font-weight: 700;
-    font-style: italic;
-    color: var(--espresso);
-  }
-  .linedraw-word-text.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .linedraw-word-sub {
-    font-family: 'Raleway', sans-serif;
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--espresso);
-    opacity: 0;
-    display: block;
-    margin-top: 20px;
-    white-space: nowrap;
-    transition: opacity 0.4s ease;
-  }
-  .linedraw-word-sub.visible { opacity: 0.38; }
-
-  .linedraw-dot {
+  /* Dots sobre la línea */
+  .proc-dot {
     position: absolute;
     top: 50%;
-    transform: translate(-50%, -50%) scale(0);
+    transform: translate(-50%, -50%);
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: var(--rust);
-    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    background: rgba(57,47,40,0.25);
+    transition: background 0.3s ease;
   }
-  .linedraw-dot.visible { transform: translate(-50%, -50%) scale(1); }
-  .linedraw-dot:nth-child(1) { left: 16.5%; }
-  .linedraw-dot:nth-child(2) { left: 50%;   }
-  .linedraw-dot:nth-child(3) { left: 83.5%; }
+  .proc-dot[data-step="0"] { left: 0%; }
+  .proc-dot[data-step="1"] { left: 50%; }
+  .proc-dot[data-step="2"] { left: 100%; }
+  .proc-dot--active {
+    background: var(--espresso);
+  }
 
-  /* sub text below line */
-  .linedraw-subs {
-    position: relative;
-    width: 100%;
-    height: 0;
+  /* Palabras Cormorant */
+  .proc-words {
+    display: flex;
+    justify-content: space-between;
   }
-  .linedraw-sub-item {
-    position: absolute;
-    transform: translateX(-50%);
-    text-align: left;
-    top: 20px;
+  .proc-word {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(25px, 2.9vw, 47px);
+    letter-spacing: -0.03em;
+    color: var(--espresso);
+    opacity: 0.28;
+    transition: opacity 0.4s ease;
+    cursor: default;
   }
-  .linedraw-sub-item:nth-child(1) { left: 16.5%; }
-  .linedraw-sub-item:nth-child(2) { left: 50%;   }
-  .linedraw-sub-item:nth-child(3) { left: 83.5%; }
+  .proc-word--active {
+    opacity: 1;
+  }
 
     /* ─── CONTACTO ────────────────────────── */
   #contacto {
