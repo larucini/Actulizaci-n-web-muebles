@@ -84,7 +84,7 @@ const navbar = document.getElementById('navbar');
 
     function onScroll() {
       const rect       = section.getBoundingClientRect();
-      const scrollZone = section.offsetHeight - window.innerHeight;
+      const scrollZone = (section.offsetHeight - window.innerHeight) * 0.6;
       if (scrollZone <= 0) return;
 
       const traveled = -rect.top;
