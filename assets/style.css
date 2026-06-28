@@ -250,7 +250,7 @@
   .stat-item {
     perspective: 900px;
     cursor: default;
-    height: 172px;
+    height: 220px;
     border-radius: 14px;
   }
 
@@ -322,10 +322,10 @@
   }
   .stat-back-text {
     font-family: 'Raleway', sans-serif;
-    font-size: 11px;
+    font-size: 20px;
     font-weight: 400;
-    line-height: 1.45;
-    color: rgba(239,236,227,0.78);
+    line-height: 1.35;
+    color: rgba(239,236,227,0.9);
     max-width: 200px;
   }
   .stat-back-accent {
