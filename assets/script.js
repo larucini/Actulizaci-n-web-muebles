@@ -141,49 +141,15 @@ const navbar = document.getElementById('navbar');
   })();
 
 
-  /* ── SERVICE ACCORDION + IMAGE SYNC ─── */
+  /* ── SERVICIO: filas interactivas ─────── */
   (function () {
-    const items   = document.querySelectorAll('.srv-item');
-    const imgWrap = document.querySelector('.srv-left-imgs');
-    const imgs    = imgWrap ? imgWrap.querySelectorAll('img') : [];
+    const items = document.querySelectorAll('.srv2-item');
+    if (!items.length) return;
 
-    function activateImg(idx) {
-      imgWrap.classList.add('has-hover');
-      imgs.forEach((img, i) => {
-        img.classList.toggle('img-active', i === idx);
-      });
-    }
-    function resetImgs() {
-      imgWrap.classList.remove('has-hover');
-      imgs.forEach(img => img.classList.remove('img-active'));
-    }
-
-    items.forEach((item, idx) => {
-      const row = item.querySelector('.srv-row');
-
-      // Hover
-      item.addEventListener('mouseenter', () => activateImg(idx));
-      item.addEventListener('mouseleave', () => {
-        // If an item is open, keep its image active
-        const openItem = document.querySelector('.srv-item.open');
-        if (openItem) {
-          const openIdx = Array.from(items).indexOf(openItem);
-          activateImg(openIdx);
-        } else {
-          resetImgs();
-        }
-      });
-
-      // Click
-      row.addEventListener('click', () => {
-        const isOpen = item.classList.contains('open');
-        items.forEach(i => i.classList.remove('open'));
-        if (!isOpen) {
-          item.classList.add('open');
-          activateImg(idx);
-        } else {
-          resetImgs();
-        }
+    items.forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        items.forEach(i => i.classList.remove('srv2-item--active'));
+        item.classList.add('srv2-item--active');
       });
     });
   })();
