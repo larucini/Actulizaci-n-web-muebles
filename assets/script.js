@@ -151,6 +151,9 @@ const navbar = document.getElementById('navbar');
         items.forEach(i => i.classList.remove('srv2-item--active'));
         item.classList.add('srv2-item--active');
       });
+      item.addEventListener('mouseleave', () => {
+        item.classList.remove('srv2-item--active');
+      });
     });
   })();
 

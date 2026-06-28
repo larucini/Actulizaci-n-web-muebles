@@ -244,7 +244,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
-    padding: 40px 48px;
+    padding: 40px 48px 240px;
   }
 
   .stat-item {
@@ -363,10 +363,66 @@
 
   /* ─── SERVICIO ────────────────────────── */
   /* ── SERVICIO — accordion list ── */
+  /* ── MARQUEE BANDA SERVICIO ── */
+  .mrq-banda {
+    background: var(--cream);
+    border-top: 1px solid rgba(57,47,40,0.18);
+    border-bottom: 1px solid rgba(57,47,40,0.18);
+    padding: 24px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .mrq-track {
+    display: inline-block;
+    white-space: nowrap;
+  }
+  .mrq-inner {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0;
+    animation: mrq-scroll 95s linear infinite;
+    will-change: transform;
+  }
+  @keyframes mrq-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .mrq-item {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 0 18px;
+  }
+  .mrq-nuestro {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+    font-size: clamp(34px, 4vw, 64px);
+    letter-spacing: -0.05em;
+    color: var(--espresso);
+    line-height: 1;
+  }
+  .mrq-servicio {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(38px, 4.6vw, 72px);
+    letter-spacing: -0.02em;
+    color: var(--espresso);
+    line-height: 1;
+  }
+  .mrq-sep {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    font-size: clamp(18px, 2vw, 28px);
+    color: rgba(57,47,40,0.3);
+    padding: 0 4px;
+    line-height: 1;
+  }
+
   /* ── SERVICIO: componente editorial de ancho completo ── */
   #servicio {
     background: var(--cream);
-    padding: 200px 76px 260px;
+    padding: 100px 76px 260px;
     box-sizing: border-box;
     position: relative;
   }
@@ -385,19 +441,12 @@
     border-bottom: 1px solid rgba(57,47,40,0.15);
     cursor: pointer;
     position: relative;
+    overflow: hidden;
     transition: background 0.4s ease;
   }
 
   .srv2-item--active {
     background: #8b937e;
-  }
-
-  .srv2-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 48px;
-    padding: 24px 0;
   }
 
   .srv2-etapa {
@@ -413,6 +462,45 @@
     transition: color 0.4s ease, opacity 0.4s ease;
   }
 
+  .srv2-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 48px;
+    padding: 24px 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Número gráfico: posicionado absoluto, masivo, desborda arriba y derecha */
+  .srv2-num-deco {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(120px, 16vw, 220px);
+    color: #efece3;
+    opacity: 0;
+    line-height: 0.85;
+    pointer-events: none;
+    user-select: none;
+    position: absolute;
+    right: -12px;
+    top: -30%;
+    z-index: 0;
+    transform: translateY(40px);
+    transition: opacity 0.5s ease 0.25s,
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.25s;
+  }
+
+  .srv2-item--active .srv2-num-deco {
+    opacity: 0.18;
+    transform: translateY(0);
+  }
+
+  .srv2-item--active .srv2-etapa {
+    color: var(--cream);
+    opacity: 0.85;
+  }
   .srv2-nombre {
     font-family: 'Raleway', sans-serif;
     font-weight: 500;
@@ -424,10 +512,6 @@
     transition: color 0.4s ease;
   }
 
-  .srv2-item--active .srv2-etapa {
-    color: var(--cream);
-    opacity: 0.85;
-  }
   .srv2-item--active .srv2-nombre {
     color: var(--cream);
   }
