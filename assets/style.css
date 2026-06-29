@@ -136,7 +136,8 @@
     100% { transform: translateX(-50%); }
   }
 
-  /* ─── HERO ────────────────────────────── */
+  .btn-text-mobile { display: none; }
+  .btn-text-desktop { display: inline; }
   #inicio {
     min-height: 100vh;
     background: var(--cream);
@@ -1484,7 +1485,12 @@
   }
 
   .contact-btn {
-    /* hereda .btn-light existente */
+    color: #332116;
+    border-color: rgba(51,33,22,0.4);
+  }
+  .contact-btn:hover {
+    background: rgba(51,33,22,0.08);
+    border-color: #332116;
   }
 
   .contact-info-block {
@@ -1680,6 +1686,9 @@
       font-size: 13px;
       line-height: 1.3;
       max-width: 160px;
+    }
+    .stat-label {
+      font-size: 10px;
     }
 
     /* ── SERVICIO ── */
@@ -2026,6 +2035,10 @@
       line-height: 1.3;
       max-width: 140px;
     }
+
+    .btn-text-desktop { display: none; }
+    .btn-text-mobile  { display: inline; }
+    .proy-sub { font-size: 16px; }
 
     /* ── PROYECTOS CTA ── */
     .projects-cta {
