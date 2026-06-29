@@ -233,39 +233,39 @@ const navbar = document.getElementById('navbar');
     });
   })();
 
-  // ── Hero img crossfade: overlay injected after layout ──
+  // ── Hero img crossfade: desktop only (mobile breaks marquee loop) ──
   (function initHeroCrossfade() {
+    if (window.innerWidth <= 430) return;
     window.addEventListener('load', () => {
       document.querySelectorAll('.hero-swap').forEach(img => {
-        const rect = img.getBoundingClientRect();
-        
-        // Create overlay img absolutely positioned over the original
         const overlay = document.createElement('img');
         overlay.src = img.dataset.old;
         overlay.style.cssText = `
           position: absolute;
           top: 0; left: 0;
-          width: ${img.offsetWidth}px;
-          height: ${img.offsetHeight}px;
+          height: 100%;
+          width: 100%;
           opacity: 0;
           transition: opacity 0.4s ease;
           pointer-events: none;
           display: block;
         `;
 
-        // Wrap the img in a relative container
         const wrapper = document.createElement('span');
         wrapper.style.cssText = `
           position: relative;
           display: inline-block;
           flex-shrink: 0;
           height: 100%;
+          width: ${img.offsetWidth}px;
         `;
         img.parentNode.insertBefore(wrapper, img);
+        img.style.height = '100%';
+        img.style.width = '100%';
+        img.style.display = 'block';
         wrapper.appendChild(img);
         wrapper.appendChild(overlay);
 
-        // Hover on wrapper
         wrapper.addEventListener('mouseenter', () => {
           overlay.style.opacity = '1';
         });

@@ -222,6 +222,11 @@
   .hero-marquee-wrap:hover .hero-marquee-track {
     animation-play-state: paused;
   }
+  @media (hover: none) {
+    .hero-marquee-wrap:hover .hero-marquee-track {
+      animation-play-state: running;
+    }
+  }
   .hero-marquee-img {
     flex-shrink: 0;
     height: 100%;
