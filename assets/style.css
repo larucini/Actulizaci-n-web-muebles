@@ -229,6 +229,13 @@
     display: block;
     border-radius: 0;
   }
+
+  /* ── Hero imagen swap ── */
+  .hero-swap {
+    display: block;
+    height: 100%;
+    width: auto;
+  }
   @keyframes marquee-scroll {
     0%   { transform: translateX(0); }
     100% { transform: translateX(-33.333%); }

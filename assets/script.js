@@ -233,6 +233,49 @@ const navbar = document.getElementById('navbar');
     });
   })();
 
+  // ── Hero img crossfade: overlay injected after layout ──
+  (function initHeroCrossfade() {
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.hero-swap').forEach(img => {
+        const rect = img.getBoundingClientRect();
+        
+        // Create overlay img absolutely positioned over the original
+        const overlay = document.createElement('img');
+        overlay.src = img.dataset.old;
+        overlay.style.cssText = `
+          position: absolute;
+          top: 0; left: 0;
+          width: ${img.offsetWidth}px;
+          height: ${img.offsetHeight}px;
+          opacity: 0;
+          transition: opacity 0.4s ease;
+          pointer-events: none;
+          display: block;
+        `;
+
+        // Wrap the img in a relative container
+        const wrapper = document.createElement('span');
+        wrapper.style.cssText = `
+          position: relative;
+          display: inline-block;
+          flex-shrink: 0;
+          height: 100%;
+        `;
+        img.parentNode.insertBefore(wrapper, img);
+        wrapper.appendChild(img);
+        wrapper.appendChild(overlay);
+
+        // Hover on wrapper
+        wrapper.addEventListener('mouseenter', () => {
+          overlay.style.opacity = '1';
+        });
+        wrapper.addEventListener('mouseleave', () => {
+          overlay.style.opacity = '0';
+        });
+      });
+    });
+  })();
+
   // ── Veta hotspots (toggle on click for mobile) ──
   (function initVetaDots() {
     const dots = document.querySelectorAll('.veta-dot');
