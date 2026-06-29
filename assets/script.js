@@ -220,6 +220,19 @@ const navbar = document.getElementById('navbar');
     });
   })();
 
+  // ── Proyecto captions: tap to reveal on mobile ──
+  (function initProjTap() {
+    if (window.innerWidth > 430) return;
+    const items = document.querySelectorAll('.proj-item');
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        const isOpen = item.classList.contains('tapped');
+        items.forEach(i => i.classList.remove('tapped'));
+        if (!isOpen) item.classList.add('tapped');
+      });
+    });
+  })();
+
   // ── Veta hotspots (toggle on click for mobile) ──
   (function initVetaDots() {
     const dots = document.querySelectorAll('.veta-dot');
