@@ -286,33 +286,49 @@ const navbar = document.getElementById('navbar');
       const beforeImg  = slider.querySelector('.ba-before');
       const divider    = slider.querySelector('.ba-divider');
 
+      function syncBeforeWidth() {
+        beforeImg.style.width = slider.offsetWidth + 'px';
+      }
+
       function setPosition(pct) {
         pct = Math.max(0, Math.min(100, pct));
         beforeWrap.style.width = pct + '%';
         divider.style.left = pct + '%';
-        beforeImg.style.width = slider.offsetWidth + 'px';
+        syncBeforeWidth();
       }
 
-      function getPercent(e) {
+      function getPercent(clientX) {
         const rect = slider.getBoundingClientRect();
-        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
         return ((clientX - rect.left) / rect.width) * 100;
       }
 
-      window.addEventListener('load', () => {
-        beforeImg.style.width = slider.offsetWidth + 'px';
-        setPosition(50);
-      });
-      window.addEventListener('resize', () => {
-        beforeImg.style.width = slider.offsetWidth + 'px';
-      });
+      window.addEventListener('load', () => { syncBeforeWidth(); setPosition(50); });
+      window.addEventListener('resize', () => { syncBeforeWidth(); });
 
       let dragging = false;
-      slider.addEventListener('mousedown', e => { dragging = true; setPosition(getPercent(e)); });
-      window.addEventListener('mousemove', e => { if (dragging) setPosition(getPercent(e)); });
+
+      // Mouse
+      slider.addEventListener('mousedown', e => {
+        dragging = true;
+        setPosition(getPercent(e.clientX));
+      });
+      window.addEventListener('mousemove', e => {
+        if (dragging) setPosition(getPercent(e.clientX));
+      });
       window.addEventListener('mouseup', () => { dragging = false; });
-      slider.addEventListener('touchstart', e => { dragging = true; setPosition(getPercent(e)); }, { passive: true });
-      window.addEventListener('touchmove', e => { if (dragging) setPosition(getPercent(e)); }, { passive: true });
+
+      // Touch — prevent page scroll only while dragging this slider
+      slider.addEventListener('touchstart', e => {
+        dragging = true;
+        setPosition(getPercent(e.touches[0].clientX));
+      }, { passive: true });
+
+      slider.addEventListener('touchmove', e => {
+        if (!dragging) return;
+        e.preventDefault(); // block page scroll
+        setPosition(getPercent(e.touches[0].clientX));
+      }, { passive: false }); // must be non-passive to call preventDefault
+
       window.addEventListener('touchend', () => { dragging = false; });
     });
   })();

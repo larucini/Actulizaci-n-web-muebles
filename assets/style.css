@@ -542,6 +542,7 @@
     overflow: hidden;
     cursor: col-resize;
     user-select: none;
+    touch-action: none;
   }
   .ba-after {
     position: absolute;
