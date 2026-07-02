@@ -101,18 +101,24 @@ const navbar = document.getElementById('navbar');
   })();
 
 
-  /* ── SERVICIO: filas interactivas ─────── */
+  /* ── SERVICIO: filas interactivas — manejado por accordion ─── */
   (function () {
+    // Hover highlight only on desktop (accordion handles click state)
+    if (window.innerWidth <= 430) return;
     const items = document.querySelectorAll('.srv2-item');
     if (!items.length) return;
 
     items.forEach(item => {
       item.addEventListener('mouseenter', () => {
-        items.forEach(i => i.classList.remove('srv2-item--active'));
-        item.classList.add('srv2-item--active');
+        if (!item.classList.contains('is-open')) {
+          items.forEach(i => { if (!i.classList.contains('is-open')) i.classList.remove('srv2-item--active'); });
+          item.classList.add('srv2-item--active');
+        }
       });
       item.addEventListener('mouseleave', () => {
-        item.classList.remove('srv2-item--active');
+        if (!item.classList.contains('is-open')) {
+          item.classList.remove('srv2-item--active');
+        }
       });
     });
   })();
@@ -272,6 +278,27 @@ const navbar = document.getElementById('navbar');
         wrapper.addEventListener('mouseleave', () => {
           overlay.style.opacity = '0';
         });
+      });
+    });
+  })();
+
+  // ── Service accordion ──
+  (function initServiceAccordion() {
+    const items = document.querySelectorAll('.srv2-accordion');
+    if (!items.length) return;
+
+    items.forEach(item => {
+      const trigger = item.querySelector('.srv2-trigger');
+      trigger.addEventListener('click', () => {
+        const isOpen = item.classList.contains('is-open');
+        // Close all
+        items.forEach(i => {
+          i.classList.remove('is-open', 'srv2-item--active');
+        });
+        // Open clicked if it was closed
+        if (!isOpen) {
+          item.classList.add('is-open', 'srv2-item--active');
+        }
       });
     });
   })();
