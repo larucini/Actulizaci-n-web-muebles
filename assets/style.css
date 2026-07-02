@@ -909,6 +909,22 @@
     transform: translateX(-50%) translateY(0);
   }
 
+  /* ── Typewriter cursor ── */
+  #crs-typewriter {
+    border-right: 2px solid currentColor;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+  }
+  #crs-typewriter.crs-tw-done {
+    border-right-color: transparent;
+  }
+
+  /* ── Card drop shadow ── */
+  .crs-card {
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.22));
+  }
+
   /* ─── CURSOS ──────────────────────────── */
   #cursos {
     background: var(--sage, #8b937e);
@@ -993,17 +1009,81 @@
     max-width: 1100px;
     margin: 0 auto;
     align-items: end;
+    overflow: visible;
+    padding-top: 24px;
   }
   .crs-card {
     position: relative;
-    overflow: hidden;
-    height: 420px;
+    overflow: visible;
+    height: 500px;
     cursor: pointer;
     border-radius: 0;
     transition: transform 0.45s cubic-bezier(0.77, 0, 0.18, 1);
   }
+  .crs-card > img {
+    overflow: hidden;
+  }
   .crs-card:hover {
     transform: translateY(-8px);
+  }
+  /* Clip overflow for non-featured cards */
+  .crs-card:not(.crs-card--featured) {
+    overflow: hidden;
+  }
+  /* Featured card: border all sides + badge overflow */
+  .crs-card--featured {
+    outline: none;
+    overflow: visible;
+  }
+  .crs-card-clip {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    overflow: hidden;
+  }
+  .crs-card-clip img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.18, 1);
+  }
+  .crs-card--featured:hover .crs-card-clip img {
+    transform: scale(1.04);
+  }
+  .crs-card--featured::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 4px solid rgba(255,255,255,0.85);
+    z-index: 10;
+    pointer-events: none;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+  .crs-card--featured:hover::before {
+    border-color: #fff;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3);
+  }
+  /* Badge */
+  .crs-featured-badge {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    color: var(--sage, #8b937e);
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 7px 22px;
+    border-radius: 20px;
+    white-space: nowrap;
+    z-index: 20;
   }
   .crs-card img {
     width: 100%;
@@ -1440,7 +1520,7 @@
     /* ─── CONTACTO ────────────────────────── */
   #contacto {
     background: #efece3;
-    padding: 0 48px;
+    padding: 0 96px;
     color: #332116;
     min-height: 100vh;
     display: flex;
@@ -1448,30 +1528,76 @@
     justify-content: space-between;
   }
 
-  /* Layout principal: Hablemos + info */
+  /* Layout principal */
   .contact-main {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: 48px;
     flex: 1;
     padding: 100px 0 80px;
+    gap: 48px;
   }
 
+  /* IZQUIERDA */
   .contact-left {
+    flex: 0 0 42%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 40px;
-    flex: 0 0 68%;
+    justify-content: flex-end;
+    gap: 48px;
+    padding-left: 24px;
   }
 
-  .contact-hablemos-row {
-    display: flex;
-    align-items: flex-end;
-    gap: 40px;
-    flex-wrap: wrap;
+  .contact-info-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(24px, 2.5vw, 38px);
+    font-weight: 600;
+    font-style: italic;
+    color: rgba(51,33,22,0.72);
+    line-height: 1.2;
+    margin: 0;
   }
+
+  .contact-links-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 56px;
+  }
+
+  .contact-nav-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .contact-nav-link {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #332116;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .contact-nav-link:hover { opacity: 0.45; }
+
+  /* DERECHA */
+  .contact-right {
+    flex: 0 0 52%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 36px;
+  }
+
+  .contact-hablemos-link {
+    text-decoration: none;
+    transition: opacity 0.25s;
+    display: block;
+  }
+  .contact-hablemos-link:hover { opacity: 0.75; }
 
   .contact-hablemos {
     font-family: 'Cormorant Garamond', serif;
@@ -1484,40 +1610,23 @@
     letter-spacing: -0.02em;
   }
 
-  .contact-btn {
-    color: #332116;
-    border-color: rgba(51,33,22,0.4);
-  }
-  .contact-btn:hover {
-    background: rgba(51,33,22,0.08);
-    border-color: #332116;
-  }
-
-  .contact-info-block {
+  .contact-data {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    padding-bottom: 8px;
-    flex: 0 0 auto;
+    gap: 18px;
+    align-items: flex-end;
+    text-align: right;
   }
-  .contact-info-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    font-weight: 700;
-    font-style: italic;
-    color: rgba(51,33,22,0.7);
-    margin-bottom: 32px;
-    line-height: 1.4;
-  }
+
   .contact-detail {
-    margin-bottom: 20px;
+    margin-bottom: 0;
   }
   .contact-detail-label {
-    font-size: 11px;
+    font-size: 9px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: rgba(51,33,22,0.45);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
   .contact-detail-value {
     font-size: 14px;
@@ -1540,11 +1649,15 @@
 
   .contact-bottom {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
     border-top: 1px solid rgba(51,33,22,0.15);
     padding-top: 32px;
     padding-bottom: 32px;
+    padding-left: 96px;
+    padding-right: 96px;
+    margin-left: -96px;
+    margin-right: -96px;
     background: #efece3;
   }
   .footer-logo {

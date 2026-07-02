@@ -276,6 +276,50 @@ const navbar = document.getElementById('navbar');
     });
   })();
 
+  // ── Cursos: typewriter on section entry ──
+  (function initTypewriter() {
+    const el = document.getElementById('crs-typewriter');
+    if (!el) return;
+    const fullText = el.textContent;
+    let animFrame = null;
+
+    function startTypewriter() {
+      // Reset
+      if (animFrame) cancelAnimationFrame(animFrame);
+      el.classList.remove('crs-tw-done');
+      el.style.width = '0';
+      el.textContent = '';
+
+      let i = 0;
+      const speed = 38; // ms per char
+      let last = 0;
+
+      function step(ts) {
+        if (!last) last = ts;
+        if (ts - last >= speed) {
+          i++;
+          el.textContent = fullText.slice(0, i);
+          el.style.width = 'auto';
+          last = ts;
+          if (i >= fullText.length) {
+            setTimeout(() => el.classList.add('crs-tw-done'), 600);
+            return;
+          }
+        }
+        animFrame = requestAnimationFrame(step);
+      }
+      animFrame = requestAnimationFrame(step);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) startTypewriter();
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(document.getElementById('cursos'));
+  })();
+
   // ── Veta hotspots (toggle on click for mobile) ──
   (function initVetaDots() {
     const dots = document.querySelectorAll('.veta-dot');

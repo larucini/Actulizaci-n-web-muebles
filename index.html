@@ -430,7 +430,7 @@
 <section id="cursos">
   <div class="section-header fade-up">
     <span class="section-eyebrow">Cursos</span>
-    <h2 class="section-title">El conocimiento también se transmite.</h2>
+    <h2 class="section-title" id="crs-typewriter">El conocimiento también se transmite.</h2>
   </div>
 
   <!-- Banda de datos contextuales -->
@@ -458,16 +458,19 @@
 
   <div class="crs-grid">
 
-    <div class="crs-card">
-      <img src="assets/images/course-01.jpg" alt="Restauración de piezas">
-      <div class="crs-card-overlay"></div>
-      <div class="crs-card-top">
-        <span class="crs-card-tag">Curso principal</span>
-        <h3 class="crs-card-title">Restauración de piezas</h3>
-      </div>
-      <div class="crs-card-hover">
-        <p class="crs-card-desc">Domina las técnicas esenciales para devolver vida a muebles con historia.</p>
-        <a href="#contacto" class="crs-card-arrow">→</a>
+    <div class="crs-card crs-card--featured">
+      <div class="crs-featured-badge">Más elegido</div>
+      <div class="crs-card-clip">
+        <img src="assets/images/course-01.jpg" alt="Restauración de piezas">
+        <div class="crs-card-overlay"></div>
+        <div class="crs-card-top">
+          <span class="crs-card-tag">Curso principal</span>
+          <h3 class="crs-card-title">Restauración de piezas</h3>
+        </div>
+        <div class="crs-card-hover">
+          <p class="crs-card-desc">Domina las técnicas esenciales para devolver vida a muebles con historia.</p>
+          <a href="#contacto" class="crs-card-arrow">→</a>
+        </div>
       </div>
     </div>
 
@@ -585,18 +588,29 @@
 
   <div class="contact-main fade-up">
 
-    <!-- IZQUIERDA: "Hablemos." grande + botón -->
+    <!-- IZQUIERDA: frase + dos columnas de links -->
     <div class="contact-left">
-      <div class="contact-hablemos-row">
-        <h2 class="contact-hablemos">Hablemos.</h2>
-        <a href="mailto:hola@raiz.com.ar" class="btn-light contact-btn">Escribinos →</a>
+      <p class="contact-info-title">Cada proyecto empieza<br>con una conversación.</p>
+      <div class="contact-links-grid">
+        <div class="contact-nav-col">
+          <a href="#servicio" class="contact-nav-link">Servicio →</a>
+          <a href="#proyectos" class="contact-nav-link">Proyectos →</a>
+          <a href="#cursos" class="contact-nav-link">Cursos →</a>
+        </div>
+        <div class="contact-nav-col">
+          <a href="#" class="contact-nav-link">Instagram →</a>
+          <a href="#" class="contact-nav-link">Behance →</a>
+          <a href="#" class="contact-nav-link">Pinterest →</a>
+        </div>
       </div>
     </div>
 
-    <!-- DERECHA: datos del taller -->
-    <div class="contact-info-block">
-      <p class="contact-info-title">Cada proyecto empieza con una conversación.</p>
-      <div>
+    <!-- DERECHA: Hablemos + datos -->
+    <div class="contact-right">
+      <a href="mailto:hola@raiz.com.ar" class="contact-hablemos-link">
+        <h2 class="contact-hablemos">Hablemos.</h2>
+      </a>
+      <div class="contact-data">
         <div class="contact-detail">
           <div class="contact-detail-label">Taller</div>
           <div class="contact-detail-value">Buenos Aires, Argentina</div>
@@ -608,11 +622,6 @@
         <div class="contact-detail">
           <div class="contact-detail-label">Horario de atención</div>
           <div class="contact-detail-value">Lunes a viernes, 9 a 18 hs.</div>
-        </div>
-        <div class="contact-social">
-          <a href="#" class="social-link">Instagram</a>
-          <a href="#" class="social-link">Behance</a>
-          <a href="#" class="social-link">Pinterest</a>
         </div>
       </div>
     </div>
