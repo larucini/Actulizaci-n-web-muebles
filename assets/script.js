@@ -282,6 +282,17 @@ const navbar = document.getElementById('navbar');
     });
   })();
 
+  // ── Cursos: cards clickeables ──
+  (function initCourseLinks() {
+    const url = 'https://larucini.github.io/PaginaMuebleCursos/';
+    document.querySelectorAll('.crs-card').forEach(card => {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => {
+        window.open(url, '_blank');
+      });
+    });
+  })();
+
   // ── Service accordion ──
   (function initServiceAccordion() {
     const items = document.querySelectorAll('.srv2-accordion');
