@@ -2111,7 +2111,24 @@
     }
     /* Hide description on mobile to avoid overlap */
     .crs-card-hover {
+      display: block;
+      position: absolute;
+      opacity: 1;
+      transform: none;
+      bottom: 10px;
+      right: 10px;
+      top: auto;
+      left: auto;
+      padding: 0;
+      background: transparent;
+    }
+    .crs-card-desc {
       display: none;
+    }
+    .crs-card-arrow {
+      width: 30px;
+      height: 30px;
+      font-size: 12px;
     }
 
     /* ── Before/After slider mobile fix ── */
