@@ -1968,7 +1968,7 @@
     }
     .srv2-etapa {
       font-size: 24px;
-      text-align: right;
+      text-align: left;
     }
     .srv2-nombre {
       font-size: 16px;
@@ -2114,9 +2114,19 @@
       display: none;
     }
 
-    /* ── CONTACTO ── */
-    #contacto {
-      padding: 64px 20px 48px;
+    /* ── Before/After slider mobile fix ── */
+    .ba-slider {
+      height: 220px;
+    }
+    .ba-slider .ba-after,
+    .ba-slider .ba-before {
+      object-fit: cover;
+      object-position: center center;
+      height: 220px;
+      width: 100%;
+    }
+    .ba-slider .ba-before-wrap {
+      height: 220px;
     }
     .contact-headline {
       font-size: clamp(40px, 13vw, 56px);

@@ -325,7 +325,9 @@ const navbar = document.getElementById('navbar');
       const divider    = slider.querySelector('.ba-divider');
 
       function syncBeforeWidth() {
-        beforeImg.style.width = slider.offsetWidth + 'px';
+        const w = slider.offsetWidth;
+        beforeImg.style.width = w + 'px';
+        beforeImg.style.height = slider.offsetHeight + 'px';
       }
 
       function setPosition(pct) {
