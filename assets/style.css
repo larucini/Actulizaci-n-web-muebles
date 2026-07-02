@@ -1885,9 +1885,10 @@
     }
     .hero-headline h1 {
       font-size: clamp(34px, 34px, 34px);
+      line-height: 1.25;
     }
     .hero-headline h1 span.italic-word {
-      font-size: clamp(48px, 14.5vw, 58px);
+      font-size: 48px !important;
     }
     .hero-tagline {
       width: 100%;
@@ -1956,14 +1957,45 @@
       font-size: 28px;
       width: 44px;
     }
-    .srv2-desc {
-      font-size: 14px;
-      line-height: 1.45;
-      padding: 0 20px 16px;
-    }
     .srv2-accordion.is-open .srv2-body {
       max-height: 100px;
       background: none;
+    }
+    /* Move etapa text slightly right, reduce size */
+    .srv2-trigger {
+      padding: 20px 20px 20px 20px;
+      gap: 16px;
+    }
+    .srv2-etapa {
+      font-size: 24px;
+      text-align: right;
+    }
+    .srv2-nombre {
+      font-size: 16px;
+      letter-spacing: 0.08em;
+    }
+    /* Override mobile text for item 1 and 3 */
+    .srv2-accordion[data-index="0"] .srv2-nombre {
+      font-size: 0;
+    }
+    .srv2-accordion[data-index="0"] .srv2-nombre::after {
+      content: 'EVALUACIÓN';
+      font-size: 16px;
+      letter-spacing: 0.08em;
+    }
+    .srv2-accordion[data-index="2"] .srv2-nombre {
+      font-size: 0;
+    }
+    .srv2-accordion[data-index="2"] .srv2-nombre::after {
+      content: 'REALZAR';
+      font-size: 16px;
+      letter-spacing: 0.08em;
+    }
+    /* Align desc text with etapa left edge */
+    .srv2-desc {
+      font-size: 14px;
+      line-height: 1.45;
+      padding: 0 20px 16px 20px;
     }
     .srv-title {
       font-size: 14px;
