@@ -2001,9 +2001,46 @@
       gap: 10px;
     }
     .crs-card {
-      height: auto;
-      display: flex;
-      flex-direction: column;
+      height: 220px;
+      display: block;
+      filter: none;
+    }
+    /* Reset featured card completely on mobile */
+    .crs-card--featured {
+      overflow: hidden;
+      height: 220px;
+    }
+    .crs-card--featured::before {
+      display: none;
+    }
+    .crs-featured-badge {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      padding: 4px 12px;
+      z-index: 20;
+    }
+    /* Make clip div behave like a normal card container */
+    .crs-card-clip {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      overflow: hidden;
+      height: 220px;
+    }
+    .crs-card-clip img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    /* All card images same treatment */
+    .crs-card img {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     .crs-card img {
       position: relative;
@@ -2012,32 +2049,34 @@
       object-fit: cover;
     }
     .crs-card-overlay {
-      display: none;
+      display: block;
     }
+    /* Tag+title pinned to bottom, no transform */
     .crs-card-top {
-      position: relative;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: auto;
       transform: none !important;
-      padding: 8px 0 2px;
-      background: transparent;
+      padding: 14px 14px 12px;
     }
+    /* Hide the tag pill background on mobile */
     .crs-card-tag {
-      color: rgba(239,236,227,0.5);
-      font-size: 8px;
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: 9px;
+      color: rgba(239,236,227,0.65);
+      margin-bottom: 4px;
     }
     .crs-card-title {
       color: var(--cream);
-      font-size: 14px;
+      font-size: 13px;
     }
+    /* Hide description on mobile to avoid overlap */
     .crs-card-hover {
-      position: relative;
-      opacity: 1;
-      transform: none;
-      padding: 0 0 6px;
-      background: transparent;
-    }
-    .crs-card-desc {
-      color: rgba(239,236,227,0.65);
-      font-size: 14px;
+      display: none;
     }
 
     /* ── CONTACTO ── */
