@@ -276,6 +276,47 @@ const navbar = document.getElementById('navbar');
     });
   })();
 
+  // ── Before/After slider ──
+  (function initBASliders() {
+    ['ba-armario', 'ba-sillon', 'ba-comoda'].forEach(function(id) {
+      const slider = document.getElementById(id);
+      if (!slider) return;
+
+      const beforeWrap = slider.querySelector('.ba-before-wrap');
+      const beforeImg  = slider.querySelector('.ba-before');
+      const divider    = slider.querySelector('.ba-divider');
+
+      function setPosition(pct) {
+        pct = Math.max(0, Math.min(100, pct));
+        beforeWrap.style.width = pct + '%';
+        divider.style.left = pct + '%';
+        beforeImg.style.width = slider.offsetWidth + 'px';
+      }
+
+      function getPercent(e) {
+        const rect = slider.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        return ((clientX - rect.left) / rect.width) * 100;
+      }
+
+      window.addEventListener('load', () => {
+        beforeImg.style.width = slider.offsetWidth + 'px';
+        setPosition(50);
+      });
+      window.addEventListener('resize', () => {
+        beforeImg.style.width = slider.offsetWidth + 'px';
+      });
+
+      let dragging = false;
+      slider.addEventListener('mousedown', e => { dragging = true; setPosition(getPercent(e)); });
+      window.addEventListener('mousemove', e => { if (dragging) setPosition(getPercent(e)); });
+      window.addEventListener('mouseup', () => { dragging = false; });
+      slider.addEventListener('touchstart', e => { dragging = true; setPosition(getPercent(e)); }, { passive: true });
+      window.addEventListener('touchmove', e => { if (dragging) setPosition(getPercent(e)); }, { passive: true });
+      window.addEventListener('touchend', () => { dragging = false; });
+    });
+  })();
+
   // ── Cursos: typewriter on section entry ──
   (function initTypewriter() {
     const el = document.getElementById('crs-typewriter');
