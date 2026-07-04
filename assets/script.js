@@ -14,6 +14,19 @@ const navbar = document.getElementById('navbar');
 
   document.querySelectorAll('.fade-up:not(.fade-up-proj)').forEach(el => observer.observe(el));
 
+  // Repeating observer — resets animation each time element leaves and re-enters view
+  const observerRepeat = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      } else {
+        e.target.classList.remove('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-up-repeat').forEach(el => observerRepeat.observe(el));
+
   const observerProj = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
