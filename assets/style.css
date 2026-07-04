@@ -605,9 +605,12 @@
   }
   .ba-after {
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    object-position: left center;
     display: block;
     pointer-events: none;
   }
@@ -949,6 +952,150 @@
     letter-spacing: 0.02em;
   }
 
+  /* Info panel beside images */
+  .proy-item-info {
+    flex: 1;
+    position: relative;
+    align-self: stretch;
+    padding: 0 0 12px 56px;
+  }
+  .proy-info-top {
+    position: absolute;
+    top: 50%;
+    left: 56px;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  .proy-info-titulo {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: clamp(28px, 3vw, 42px);
+    letter-spacing: -0.05em;
+    color: #efece3;
+    margin: 0;
+    text-align: center;
+  }
+  .proy-info-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: rgba(239,236,227,0.6);
+    text-align: center;
+    display: block;
+  }
+  .proy-info-meta {
+    position: absolute;
+    bottom: 12px;
+    left: 56px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+  .proy-meta-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .proy-meta-icon {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+  }
+  .proy-meta-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .proy-meta-title {
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(239,236,227,0.55);
+  }
+  .proy-meta-value {
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #efece3;
+    white-space: nowrap;
+  }
+  .proy-meta-divider {
+    width: 1px;
+    height: 48px;
+    background: rgba(239,236,227,0.2);
+    margin: 0 24px;
+  }
+
+  /* Friso hover overlay */
+  .proy-friso-wrap .proj-img {
+    position: relative;
+    overflow: hidden;
+  }
+  .proy-friso-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(20,10,5,0.45);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 24px;
+  }
+  .proy-friso-wrap:hover .proy-friso-overlay {
+    opacity: 1;
+  }
+  .proy-friso-overlay .proy-info-titulo {
+    font-size: clamp(20px, 2vw, 28px);
+  }
+
+  /* PROYECTOS label */
+  .proy-label-wrap {
+    padding: 120px 0 80px;
+    text-align: center;
+  }
+  .proy-label-text {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: rgba(239,236,227,0.5);
+  }
+
+  /* Split rows: image left + empty space right */
+  .proy-row-split {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: stretch;
+  }
+  .proy-item-img {
+    flex: 0 0 62%;
+  }
+  .proy-item-img .proj-img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 804 / 529;
+  }
+  .proy-item-space {
+    flex: 1;
+  }
+
   /* ── PROYECTOS (nueva sección unificada) ── */
   #proyectos {
     background: #332116;
@@ -967,8 +1114,18 @@
     align-items: center;
     text-align: center;
   }
+  /* Nueva variante con fondo propio */
+  #proyectos {
+    background: #332116;
+  }
+  .proy-header--nueva {
+    background: #42291b;
+    max-width: 100%;
+    padding: 120px 72px 120px;
+    margin: 0;
+  }
   .proy-frase {
-    margin-bottom: 120px;
+    margin-bottom: 0;
   }
   .proy-frase-line1,
   .proy-frase-line2 {
@@ -987,7 +1144,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-weight: 400;
-    font-size: 1.15em;
+    font-size: 1.45em;
     color: #efece3;
     letter-spacing: -0.05em;
   }
