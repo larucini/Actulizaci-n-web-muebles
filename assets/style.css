@@ -670,6 +670,277 @@
   .ba-label-before { left: 14px; z-index: 6; }
   .ba-label-after  { right: 14px; }
 
+  /* ─── SOBRE NOSOTROS ──────────────────── */
+  #sobre-nosotros {
+    background: var(--cream);
+    padding: 100px 48px 80px;
+    text-align: center;
+  }
+  .sobre-eyebrow {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #332116;
+    display: block;
+    margin-bottom: 16px;
+  }
+  .sobre-titulo {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: clamp(32px, 4vw, 56px);
+    letter-spacing: -0.05em;
+    color: var(--espresso);
+    margin: 0 0 24px;
+    line-height: 1.05;
+  }
+  .sobre-desc {
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.03em;
+    color: #332116;
+    margin: 0 auto 64px;
+    max-width: 1100px;
+  }
+  .sobre-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .sobre-card {
+    background: var(--cream);
+    border: 1px solid rgba(51,33,22,0.12);
+    border-radius: 16px;
+    padding: 20px 12px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+  .sobre-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    opacity: 0.8;
+    margin-bottom: 0;
+  }
+  .sobre-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 5vw, 72px);
+    font-weight: 400;
+    color: var(--espresso);
+    line-height: 1;
+  }
+  .sobre-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: var(--espresso);
+    margin-top: 4px;
+  }
+  .sobre-sub {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #332116;
+  }
+
+  /* ─── SERVICIO EDITORIAL ──────────────── */
+  #servicio-editorial {
+    background: var(--cream);
+    padding: 100px 0 80px;
+  }
+  .srv-ed-header {
+    text-align: center;
+    padding: 0 48px;
+    margin-bottom: 80px;
+  }
+  .srv-ed-eyebrow {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #332116;
+    display: block;
+    margin-bottom: 12px;
+  }
+  .srv-ed-titulo {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: clamp(28px, 3.5vw, 48px);
+    letter-spacing: -0.03em;
+    color: var(--espresso);
+    margin: 0 0 20px;
+    line-height: 1.1;
+  }
+  .srv-ed-titulo em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.4em;
+  }
+  .srv-ed-intro {
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0;
+    color: #332116;
+    margin: 0 auto;
+    max-width: 860px;
+  }
+
+  /* Rows */
+  .srv-ed-img {
+    position: relative;
+    overflow: hidden;
+  }
+  .srv-ed-img img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    display: block;
+    border-radius: 0;
+    transition: transform 0.5s ease;
+  }
+  .srv-ed-img:hover img {
+    transform: scale(1.03);
+  }
+  /* Hover overlay — defined below with tags */
+  .srv-ed-content {
+    padding: 0 48px;
+  }
+  .srv-ed-row--reverse .srv-ed-content {
+    padding: 0 48px 0 0;
+  }
+  /* Narrower images */
+  .srv-ed-row {
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+    grid-template-areas: "img content";
+    align-items: center;
+    gap: 0;
+    margin-bottom: 80px;
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .srv-ed-row--reverse {
+    grid-template-columns: 6fr 4fr;
+    grid-template-areas: "content img";
+    direction: ltr;
+  }
+  .srv-ed-row .srv-ed-img    { grid-area: img; }
+  .srv-ed-row .srv-ed-content { grid-area: content; }
+
+  /* Number */
+  .srv-ed-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(64px, 7vw, 100px);
+    font-weight: 300;
+    color: var(--sage, #8b937e);
+    line-height: 1;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  /* Label with pill background */
+  .srv-ed-label-wrap {
+    display: inline-block;
+    background: #e5e1d6;
+    border-radius: 999px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    cursor: default;
+    border: 1px solid transparent;
+  }
+  .srv-ed-label-wrap:hover {
+    background: rgba(51,33,22,0.08);
+    border-color: rgba(51,33,22,0.25);
+  }
+  .srv-ed-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    color: var(--espresso);
+  }
+
+  /* Desc */
+  .srv-ed-desc {
+    font-family: 'Raleway', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: 0.03em;
+    color: #332116;
+    margin: 0 0 24px;
+    max-width: 340px;
+  }
+
+  /* Tags */
+  .srv-ed-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .srv-ed-tag {
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: -0.05em;
+    color: var(--espresso);
+    border: 1px solid rgba(51,33,22,0.25);
+    border-radius: 20px;
+    padding: 5px 14px;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    cursor: default;
+  }
+  .srv-ed-tag:hover {
+    background: rgba(51,33,22,0.08);
+    border-color: rgba(51,33,22,0.5);
+    color: #332116;
+  }
+
+  /* Hover overlay text — bottom center */
+  .srv-ed-img-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 24px;
+    background: linear-gradient(to top, rgba(20,12,6,0.55) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+    top: auto;
+    height: 60%;
+  }
+  .srv-ed-img:hover .srv-ed-img-label {
+    opacity: 1;
+  }
+  .srv-ed-img-label span {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 28px;
+    color: #fff;
+    letter-spacing: 0.02em;
+  }
+
   /* ── PROYECTOS (nueva sección unificada) ── */
   #proyectos {
     background: #332116;
@@ -1909,6 +2180,66 @@
     }
     .mrq-servicio {
       font-size: 32px;
+    }
+
+    /* ── SERVICIO EDITORIAL ── */
+    #servicio-editorial {
+      padding: 64px 0 48px;
+    }
+    .srv-ed-header {
+      padding: 0 20px;
+      margin-bottom: 48px;
+    }
+    .srv-ed-row {
+      grid-template-columns: 1fr;
+      margin-bottom: 48px;
+    }
+    .srv-ed-row--reverse {
+      direction: ltr;
+    }
+    .srv-ed-img img {
+      height: 240px;
+      border-radius: 0;
+    }
+    .srv-ed-content {
+      padding: 24px 20px 0;
+    }
+    .srv-ed-row--reverse .srv-ed-content {
+      padding: 24px 20px 0;
+      order: 2;
+    }
+    .srv-ed-row--reverse .srv-ed-img {
+      order: 1;
+    }
+
+    /* ── SOBRE NOSOTROS ── */
+    #sobre-nosotros {
+      padding: 64px 20px 56px;
+    }
+    .sobre-desc {
+      font-size: 13px;
+      margin-bottom: 40px;
+    }
+    .sobre-cards {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .sobre-card {
+      padding: 24px 16px 20px;
+      gap: 8px;
+    }
+    .sobre-icon {
+      width: 30px;
+      height: 30px;
+    }
+    .sobre-num {
+      font-size: 40px;
+    }
+    .sobre-label {
+      font-size: 9px;
+    }
+    .sobre-sub {
+      font-size: 11px;
     }
 
     /* ── STATS ── */
