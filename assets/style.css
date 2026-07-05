@@ -367,7 +367,7 @@
   .section-title {
     font-family: 'Raleway', sans-serif;
     font-size: clamp(32px, 3.75vw, 50px);
-    font-weight: 500;
+    font-weight: 300;
     letter-spacing: -0.025em;
     line-height: 1.1;
     color: var(--espresso);
@@ -691,9 +691,9 @@
   }
   .sobre-titulo {
     font-family: 'Raleway', sans-serif;
-    font-weight: 400;
+    font-weight: 300;
     font-size: clamp(32px, 3.75vw, 50px);
-    letter-spacing: -0.05em;
+    letter-spacing: -0.025em;
     color: var(--espresso);
     margin: 0 0 24px;
     line-height: 1.05;
@@ -785,9 +785,9 @@
   }
   .srv-ed-titulo {
     font-family: 'Raleway', sans-serif;
-    font-weight: 400;
+    font-weight: 300;
     font-size: clamp(32px, 3.75vw, 50px);
-    letter-spacing: -0.03em;
+    letter-spacing: -0.025em;
     color: var(--espresso);
     margin: 0 0 20px;
     line-height: 1.1;
@@ -795,7 +795,7 @@
   .srv-ed-titulo em {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 1.35em;
   }
   .srv-ed-intro {
@@ -1544,296 +1544,203 @@
     margin: 0;
   }
 
-  /* ── Typewriter cursor ── */
-  #crs-typewriter {
-    border-right: 2px solid currentColor;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 0;
-  }
-  #crs-typewriter.crs-tw-done {
-    border-right-color: transparent;
-  }
-
-  /* ── Card drop shadow ── */
-  .crs-card {
-    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.22));
-  }
-
   /* ─── CURSOS ──────────────────────────── */
   #cursos {
-    background: var(--sage, #8b937e);
-    padding: 80px 48px 96px;
+    background: #efece3;
+    padding: 144px 48px 160px;
   }
   #cursos .section-header {
     text-align: center;
-    margin-bottom: 48px;
+    margin-bottom: 64px;
   }
-  #cursos .section-eyebrow { color: var(--cream); opacity: 0.8; }
-  #cursos .section-title   { color: var(--cream); font-family: 'Raleway', sans-serif; font-weight: 300; letter-spacing: -0.05em; }
-
-  /* ── CURSOS: banda contextual ── */
-  .crs-banda {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 48px 56px;
-    border-bottom: 1px solid rgba(239,236,227,0.15);
-    margin: 0 48px 56px;
-  }
-  .crs-banda-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    padding: 0 40px;
-    cursor: default;
-    min-width: 160px;
-  }
-  .crs-banda-sep {
-    font-family: 'Raleway', sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: rgba(239,236,227,0.2);
-    flex-shrink: 0;
-    align-self: center;
-  }
-  .crs-banda-valor {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 26px;
-    font-weight: 500;
-    font-style: italic;
-    color: var(--cream);
-    letter-spacing: -0.01em;
-    white-space: nowrap;
-    display: block;
-    line-height: 1.2;
-    transform-origin: center bottom;
-    transition: transform 0.35s cubic-bezier(0.16,1,0.3,1),
-                color 0.35s ease,
-                font-weight 0.1s ease;
-  }
-  .crs-banda-label {
-    font-family: 'Raleway', sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(239,236,227,0.4);
-    white-space: nowrap;
-    transform-origin: center top;
-    transition: transform 0.35s cubic-bezier(0.16,1,0.3,1),
-                color 0.35s ease,
-                letter-spacing 0.35s ease;
-  }
-  .crs-banda-item:hover .crs-banda-valor {
-    transform: scale(1.28);
-    color: #332116;
-    font-weight: 700;
-  }
-  .crs-banda-item:hover .crs-banda-label {
-    transform: scale(1.08);
-    color: #efece3;
-    letter-spacing: 0.18em;
-  }
+  #cursos .section-eyebrow { color: var(--espresso); opacity: 0.5; }
+  #cursos .section-title   { color: var(--espresso); font-family: 'Raleway', sans-serif; font-weight: 300; letter-spacing: -0.025em; }
 
   .crs-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    gap: 24px;
     max-width: 1100px;
     margin: 0 auto;
-    align-items: end;
-    overflow: visible;
-    padding-top: 24px;
   }
+
   .crs-card {
     position: relative;
-    overflow: visible;
-    height: 500px;
-    cursor: pointer;
-    border-radius: 0;
-    transition: transform 0.45s cubic-bezier(0.77, 0, 0.18, 1);
-  }
-  .crs-card > img {
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: #efece3;
+    border: 1px solid rgba(57,47,40,0.3);
+    border-radius: 20px;
+    padding: 32px 22px;
+    min-height: 460px;
+    text-align: center;
+    box-shadow: 0 24px 48px -16px rgba(57,47,40,0.18);
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.7s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.5s ease;
   }
-  .crs-card:hover {
-    transform: translateY(-8px);
-  }
-  /* Clip overflow for non-featured cards */
-  .crs-card:not(.crs-card--featured) {
-    overflow: hidden;
-  }
-  /* Featured card: border all sides + badge overflow */
-  .crs-card--featured {
-    outline: none;
-    overflow: visible;
-  }
-  .crs-card-clip {
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    right: 4px;
-    bottom: 4px;
-    overflow: hidden;
-  }
-  .crs-card-clip img {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.6s cubic-bezier(0.77, 0, 0.18, 1);
-  }
-  .crs-card--featured:hover .crs-card-clip img {
-    transform: scale(1.04);
-  }
-  .crs-card--featured::before {
+
+  .crs-card::before {
     content: '';
     position: absolute;
-    inset: 0;
-    border: 4px solid rgba(255,255,255,0.85);
-    z-index: 10;
-    pointer-events: none;
-    transition: border-color 0.4s ease, box-shadow 0.4s ease;
-  }
-  .crs-card--featured:hover::before {
-    border-color: #fff;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3);
-  }
-  /* Badge */
-  .crs-featured-badge {
-    position: absolute;
-    top: -16px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #fff;
-    color: var(--sage, #8b937e);
-    font-family: 'Raleway', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 7px 22px;
-    border-radius: 20px;
-    white-space: nowrap;
-    z-index: 20;
-  }
-  .crs-card img {
-    width: 100%;
+    top: 0;
+    left: -150%;
+    width: 45%;
     height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.6s cubic-bezier(0.77, 0, 0.18, 1);
-  }
-  .crs-card:hover img {
-    transform: scale(1.04);
-  }
-  /* Permanent dark gradient */
-  .crs-card-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to top,
-      rgba(22,17,18,0.75) 0%,
-      rgba(22,17,18,0.25) 50%,
-      rgba(22,17,18,0.0) 100%
-    );
-    transition: background 0.4s ease;
+    background: linear-gradient(115deg, transparent 0%, rgba(255,255,255,0.32) 50%, transparent 100%);
+    transform: skewX(-18deg);
     pointer-events: none;
+    z-index: 2;
+    transition: left 1.6s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  .crs-card:hover .crs-card-overlay {
-    background: linear-gradient(
-      to top,
-      rgba(22,17,18,0.85) 0%,
-      rgba(22,17,18,0.45) 60%,
-      rgba(22,17,18,0.1) 100%
-    );
+
+  .crs-card:hover::before {
+    left: 150%;
   }
-  /* Top area: tag + title — always visible */
-  .crs-card-top {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 24px 24px 20px;
-    z-index: 1;
-    transition: transform 0.4s cubic-bezier(0.77, 0, 0.18, 1);
+
+  .crs-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 40px 64px -18px rgba(57,47,40,0.26);
+    border-color: #b24610;
   }
-  .crs-card:hover .crs-card-top {
-    transform: translateY(-52px);
-  }
-  .crs-card-tag {
-    display: inline-block;
-    font-family: 'Raleway', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--cream);
-    background: rgba(239,236,227,0.18);
-    border: 1px solid rgba(239,236,227,0.35);
-    padding: 4px 10px;
-    border-radius: 999px;
-    margin-bottom: 10px;
-  }
-  .crs-card-title {
-    font-family: 'Raleway', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-    color: var(--cream);
-    line-height: 1.2;
-    margin: 0;
-  }
-  /* Hover area: desc + arrow — hidden by default */
-  .crs-card-hover {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 0 24px 22px;
-    z-index: 1;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 12px;
-    opacity: 0;
-    transform: translateY(8px);
-    transition: opacity 0.35s ease 0.05s, transform 0.35s ease 0.05s;
-  }
-  .crs-card:hover .crs-card-hover {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .crs-card-desc {
-    font-family: 'Raleway', sans-serif;
-    font-size: 13px;
-    font-weight: 400;
-    color: rgba(239,236,227,0.85);
-    line-height: 1.5;
-    margin: 0;
-    flex: 1;
-  }
-  .crs-card-arrow {
-    flex-shrink: 0;
-    width: 36px;
-    height: 36px;
-    border: 1px solid rgba(239,236,227,0.6);
-    border-radius: 50%;
-    color: var(--cream);
-    text-decoration: none;
+
+  .crs-card-topbar {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
-    transition: background 0.2s ease, border-color 0.2s ease;
+    margin-bottom: 28px;
   }
-  .crs-card-arrow:hover {
-    background: var(--cream);
-    color: var(--near-black);
+
+  .crs-card-num {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 44px;
+    color: var(--espresso);
+  }
+
+  .crs-card-badge {
+    display: inline-block;
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--espresso);
+    background: transparent;
+    border: 1px solid rgba(57,47,40,0.35);
+    border-radius: 999px;
+    padding: 6px 16px;
+  }
+
+  .crs-card-badge--filled {
+    background: var(--rust);
+    border-color: var(--rust);
+    color: var(--cream);
+  }
+
+  .crs-card-title {
+    font-family: 'Raleway', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    color: var(--espresso);
+    margin: 0 0 20px;
+  }
+
+  .crs-card-desc {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #332116;
+    margin: 0 0 24px;
+  }
+
+  .crs-card-keywords {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 24px;
+  }
+
+  .crs-keyword {
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--espresso);
+    background: transparent;
+    border: 1px solid rgba(57,47,40,0.3);
+    border-radius: 999px;
+    padding: 5px 12px;
+    white-space: nowrap;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    cursor: default;
+  }
+
+  .crs-keyword:hover {
+    background: rgba(51,33,22,0.08);
+    border-color: rgba(51,33,22,0.5);
+    color: #332116;
+  }
+
+  .crs-card-footer {
+    margin-top: auto;
+    text-align: left;
+  }
+
+  .crs-card-price {
+    margin-bottom: 14px;
+  }
+
+  .crs-price-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: rgba(57,47,40,0.45);
+    margin-right: 8px;
+  }
+
+  .crs-price-value {
+    font-family: 'Raleway', sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 0;
+    color: var(--espresso);
+  }
+
+  .crs-card-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--espresso);
+    background: transparent;
+    border: 1px solid rgba(57,47,40,0.4);
+    border-radius: 999px;
+    padding: 14px;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .crs-card-btn:hover {
+    background: var(--espresso);
+    border-color: var(--espresso);
+    color: var(--cream);
   }
 
     /* ─── MUEBLES CÁPSULA ─────────────── */
@@ -2014,15 +1921,15 @@
   .proc-titulo-raleway {
     font-family: 'Raleway', sans-serif;
     font-weight: 300;
-    letter-spacing: -0.05em;
+    letter-spacing: -0.025em;
     color: var(--espresso);
   }
   .proc-titulo-cormorant {
     font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
+    font-weight: 500;
     font-style: italic;
     font-size: 1.35em;
-    letter-spacing: -0.05em;
+    letter-spacing: -0.025em;
     color: var(--espresso);
   }
 
@@ -2574,132 +2481,29 @@
 
     /* ── CURSOS ── */
     #cursos {
-      padding: 40px 20px 48px;
+      padding: 56px 20px 64px;
     }
     #cursos .section-title {
       white-space: normal;
-      font-size: clamp(18px, 5.5vw, 24px);
+      font-size: clamp(24px, 6.5vw, 30px);
       text-align: center;
     }
-    /* Banda: 2x2 grid */
-    .crs-banda {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px 12px;
-      padding: 20px 0;
+    #cursos .section-header {
+      margin-bottom: 36px;
     }
-    .crs-banda-sep {
-      display: none;
-    }
-    .crs-banda-item {
-      flex-direction: column;
-      gap: 3px;
-    }
-    .crs-banda-valor {
-      font-size: 16px;
-    }
-    .crs-banda-label {
-      font-size: 9px;
-    }
-    /* Cards: full width, text below image */
     .crs-grid {
       grid-template-columns: 1fr;
-      gap: 10px;
+      gap: 16px;
     }
     .crs-card {
-      height: 220px;
-      display: block;
-      filter: none;
-    }
-    /* Reset featured card completely on mobile */
-    .crs-card--featured {
-      overflow: hidden;
-      height: 220px;
-    }
-    .crs-card--featured::before {
-      display: none;
-    }
-    .crs-featured-badge {
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 10px;
-      padding: 4px 12px;
-      z-index: 20;
-    }
-    /* Make clip div behave like a normal card container */
-    .crs-card-clip {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      overflow: hidden;
-      height: 220px;
-    }
-    .crs-card-clip img {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-    }
-    /* All card images same treatment */
-    .crs-card img {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .crs-card img {
-      position: relative;
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-    }
-    .crs-card-overlay {
-      display: block;
-    }
-    /* Tag+title pinned to bottom, no transform */
-    .crs-card-top {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      top: auto;
-      transform: none !important;
-      padding: 14px 14px 12px;
-    }
-    /* Hide the tag pill background on mobile */
-    .crs-card-tag {
-      background: none;
-      border: none;
-      padding: 0;
-      font-size: 9px;
-      color: rgba(239,236,227,0.65);
-      margin-bottom: 4px;
+      min-height: auto;
+      padding: 26px 22px;
     }
     .crs-card-title {
-      color: var(--cream);
-      font-size: 13px;
-    }
-    /* Hide description on mobile to avoid overlap */
-    .crs-card-hover {
-      display: block;
-      position: absolute;
-      opacity: 1;
-      transform: none;
-      bottom: 10px;
-      right: 10px;
-      top: auto;
-      left: auto;
-      padding: 0;
-      background: transparent;
+      font-size: 20px;
     }
     .crs-card-desc {
-      display: none;
-    }
-    .crs-card-arrow {
-      width: 30px;
-      height: 30px;
-      font-size: 12px;
+      font-size: 14px;
     }
 
     /* ── Before/After slider mobile fix ── */
