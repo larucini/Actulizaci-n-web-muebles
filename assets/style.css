@@ -692,7 +692,7 @@
   .sobre-titulo {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
-    font-size: clamp(32px, 4vw, 56px);
+    font-size: clamp(32px, 3.75vw, 50px);
     letter-spacing: -0.05em;
     color: var(--espresso);
     margin: 0 0 24px;
@@ -786,7 +786,7 @@
   .srv-ed-titulo {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
-    font-size: clamp(28px, 3.5vw, 48px);
+    font-size: clamp(32px, 3.75vw, 50px);
     letter-spacing: -0.03em;
     color: var(--espresso);
     margin: 0 0 20px;
@@ -796,7 +796,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-weight: 400;
-    font-size: 1.4em;
+    font-size: 1.35em;
   }
   .srv-ed-intro {
     font-family: 'Raleway', sans-serif;
@@ -1340,143 +1340,208 @@
   .btn-light:hover { background: rgba(239,236,227,0.1); border-color: var(--cream); transform: translateY(-1px); }
 
   /* ─── VETAS ───────────────────────────── */
-  #vetas {
-    background: var(--cream);
-    padding: 144px 0 0;
+  #material {
+    background: #efece3;
+    padding: 144px 48px 160px;
   }
 
-  .vetas-titulo {
-    padding: 0 48px 100px;
-    text-align: center;
+  #material .section-header {
+    margin-bottom: 72px;
   }
 
-  .vetas-titulo-text {
+  .mat-title {
+    white-space: normal;
+    margin-bottom: 20px;
+    font-weight: 300;
+  }
+
+  .mat-title em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.35em;
+  }
+
+  #material .section-eyebrow {
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: #332116;
+    opacity: 1;
+  }
+
+  .mat-desc {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
-    font-size: clamp(1.8rem, 2.88vw, 2.3rem);
-    letter-spacing: -0.03em;
-    color: var(--ink);
+    font-size: 18px;
+    line-height: 1.6;
+    letter-spacing: 0.03em;
+    color: #332116;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* ── Layout ── */
+  .mat-content {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .mat-tabs {
+    flex: 0 0 330px;
+  }
+
+  /* ── Tabs ── */
+  .mat-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .mat-tab {
+    font-family: 'Raleway', sans-serif;
+    font-size: 35px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--espresso);
+    background: var(--cream);
+    border: 1.5px solid rgba(57,47,40,0.3);
+    border-radius: 999px;
+    padding: 26px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+  }
+
+  .mat-tab:hover {
+    background: var(--espresso);
+    border-color: var(--espresso);
+    color: var(--cream);
+  }
+
+  /* ── Imagen ── */
+  .mat-image {
+    position: relative;
+    flex: 0 0 380px;
+    width: 380px;
+    aspect-ratio: 3 / 4;
+    border: 1px solid rgba(57,47,40,0.35);
+    border-radius: 2px;
+    overflow: hidden;
+    background: var(--cream);
+  }
+
+  .mat-image-item {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--cream);
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .mat-image-item.is-active {
+    position: relative;
+    opacity: 1;
+  }
+
+  .mat-image-item:not(.is-active) {
+    display: none;
+  }
+
+  /* ── Info ── */
+  .mat-info {
+    position: relative;
+    flex: 0 0 310px;
+    height: 507px;
+  }
+
+  .mat-info-item {
+    display: none;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .mat-info-item.is-active {
+    display: flex;
+  }
+
+  .mat-info-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 52px;
+    color: var(--espresso);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .mat-info-name {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    letter-spacing: -0.01em;
+    color: var(--espresso);
+    margin: 0 0 32px;
+  }
+
+  .mat-info-row {
+    margin-bottom: 24px;
+  }
+
+  .mat-info-label {
+    display: block;
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: rgba(57,47,40,0.45);
+    margin-bottom: 5px;
+  }
+
+  .mat-info-text {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--espresso);
     margin: 0;
   }
 
-  .vetas-titulo-text em {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: clamp(2.45rem, 4.03vw, 3.17rem);
+  .mat-info-ideal {
+    margin-top: auto;
+    background: var(--cream);
+    border-radius: 26px;
+    padding: 26px 28px;
+    box-shadow: 0 10px 28px rgba(57,47,40,0.14);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
   }
 
-  /* Strip / banda */
-  .veta-strip {
-    position: relative;
-    width: 100%;
-    height: clamp(180px, 22vw, 300px);
-    overflow: hidden;
+  .mat-info-ideal:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(57,47,40,0.2);
   }
 
-  .veta-strip + .veta-strip {
-    margin-top: 0;
+  .mat-info-ideal .mat-info-label {
+    font-size: 14px;
   }
 
-  .veta-img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 40%;
-    transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
-  }
-
-  .veta-strip:hover .veta-img {
-    transform: scale(1.03);
-  }
-
-  /* Hotspot dot */
-  .veta-dot {
-    position: absolute;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.92);
-    border: 2px solid rgba(255,255,255,0.6);
-    cursor: pointer;
-    padding: 0;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 0 0 rgba(255,255,255,0.5);
-    animation: veta-pulse 2.4s ease-in-out infinite;
-    transition: transform 0.2s;
-    z-index: 2;
-  }
-
-  @keyframes veta-pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.55); }
-    50%       { box-shadow: 0 0 0 14px rgba(255,255,255,0); }
-  }
-
-  .veta-dot:hover,
-  .veta-dot:focus {
-    transform: translate(-50%, -50%) scale(1.2);
-    outline: none;
-  }
-
-  /* Tooltip — glass card */
-  .veta-tooltip {
-    position: absolute;
-    bottom: calc(100% + 18px);
-    left: 50%;
-    transform: translateX(-50%) translateY(8px);
-    background: rgba(20, 14, 10, 0.52);
-    backdrop-filter: blur(14px) saturate(1.4);
-    -webkit-backdrop-filter: blur(14px) saturate(1.4);
-    color: #f5f0e8;
-    padding: 14px 20px;
-    border-radius: 8px;
-    border: 1px solid rgba(255,255,255,0.18);
-    white-space: nowrap;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.25s, transform 0.25s;
-    z-index: 10;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.28);
-  }
-
-  .veta-tooltip strong {
+  .mat-info-text-bold {
     font-family: 'Raleway', sans-serif;
-    font-weight: 600;
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #fff;
-  }
-
-  .veta-tooltip span {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1rem;
-    color: rgba(245, 240, 232, 0.88);
-    font-weight: 400;
-  }
-
-  /* Arrow */
-  .veta-tooltip::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 7px solid transparent;
-    border-top-color: rgba(20, 14, 10, 0.52);
-  }
-
-  /* Show on hover or active */
-  .veta-dot:hover .veta-tooltip,
-  .veta-dot:focus .veta-tooltip,
-  .veta-dot.is-open .veta-tooltip {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--espresso);
+    margin: 0;
   }
 
   /* ── Typewriter cursor ── */
@@ -1943,7 +2008,7 @@
   }
   .proc-titulo-text {
     margin: 0;
-    font-size: clamp(24px, 2.8vw, 38px);
+    font-size: clamp(32px, 3.75vw, 50px);
     line-height: 1.1;
   }
   .proc-titulo-raleway {
@@ -2801,77 +2866,59 @@
     .proj-item.tapped .proy-caption { opacity: 1; }
 
     /* ── VETAS ── */
-    #vetas {
-      padding: 72px 0 0;
+    #material {
+      padding: 72px 20px 88px;
     }
-    .vetas-titulo {
-      padding: 0 20px 32px;
+    #material .section-header {
+      margin-bottom: 40px;
     }
-    .vetas-titulo-text {
-      font-size: clamp(1rem, 4.5vw, 1.3rem);
+    #material .section-eyebrow {
+      font-size: 13px;
     }
-    .vetas-titulo-text em {
-      font-size: clamp(1.3rem, 6vw, 1.7rem);
+    .mat-desc {
+      font-size: 14px;
+      padding: 0 8px;
     }
-    .veta-strip {
-      height: clamp(120px, 35vw, 180px);
+    .mat-content {
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
     }
-    .veta-dot {
-      width: 14px;
-      height: 14px;
-      border-width: 1.5px;
+    .mat-tabs {
+      flex: none;
+      width: 100%;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 8px;
     }
-    /* Base tooltip: appear to the right of dot */
-    .veta-tooltip {
-      position: absolute;
-      bottom: auto;
-      top: 50%;
-      left: calc(100% + 12px);
-      right: auto;
-      transform: translateX(0) translateY(-50%) translateX(6px);
-      width: 160px;
-      white-space: normal;
-      padding: 10px 14px;
+    .mat-tab {
+      flex: 1 1 calc(50% - 8px);
+      padding: 14px 12px;
+      font-size: 13px;
     }
-    .veta-tooltip::after {
-      /* Arrow pointing left */
-      top: 50%;
-      left: -12px;
-      right: auto;
-      transform: translateY(-50%);
-      border-top-color: transparent;
-      border-right-color: rgba(20,14,10,0.52);
-      border-width: 6px;
+    .mat-image {
+      flex: none;
+      width: 65%;
+      aspect-ratio: 3/4;
     }
-    .veta-dot:hover .veta-tooltip,
-    .veta-dot:focus .veta-tooltip,
-    .veta-dot.is-open .veta-tooltip {
-      transform: translateX(0) translateY(-50%);
-      opacity: 1;
+    .mat-info {
+      flex: none;
+      width: 100%;
+      height: auto;
+      padding-top: 8px;
     }
-    /* Dot 2 (strip 3, left:58%): card aparece a la IZQUIERDA */
-    .veta-strip:nth-child(3) .veta-dot .veta-tooltip {
-      left: auto;
-      right: calc(100% + 12px);
-      transform: translateX(0) translateY(-50%) translateX(-6px);
+    .mat-info-item {
+      height: auto;
     }
-    .veta-strip:nth-child(3) .veta-dot .veta-tooltip::after {
-      left: auto;
-      right: -12px;
-      border-right-color: transparent;
-      border-left-color: rgba(20,14,10,0.52);
+    .mat-info-ideal {
+      margin-top: 24px;
     }
-    .veta-strip:nth-child(3) .veta-dot:hover .veta-tooltip,
-    .veta-strip:nth-child(3) .veta-dot:focus .veta-tooltip,
-    .veta-strip:nth-child(3) .veta-dot.is-open .veta-tooltip {
-      transform: translateX(0) translateY(-50%);
+    .mat-info-name {
+      font-size: 20px;
+      margin-bottom: 20px;
     }
-    .veta-tooltip strong {
-      font-size: 0.62rem;
-    }
-    .veta-tooltip span {
-      font-size: 0.82rem;
-      white-space: normal;
+    .mat-info-ideal {
+      transform: none !important;
     }
 
     /* ── STATS (flipcards) ── */

@@ -401,44 +401,106 @@
 
 </section>
 
-<!-- ── VETAS ───────────────────────────── -->
-<section id="vetas">
+<!-- ── MATERIAL DE TRABAJO ───────────────────────────── -->
+<section id="material">
 
-  <div class="vetas-titulo fade-up">
-    <p class="vetas-titulo-text">Cada veta cuenta. La <em>materia prima.</em></p>
+  <div class="section-header fade-up">
+    <span class="section-eyebrow">Material de trabajo</span>
+    <h2 class="section-title mat-title">Conocer la madera es el <em>primer paso</em>.</h2>
+    <p class="mat-desc">Cada madera responde de manera diferente al paso del tiempo. Conocer sus propiedades<br>nos permite restaurar respetando su identidad y prolongando su vida útil.</p>
   </div>
 
-  <!-- STRIP 1 — Petiribí -->
-  <div class="veta-strip fade-up">
-    <img src="assets/images/1782679593302_image.png" alt="Madera Petiribí" class="veta-img">
-    <button class="veta-dot" style="top:50%;left:42%" aria-label="Ver especie">
-      <span class="veta-tooltip">
-        <strong>Petiribí</strong>
-        <span>Veta uniforme, tonos cálidos y gran estabilidad.</span>
-      </span>
-    </button>
-  </div>
+  <div class="mat-content fade-up">
 
-  <!-- STRIP 2 — Guayubira -->
-  <div class="veta-strip fade-up">
-    <img src="assets/images/1782679598488_image.png" alt="Madera Guayubira" class="veta-img">
-    <button class="veta-dot" style="top:45%;left:58%" aria-label="Ver especie">
-      <span class="veta-tooltip">
-        <strong>Guayubira</strong>
-        <span>Contrastes intensos y carácter natural.</span>
-      </span>
-    </button>
-  </div>
+    <!-- Tabs -->
+    <div class="mat-tabs">
+      <button class="mat-tab is-active" data-especie="petiribi" type="button">Petiribí</button>
+      <button class="mat-tab" data-especie="guayubira" type="button">Guayubira</button>
+      <button class="mat-tab" data-especie="paraiso" type="button">Paraíso</button>
+      <button class="mat-tab" data-especie="guatambu" type="button">Guatambú</button>
+    </div>
 
-  <!-- STRIP 3 — Paraíso -->
-  <div class="veta-strip fade-up">
-    <img src="assets/images/1782679587854_image.png" alt="Madera Paraíso" class="veta-img">
-    <button class="veta-dot" style="top:60%;left:30%" aria-label="Ver especie">
-      <span class="veta-tooltip">
-        <strong>Paraíso</strong>
-        <span>Textura suave, ligereza y elegancia.</span>
-      </span>
-    </button>
+    <!-- Imagen -->
+    <div class="mat-image">
+      <div class="mat-image-item is-active" data-especie="petiribi" style="background-image:url('assets/images/mat-petiribi.jpg')"></div>
+      <div class="mat-image-item" data-especie="guayubira" style="background-image:url('assets/images/mat-guayubira.jpg')"></div>
+      <div class="mat-image-item" data-especie="paraiso" style="background-image:url('assets/images/mat-paraiso.jpg')"></div>
+      <div class="mat-image-item" data-especie="guatambu" style="background-image:url('assets/images/mat-guatambu.jpg')"></div>
+    </div>
+
+    <!-- Info -->
+    <div class="mat-info">
+
+      <div class="mat-info-item is-active" data-especie="petiribi">
+        <span class="mat-info-num">01</span>
+        <h3 class="mat-info-name">Petiribí</h3>
+        <div class="mat-info-row">
+          <span class="mat-info-label">Veta</span>
+          <p class="mat-info-text">Recta con movimiento natural.</p>
+        </div>
+        <div class="mat-info-row">
+          <span class="mat-info-label">Dureza</span>
+          <p class="mat-info-text">Media.</p>
+        </div>
+        <div class="mat-info-ideal">
+          <span class="mat-info-label">Ideal para</span>
+          <p class="mat-info-text-bold">Mesas, escritorios y muebles de autor.</p>
+        </div>
+      </div>
+
+      <div class="mat-info-item" data-especie="guayubira">
+        <span class="mat-info-num">02</span>
+        <h3 class="mat-info-name">Guayubira</h3>
+        <div class="mat-info-row">
+          <span class="mat-info-label">Veta</span>
+          <p class="mat-info-text">Ondulada, con vetas marcadas y contraste natural.</p>
+        </div>
+        <div class="mat-info-row">
+          <span class="mat-info-label">Dureza</span>
+          <p class="mat-info-text">Media-alta.</p>
+        </div>
+        <div class="mat-info-ideal">
+          <span class="mat-info-label">Ideal para</span>
+          <p class="mat-info-text-bold">Placares, puertas y revestimientos.</p>
+        </div>
+      </div>
+
+      <div class="mat-info-item" data-especie="paraiso">
+        <span class="mat-info-num">03</span>
+        <h3 class="mat-info-name">Paraíso</h3>
+        <div class="mat-info-row">
+          <span class="mat-info-label">Veta</span>
+          <p class="mat-info-text">Suave y homogénea, de tono claro.</p>
+        </div>
+        <div class="mat-info-row">
+          <span class="mat-info-label">Dureza</span>
+          <p class="mat-info-text">Baja-media.</p>
+        </div>
+        <div class="mat-info-ideal">
+          <span class="mat-info-label">Ideal para</span>
+          <p class="mat-info-text-bold">Piezas livianas y detalles decorativos.</p>
+        </div>
+      </div>
+
+      <div class="mat-info-item" data-especie="guatambu">
+        <span class="mat-info-num">04</span>
+        <h3 class="mat-info-name">Guatambú</h3>
+        <div class="mat-info-row">
+          <span class="mat-info-label">Veta</span>
+          <p class="mat-info-text">Fina y uniforme, de tono claro y parejo.</p>
+        </div>
+        <div class="mat-info-row">
+          <span class="mat-info-label">Dureza</span>
+          <p class="mat-info-text">Media.</p>
+        </div>
+        <div class="mat-info-ideal">
+          <span class="mat-info-label">Ideal para</span>
+          <p class="mat-info-text-bold">Muebles de líneas limpias y tapizados.</p>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 
 </section>

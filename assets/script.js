@@ -430,22 +430,39 @@ const navbar = document.getElementById('navbar');
     observer.observe(document.getElementById('cursos'));
   })();
 
-  // ── Veta hotspots (toggle on click for mobile) ──
-  (function initVetaDots() {
-    const dots = document.querySelectorAll('.veta-dot');
-    dots.forEach(dot => {
-      dot.addEventListener('click', () => {
-        const isOpen = dot.classList.contains('is-open');
-        // Close all
-        dots.forEach(d => d.classList.remove('is-open'));
-        // Toggle current
-        if (!isOpen) dot.classList.add('is-open');
+  // ── Material de trabajo (tabs de especies) ──
+  (function initMaterialTabs() {
+    const tabs = document.querySelectorAll('.mat-tab');
+    if (!tabs.length) return;
+
+    tabs.forEach(tab => {
+      tab.addEventListener('mouseenter', () => {
+        const especie = tab.getAttribute('data-especie');
+
+        tabs.forEach(t => t.classList.toggle('is-active', t === tab));
+
+        document.querySelectorAll('.mat-image-item').forEach(img => {
+          img.classList.toggle('is-active', img.getAttribute('data-especie') === especie);
+        });
+
+        document.querySelectorAll('.mat-info-item').forEach(info => {
+          info.classList.toggle('is-active', info.getAttribute('data-especie') === especie);
+        });
       });
-    });
-    // Close on outside click
-    document.addEventListener('click', e => {
-      if (!e.target.closest('.veta-dot')) {
-        dots.forEach(d => d.classList.remove('is-open'));
-      }
+
+      // Fallback para touch (mobile no tiene hover real)
+      tab.addEventListener('click', () => {
+        const especie = tab.getAttribute('data-especie');
+
+        tabs.forEach(t => t.classList.toggle('is-active', t === tab));
+
+        document.querySelectorAll('.mat-image-item').forEach(img => {
+          img.classList.toggle('is-active', img.getAttribute('data-especie') === especie);
+        });
+
+        document.querySelectorAll('.mat-info-item').forEach(info => {
+          info.classList.toggle('is-active', info.getAttribute('data-especie') === especie);
+        });
+      });
     });
   })();
