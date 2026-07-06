@@ -632,6 +632,13 @@
     object-position: left center;
     pointer-events: none;
   }
+
+  /* Cómoda: el encuadre original queda mejor centrado */
+  #ba-comoda .ba-after,
+  #ba-comoda .ba-before {
+    object-position: center center;
+  }
+
   .ba-divider {
     position: absolute;
     top: 0;
