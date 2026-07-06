@@ -356,11 +356,11 @@
   }
   .section-eyebrow {
     font-size: 10px;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: var(--espresso);
-    opacity: 0.5;
+    color: #332116;
+    opacity: 1;
     display: block;
     margin-bottom: 16px;
   }
@@ -682,7 +682,7 @@
   .sobre-eyebrow {
     font-family: 'Raleway', sans-serif;
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 0;
     text-transform: uppercase;
     color: #332116;
@@ -716,6 +716,8 @@
     margin: 0 auto;
   }
   .sobre-card {
+    position: relative;
+    overflow: hidden;
     background: var(--cream);
     border: 1px solid rgba(51,33,22,0.12);
     border-radius: 16px;
@@ -727,6 +729,22 @@
     box-shadow: 0 4px 24px rgba(51,33,22,0.07);
     transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     cursor: default;
+  }
+  .sobre-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 45%;
+    height: 100%;
+    background: linear-gradient(115deg, transparent 0%, rgba(255,255,255,0.32) 50%, transparent 100%);
+    transform: skewX(-18deg);
+    pointer-events: none;
+    z-index: 2;
+    transition: left 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .sobre-card:hover::before {
+    left: 150%;
   }
   .sobre-card:hover {
     background: rgba(51,33,22,0.04);
@@ -765,7 +783,7 @@
 
   /* ─── SERVICIO EDITORIAL ──────────────── */
   #servicio-editorial {
-    background: var(--cream);
+    background: linear-gradient(to bottom, rgba(57,47,40,0.05) 0%, rgba(57,47,40,0) 180px), var(--cream);
     padding: 100px 0 80px;
   }
   .srv-ed-header {
@@ -776,7 +794,7 @@
   .srv-ed-eyebrow {
     font-family: 'Raleway', sans-serif;
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 0;
     text-transform: uppercase;
     color: #332116;
@@ -1071,7 +1089,7 @@
   .proy-label-text {
     font-family: 'Raleway', sans-serif;
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 0;
     text-transform: uppercase;
     color: rgba(239,236,227,0.5);
@@ -1364,7 +1382,7 @@
 
   #material .section-eyebrow {
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 0;
     color: #332116;
     opacity: 1;
@@ -1546,14 +1564,14 @@
 
   /* ─── CURSOS ──────────────────────────── */
   #cursos {
-    background: #efece3;
+    background: linear-gradient(to bottom, rgba(57,47,40,0.05) 0%, rgba(57,47,40,0) 180px), #efece3;
     padding: 144px 48px 160px;
   }
   #cursos .section-header {
     text-align: center;
     margin-bottom: 64px;
   }
-  #cursos .section-eyebrow { color: var(--espresso); opacity: 0.5; }
+  #cursos .section-eyebrow { color: #332116; opacity: 1; font-size: 15px; letter-spacing: 0; }
   #cursos .section-title   { color: var(--espresso); font-family: 'Raleway', sans-serif; font-weight: 300; letter-spacing: -0.025em; }
 
   .crs-grid {
