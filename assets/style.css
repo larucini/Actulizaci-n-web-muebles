@@ -857,25 +857,77 @@
   .srv-ed-row--reverse .srv-ed-content {
     padding: 0 48px 0 0;
   }
-  /* Narrower images */
-  .srv-ed-row {
-    display: grid;
-    grid-template-columns: 4fr 6fr;
-    grid-template-areas: "img content";
-    align-items: center;
-    gap: 0;
-    margin-bottom: 80px;
-    max-width: 860px;
-    margin-left: auto;
-    margin-right: auto;
+  /* Acordeón horizontal — 3 cards, hover expande */
+  .srv-acc-row {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    max-width: 900px;
+    height: 340px;
+    margin: 0 auto;
   }
-  .srv-ed-row--reverse {
-    grid-template-columns: 6fr 4fr;
-    grid-template-areas: "content img";
-    direction: ltr;
+
+  .srv-acc-card {
+    position: relative;
+    flex: 0 0 200px;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: 1.5px solid rgba(57,47,40,0.3);
+    border-radius: 24px;
+    padding: 40px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background: var(--cream);
+    cursor: default;
+    box-shadow: 0 20px 40px -16px rgba(57,47,40,0.2);
+    transition: flex-basis 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease;
   }
-  .srv-ed-row .srv-ed-img    { grid-area: img; }
-  .srv-ed-row .srv-ed-content { grid-area: content; }
+
+  .srv-acc-card:hover {
+    flex-basis: 460px;
+    border-color: #b24610;
+  }
+
+  .srv-acc-num {
+    align-self: flex-start;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 100px;
+    color: var(--espresso);
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+
+  .srv-acc-content {
+    align-self: stretch;
+    width: 100%;
+    max-width: 380px;
+    text-align: left;
+    margin-top: auto;
+    margin-bottom: auto;
+    opacity: 0;
+    transition: opacity 0.1s ease;
+    pointer-events: none;
+  }
+
+  .srv-acc-card:hover .srv-acc-content {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.35s ease 0.2s;
+  }
+
+  .srv-ed-feature-title {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 21px;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    color: var(--espresso);
+    margin: 0 0 18px;
+  }
 
   /* Number */
   .srv-ed-num {
@@ -1144,7 +1196,7 @@
     background: #332116;
   }
   .proy-header--nueva {
-    background: #42291b;
+    background: #332116;
     max-width: 100%;
     padding: 120px 72px 120px;
     margin: 0;
@@ -1169,7 +1221,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-weight: 400;
-    font-size: 1.45em;
+    font-size: 1.2em;
     color: #efece3;
     letter-spacing: -0.05em;
   }
@@ -2332,26 +2384,25 @@
       padding: 0 20px;
       margin-bottom: 48px;
     }
-    .srv-ed-row {
-      grid-template-columns: 1fr;
-      margin-bottom: 48px;
+    .srv-acc-row {
+      flex-direction: column;
+      height: auto;
+      padding: 0 20px;
+      gap: 16px;
     }
-    .srv-ed-row--reverse {
-      direction: ltr;
+    .srv-acc-card {
+      flex: none;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 28px 22px;
     }
-    .srv-ed-img img {
-      height: 240px;
-      border-radius: 0;
+    .srv-acc-num {
+      margin-bottom: 8px;
     }
-    .srv-ed-content {
-      padding: 24px 20px 0;
-    }
-    .srv-ed-row--reverse .srv-ed-content {
-      padding: 24px 20px 0;
-      order: 2;
-    }
-    .srv-ed-row--reverse .srv-ed-img {
-      order: 1;
+    .srv-acc-content {
+      opacity: 1;
+      pointer-events: auto;
+      max-width: none;
     }
 
     /* ── SOBRE NOSOTROS ── */
