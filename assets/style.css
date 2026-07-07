@@ -1046,6 +1046,32 @@
     flex-direction: column;
     gap: 10px;
     align-items: center;
+    background: #4c3223;
+    border-radius: 20px;
+    padding: 28px 32px;
+    overflow: hidden;
+    cursor: default;
+  }
+  .proy-info-top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 45%;
+    height: 100%;
+    background: linear-gradient(115deg, transparent 0%, rgba(255,255,255,0.18) 50%, transparent 100%);
+    transform: skewX(-18deg);
+    pointer-events: none;
+    z-index: 1;
+    transition: left 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .proy-info-top:hover::before {
+    left: 150%;
+  }
+  .proy-info-titulo,
+  .proy-info-label {
+    position: relative;
+    z-index: 2;
   }
   .proy-info-titulo {
     font-family: 'Raleway', sans-serif;
