@@ -882,12 +882,30 @@
     background: var(--cream);
     cursor: default;
     box-shadow: 0 20px 40px -16px rgba(57,47,40,0.2);
-    transition: flex-basis 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease;
+    transition: flex-basis 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, background 0.3s ease;
   }
 
   .srv-acc-card:hover {
     flex-basis: 460px;
-    border-color: #b24610;
+    background: #332116;
+    border-color: var(--cream);
+  }
+
+  .srv-acc-card:hover .srv-acc-num,
+  .srv-acc-card:hover .srv-ed-feature-title,
+  .srv-acc-card:hover .srv-ed-desc {
+    color: var(--cream);
+  }
+
+  .srv-acc-card:hover .srv-ed-tag {
+    color: var(--cream);
+    border-color: rgba(239,236,227,0.4);
+  }
+
+  .srv-acc-card:hover .srv-ed-tag:hover {
+    background: rgba(239,236,227,0.12);
+    border-color: rgba(239,236,227,0.7);
+    color: var(--cream);
   }
 
   .srv-acc-num {
@@ -899,6 +917,7 @@
     color: var(--espresso);
     line-height: 1;
     margin-bottom: 14px;
+    transition: color 0.3s ease;
   }
 
   .srv-acc-content {
@@ -927,6 +946,7 @@
     letter-spacing: -0.01em;
     color: var(--espresso);
     margin: 0 0 18px;
+    transition: color 0.3s ease;
   }
 
   /* Number */
@@ -974,6 +994,7 @@
     color: #332116;
     margin: 0 0 24px;
     max-width: 340px;
+    transition: color 0.3s ease;
   }
 
   /* Tags */
