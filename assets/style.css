@@ -1189,7 +1189,7 @@
 
   /* PROYECTOS label */
   .proy-label-wrap {
-    padding: 120px 0 80px;
+    padding: 24px 0 80px;
     text-align: center;
   }
   .proy-label-text {
@@ -1245,7 +1245,7 @@
   .proy-header--nueva {
     background: #332116;
     max-width: 100%;
-    padding: 120px 72px 120px;
+    padding: 120px 72px 40px;
     margin: 0;
   }
   .proy-frase {
