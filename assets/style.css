@@ -57,7 +57,7 @@
     font-family: 'Raleway', sans-serif;
     font-size: 13px;
     font-weight: 500;
-    letter-spacing: 0;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
     color: var(--espresso);
     text-decoration: none;
@@ -1694,7 +1694,7 @@
     min-height: 525px;
     text-align: center;
     box-shadow: 0 24px 48px -16px rgba(57,47,40,0.18);
-    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.7s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.5s ease;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
   }
 
   .crs-card::before {
@@ -1715,8 +1715,8 @@
     left: 150%;
   }
 
-  .crs-card:hover {
-    transform: translateY(-4px);
+  .crs-grid .crs-card:hover {
+    transform: translateY(-5px);
     box-shadow: 0 40px 64px -18px rgba(57,47,40,0.26);
     border-color: #b24610;
   }
