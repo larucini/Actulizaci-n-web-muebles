@@ -861,20 +861,20 @@
   .srv-acc-row {
     display: flex;
     justify-content: center;
-    gap: 16px;
-    max-width: 900px;
-    height: 340px;
+    gap: 18px;
+    max-width: 1035px;
+    height: 390px;
     margin: 0 auto;
   }
 
   .srv-acc-card {
     position: relative;
-    flex: 0 0 200px;
+    flex: 0 0 230px;
     overflow: hidden;
     box-sizing: border-box;
     border: 1.5px solid rgba(57,47,40,0.3);
-    border-radius: 24px;
-    padding: 40px 28px;
+    border-radius: 28px;
+    padding: 46px 32px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -886,7 +886,7 @@
   }
 
   .srv-acc-card:hover {
-    flex-basis: 460px;
+    flex-basis: 530px;
     background: #332116;
     border-color: var(--cream);
   }
@@ -913,17 +913,17 @@
     font-family: 'Cormorant Garamond', serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 100px;
+    font-size: 115px;
     color: var(--espresso);
     line-height: 1;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
     transition: color 0.3s ease;
   }
 
   .srv-acc-content {
     align-self: stretch;
     width: 100%;
-    max-width: 380px;
+    max-width: 437px;
     text-align: left;
     margin-top: auto;
     margin-bottom: auto;
@@ -941,11 +941,11 @@
   .srv-ed-feature-title {
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
-    font-size: 21px;
+    font-size: 24px;
     text-transform: uppercase;
     letter-spacing: -0.01em;
     color: var(--espresso);
-    margin: 0 0 18px;
+    margin: 0 0 21px;
     transition: color 0.3s ease;
   }
 
@@ -987,13 +987,13 @@
   /* Desc */
   .srv-ed-desc {
     font-family: 'Raleway', sans-serif;
-    font-size: 17px;
+    font-size: 19px;
     font-weight: 400;
     line-height: 1.45;
     letter-spacing: 0.03em;
     color: #332116;
-    margin: 0 0 24px;
-    max-width: 340px;
+    margin: 0 0 28px;
+    max-width: 390px;
     transition: color 0.3s ease;
   }
 
@@ -1001,17 +1001,17 @@
   .srv-ed-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 9px;
   }
   .srv-ed-tag {
     font-family: 'Raleway', sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     letter-spacing: -0.05em;
     color: var(--espresso);
     border: 1px solid rgba(51,33,22,0.25);
     border-radius: 20px;
-    padding: 5px 14px;
+    padding: 6px 16px;
     transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
     cursor: default;
   }
@@ -1517,7 +1517,7 @@
   .mat-tabs {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 40px;
   }
 
   .mat-tab {
@@ -1530,7 +1530,7 @@
     background: var(--cream);
     border: 1.5px solid rgba(57,47,40,0.3);
     border-radius: 999px;
-    padding: 26px 16px;
+    padding: 26px 32px;
     text-align: center;
     cursor: pointer;
     transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease;
@@ -1677,8 +1677,8 @@
   .crs-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    max-width: 1100px;
+    gap: 28px;
+    max-width: 1260px;
     margin: 0 auto;
   }
 
@@ -1689,9 +1689,9 @@
     flex-direction: column;
     background: #efece3;
     border: 1px solid rgba(57,47,40,0.3);
-    border-radius: 20px;
-    padding: 32px 22px;
-    min-height: 460px;
+    border-radius: 22px;
+    padding: 37px 26px;
+    min-height: 525px;
     text-align: center;
     box-shadow: 0 24px 48px -16px rgba(57,47,40,0.18);
     transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.7s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.5s ease;
@@ -1726,7 +1726,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 28px;
+    margin-bottom: 32px;
   }
 
   .crs-card-num {
@@ -1737,14 +1737,14 @@
     font-family: 'Cormorant Garamond', serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 44px;
+    font-size: 50px;
     color: var(--espresso);
   }
 
   .crs-card-badge {
     display: inline-block;
     font-family: 'Raleway', sans-serif;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -1752,7 +1752,7 @@
     background: transparent;
     border: 1px solid rgba(57,47,40,0.35);
     border-radius: 999px;
-    padding: 6px 16px;
+    padding: 7px 18px;
   }
 
   .crs-card-badge--filled {
@@ -1763,42 +1763,42 @@
 
   .crs-card-title {
     font-family: 'Raleway', sans-serif;
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: -0.01em;
     line-height: 1.25;
     color: var(--espresso);
-    margin: 0 0 20px;
+    margin: 0 0 23px;
   }
 
   .crs-card-desc {
     font-family: 'Raleway', sans-serif;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 400;
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: #332116;
-    margin: 0 0 24px;
+    margin: 0 0 28px;
   }
 
   .crs-card-keywords {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
-    gap: 6px;
-    margin-bottom: 24px;
+    gap: 7px;
+    margin-bottom: 28px;
   }
 
   .crs-keyword {
     font-family: 'Raleway', sans-serif;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 500;
     color: var(--espresso);
     background: transparent;
     border: 1px solid rgba(57,47,40,0.3);
     border-radius: 999px;
-    padding: 5px 12px;
+    padding: 6px 14px;
     white-space: nowrap;
     transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
     cursor: default;
@@ -1816,12 +1816,12 @@
   }
 
   .crs-card-price {
-    margin-bottom: 14px;
+    margin-bottom: 16px;
   }
 
   .crs-price-label {
     font-family: 'Raleway', sans-serif;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 400;
     letter-spacing: 0;
     text-transform: uppercase;
@@ -1831,7 +1831,7 @@
 
   .crs-price-value {
     font-family: 'Raleway', sans-serif;
-    font-size: 26px;
+    font-size: 29px;
     font-weight: 600;
     letter-spacing: 0;
     color: var(--espresso);
@@ -1842,7 +1842,7 @@
     width: 100%;
     text-align: center;
     font-family: 'Raleway', sans-serif;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -1850,7 +1850,7 @@
     background: transparent;
     border: 1px solid rgba(57,47,40,0.4);
     border-radius: 999px;
-    padding: 14px;
+    padding: 16px;
     text-decoration: none;
     transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
@@ -1878,6 +1878,8 @@
   .cap-eyebrow {
     color: rgba(252,239,220,0.6);
     opacity: 1;
+    font-size: 15px;
+    letter-spacing: 0.22em;
   }
 
   .cap-titulo {
@@ -2228,6 +2230,7 @@
 
   .ctc-cols {
     display: flex;
+    flex: 0 0 44%;
     gap: 64px;
   }
   .ctc-col {
