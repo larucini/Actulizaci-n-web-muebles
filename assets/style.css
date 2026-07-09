@@ -82,9 +82,9 @@
     top: 50%;
     transform: translateY(-50%);
     font-family: 'Raleway', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--cream);
     background: var(--near-black);
@@ -1439,9 +1439,9 @@
 
     .btn-light {
     font-family: 'Raleway', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
     padding: 14px 28px;
     background: transparent;
@@ -1842,9 +1842,9 @@
     width: 100%;
     text-align: center;
     font-family: 'Raleway', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--espresso);
     background: transparent;
