@@ -774,17 +774,18 @@
   }
   .sobre-label {
     font-family: 'Raleway', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--espresso);
     margin-top: 4px;
   }
   .sobre-sub {
     font-family: 'Raleway', sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 400;
+    letter-spacing: normal;
     color: #332116;
   }
 
@@ -2269,8 +2270,9 @@
   }
 
   .ctc-hero-left {
-    flex: 0 0 48%;
-    text-align: left;
+    flex: 0 1 auto;
+    width: fit-content;
+    text-align: center;
   }
 
   .ctc-question {
@@ -2278,9 +2280,15 @@
     font-weight: 400;
     font-size: clamp(28px, 3.2vw, 42px);
     letter-spacing: -0.03em;
-    line-height: 1.2;
+    line-height: 0.95;
     color: var(--espresso);
     margin: 0;
+  }
+  .ctc-question em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.3em;
   }
 
   .ctc-hero-right {
@@ -2305,9 +2313,14 @@
     align-items: center;
     gap: 12px;
     background: #ffffff;
+    border: 2px solid transparent;
     border-radius: 999px;
-    padding: 16px 22px;
+    padding: 14px 20px;
     box-shadow: 0 8px 24px rgba(51,33,22,0.08);
+    transition: border-color 0.2s ease;
+  }
+  .ctc-search-bar:focus-within {
+    border-color: #a3af8c;
   }
   .ctc-search-icon {
     flex-shrink: 0;
