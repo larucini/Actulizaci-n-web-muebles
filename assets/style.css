@@ -356,8 +356,8 @@
   }
   .section-eyebrow {
     font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.28em;
+    font-weight: 600;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
     color: #332116;
     opacity: 1;
@@ -367,7 +367,7 @@
   .section-title {
     font-family: 'Raleway', sans-serif;
     font-size: clamp(32px, 3.75vw, 50px);
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: -0.025em;
     line-height: 1.1;
     color: var(--espresso);
@@ -689,8 +689,8 @@
   .sobre-eyebrow {
     font-family: 'Raleway', sans-serif;
     font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 0;
+    font-weight: 600;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
     color: #332116;
     display: block;
@@ -698,7 +698,7 @@
   }
   .sobre-titulo {
     font-family: 'Raleway', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     font-size: clamp(32px, 3.75vw, 50px);
     letter-spacing: -0.025em;
     color: var(--espresso);
@@ -801,8 +801,8 @@
   .srv-ed-eyebrow {
     font-family: 'Raleway', sans-serif;
     font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 0;
+    font-weight: 600;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
     color: #332116;
     display: block;
@@ -810,7 +810,7 @@
   }
   .srv-ed-titulo {
     font-family: 'Raleway', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     font-size: clamp(32px, 3.75vw, 50px);
     letter-spacing: -0.025em;
     color: var(--espresso);
@@ -1592,7 +1592,7 @@
   .mat-title {
     white-space: normal;
     margin-bottom: 20px;
-    font-weight: 300;
+    font-weight: 400;
   }
 
   .mat-title em {
@@ -1604,8 +1604,8 @@
 
   #material .section-eyebrow {
     font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 0;
+    font-weight: 600;
+    letter-spacing: 0.03em;
     color: #332116;
     opacity: 1;
   }
@@ -1793,8 +1793,8 @@
     text-align: center;
     margin-bottom: 64px;
   }
-  #cursos .section-eyebrow { color: #332116; opacity: 1; font-size: 15px; letter-spacing: 0; }
-  #cursos .section-title   { color: var(--espresso); font-family: 'Raleway', sans-serif; font-weight: 300; letter-spacing: -0.025em; }
+  #cursos .section-eyebrow { color: #332116; opacity: 1; font-size: 15px; font-weight: 600; letter-spacing: 0.03em; }
+  #cursos .section-title   { color: var(--espresso); font-family: 'Raleway', sans-serif; font-weight: 400; letter-spacing: -0.025em; }
 
   .crs-grid {
     display: grid;
@@ -2001,12 +2001,13 @@
     color: rgba(252,239,220,0.6);
     opacity: 1;
     font-size: 15px;
-    letter-spacing: 0.22em;
+    font-weight: 600;
+    letter-spacing: 0.03em;
   }
 
   .cap-titulo {
     font-family: 'Raleway', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     font-size: clamp(51px, 7vw, 105px);
     letter-spacing: -0.05em;
     line-height: 0.92;
@@ -2254,7 +2255,8 @@
     color: #332116;
     opacity: 1;
     font-size: 15px;
-    letter-spacing: 0;
+    font-weight: 600;
+    letter-spacing: 0.03em;
   }
 
   /* Hero row */
