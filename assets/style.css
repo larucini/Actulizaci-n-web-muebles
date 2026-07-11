@@ -1676,6 +1676,9 @@
     max-width: 900px;
     margin: 0 auto;
   }
+  .mat-desc-mobile {
+    display: none;
+  }
 
   /* ── Layout ── */
   .mat-content {
@@ -2412,6 +2415,9 @@
     display: inline-flex;
     margin-bottom: 12px;
   }
+  .ctc-brand-logo-mobile {
+    display: none;
+  }
   .ctc-brand-desc {
     font-family: 'Raleway', sans-serif;
     font-size: 14px;
@@ -2856,11 +2862,11 @@
       gap: 16px;
     }
     .crs-card {
-      min-height: auto;
+      min-height: 480px;
       padding: 26px 22px;
     }
     .crs-card-title {
-      font-size: 20px;
+      font-size: 23px;
     }
     .crs-card-desc {
       font-size: 14px;
@@ -2932,6 +2938,20 @@
     }
     .ctc-question {
       font-size: clamp(24px, 7vw, 32px);
+    }
+    .ctc-hero-label {
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .ctc-brand-logo-desktop {
+      display: none;
+    }
+    .ctc-brand-logo-mobile {
+      display: inline-flex;
+      margin-left: 0;
+    }
+    .ctc-brand-logo-mobile svg {
+      height: 30px;
     }
     .ctc-footer-main {
       flex-direction: column;
@@ -3105,8 +3125,15 @@
     #material .section-eyebrow {
       font-size: 13px;
     }
-    .mat-desc {
-      font-size: 14px;
+    .mat-title {
+      line-height: 0.95;
+    }
+    .mat-desc-desktop {
+      display: none;
+    }
+    .mat-desc-mobile {
+      display: block;
+      font-size: 18px;
       padding: 0 8px;
     }
     .mat-content {
@@ -3124,7 +3151,7 @@
     .mat-tab {
       flex: 1 1 calc(50% - 8px);
       padding: 14px 12px;
-      font-size: 13px;
+      font-size: 22px;
     }
     .mat-image {
       flex: none;
@@ -3139,6 +3166,8 @@
     }
     .mat-info-item {
       height: auto;
+      align-items: center;
+      text-align: center;
     }
     .mat-info-ideal {
       margin-top: 24px;
@@ -3210,7 +3239,19 @@
       line-height: 0.95;
     }
     .cap-bloque {
-      gap: 4px;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .cap-img-v {
+      width: 100%;
+    }
+    .cap-img-v img {
+      aspect-ratio: 1 / 1 !important;
+      width: 100%;
+    }
+    /* Solo 3 imágenes en mobile */
+    .cap-img-v:nth-child(4) {
+      display: none;
     }
 
   }

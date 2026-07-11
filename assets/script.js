@@ -252,6 +252,33 @@ const navbar = document.getElementById('navbar');
     });
   })();
 
+  // ── Cápsula spotlight: tap to reveal on mobile (no hay hover en touch) ──
+  (function initCapsulaSpotlightMobile() {
+    if (window.innerWidth > 430) return;
+    const targets = document.querySelectorAll('.cap-img-v');
+    const titulo = document.querySelector('.cap-titulo');
+    if (!targets.length) return;
+
+    targets.forEach(el => {
+      el.style.setProperty('--mx', '50%');
+      el.style.setProperty('--my', '50%');
+      el.addEventListener('click', () => {
+        const isActive = el.classList.contains('cap-hovered');
+        targets.forEach(t => t.classList.remove('cap-hovered'));
+        if (!isActive) {
+          el.classList.add('cap-hovered');
+          if (titulo) {
+            titulo.style.color = '#ffffff';
+            titulo.style.textShadow = '0 0 40px rgba(252,239,220,0.35)';
+          }
+        } else if (titulo) {
+          titulo.style.color = '';
+          titulo.style.textShadow = '';
+        }
+      });
+    });
+  })();
+
   // ── Hero img crossfade: desktop only (mobile breaks marquee loop) ──
   (function initHeroCrossfade() {
     if (window.innerWidth <= 430) return;
