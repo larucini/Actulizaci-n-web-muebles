@@ -295,6 +295,58 @@ const navbar = document.getElementById('navbar');
     });
   })();
 
+  // ── Hero img swap: mobile (tap, mismo overlay que desktop, sin flash) ──
+  (function initHeroTapMobile() {
+    if (window.innerWidth > 430) return;
+    window.addEventListener('load', () => {
+      const groups = {}; // agrupa las copias duplicadas del marquee por foto
+
+      document.querySelectorAll('.hero-swap').forEach(img => {
+        const overlay = document.createElement('img');
+        overlay.src = img.dataset.old;
+        overlay.style.cssText = `
+          position: absolute;
+          top: 0; left: 0;
+          height: 100%;
+          width: 100%;
+          opacity: 0;
+          transition: opacity 0.4s ease;
+          pointer-events: none;
+          display: block;
+        `;
+
+        const wrapper = document.createElement('span');
+        wrapper.style.cssText = `
+          position: relative;
+          display: inline-block;
+          flex-shrink: 0;
+          height: 100%;
+          width: ${img.offsetWidth}px;
+          cursor: pointer;
+          -webkit-tap-highlight-color: transparent;
+        `;
+        img.parentNode.insertBefore(wrapper, img);
+        img.style.height = '100%';
+        img.style.width = '100%';
+        img.style.display = 'block';
+        wrapper.appendChild(img);
+        wrapper.appendChild(overlay);
+
+        const key = img.dataset.new;
+        if (!groups[key]) groups[key] = { overlays: [], showingOld: false };
+        groups[key].overlays.push(overlay);
+
+        wrapper.addEventListener('click', () => {
+          const group = groups[key];
+          group.showingOld = !group.showingOld;
+          group.overlays.forEach(ov => {
+            ov.style.opacity = group.showingOld ? '1' : '0';
+          });
+        });
+      });
+    });
+  })();
+
   // ── Cursos: cards clickeables ──
   (function initCourseLinks() {
     const url = 'https://larucini.github.io/PaginaMuebleCursos/';

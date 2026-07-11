@@ -716,6 +716,9 @@
     margin: 0 auto 64px;
     max-width: 1100px;
   }
+  .sobre-desc-mobile {
+    display: none;
+  }
   .sobre-cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -834,6 +837,9 @@
     color: #332116;
     margin: 0 auto;
     max-width: 860px;
+  }
+  .srv-ed-intro-mobile {
+    display: none;
   }
 
   /* Servicio: alternating card + image rows */
@@ -1231,6 +1237,9 @@
     overflow: hidden;
     position: relative;
     cursor: default;
+  }
+  .proy-armario-card {
+    display: none;
   }
   .proy-item-info::before {
     content: '';
@@ -2581,7 +2590,7 @@
     .hero-tagline {
       width: 100%;
       padding: 0 20px;
-      font-size: 15px;
+      font-size: 18px;
       margin: 10px 0 20px;
     }
     .hero-marquee-wrap {
@@ -2589,6 +2598,10 @@
     }
     .hero-marquee-item {
       width: 200px;
+    }
+    .hero-swap {
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
     }
 
     /* ── MARQUEE SERVICIO ── */
@@ -2607,6 +2620,80 @@
       padding: 0 20px;
       margin-bottom: 48px;
     }
+    .srv-ed-titulo {
+      line-height: 0.95;
+    }
+    .srv-ed-titulo-line2 {
+      display: block;
+    }
+    .srv-ed-intro-desktop {
+      display: none;
+    }
+    .srv-ed-intro-mobile {
+      display: block;
+      font-size: 18px;
+    }
+
+    /* Servicio: imagen arriba (full-width) + card debajo, en cada bloque */
+    .srv-blocks {
+      padding: 0 20px;
+      gap: 32px;
+    }
+    .srv-block-row {
+      flex-direction: column;
+      gap: 16px;
+    }
+    .srv-carousel {
+      order: 1;
+      flex: none;
+      align-self: auto;
+      width: 100%;
+      height: 220px;
+      border-radius: 24px;
+    }
+    .srv-block-card {
+      order: 2;
+      flex: none;
+      width: 100%;
+      height: auto;
+      border-radius: 24px;
+      padding: 24px 20px 22px;
+      gap: 12px;
+    }
+    .srv-block-badge {
+      font-size: 32px;
+      padding: 8px 26px;
+    }
+    .srv-block-title {
+      font-size: 22px;
+      margin-top: 14px;
+      white-space: normal;
+    }
+    .srv-block-desc {
+      font-size: 15px;
+    }
+    .srv-block-tags {
+      margin-top: 4px;
+    }
+    .srv-block-tag {
+      font-size: 13px;
+      padding: 6px 14px;
+    }
+    /* Restauración: los keywords son más largos, achicamos para que entren en una sola línea */
+    .srv-blocks .srv-block-row:nth-child(2) .srv-block-tags {
+      flex-wrap: nowrap;
+      gap: 6px;
+    }
+    .srv-blocks .srv-block-row:nth-child(2) .srv-block-tag {
+      font-size: 11px;
+      padding: 5px 10px;
+      white-space: nowrap;
+    }
+    .srv-carousel-btn {
+      width: 34px;
+      height: 34px;
+    }
+
     .srv-acc-row {
       flex-direction: column;
       height: auto;
@@ -2632,8 +2719,12 @@
     #sobre-nosotros {
       padding: 64px 20px 56px;
     }
-    .sobre-desc {
-      font-size: 13px;
+    .sobre-desc-desktop {
+      display: none;
+    }
+    .sobre-desc-mobile {
+      display: block;
+      font-size: 18px;
       margin-bottom: 40px;
     }
     .sobre-cards {
@@ -2641,7 +2732,7 @@
       gap: 12px;
     }
     .sobre-card {
-      padding: 24px 16px 20px;
+      padding: 16px 16px 14px;
       gap: 8px;
     }
     .sobre-icon {
@@ -2649,13 +2740,13 @@
       height: 30px;
     }
     .sobre-num {
-      font-size: 40px;
+      font-size: 46px;
     }
     .sobre-label {
-      font-size: 9px;
+      font-size: 12px;
     }
     .sobre-sub {
-      font-size: 11px;
+      font-size: 13px;
     }
 
     /* ── STATS ── */
@@ -2871,63 +2962,138 @@
     #proyectos {
       padding-bottom: 48px;
     }
+    .proy-header--nueva {
+      padding: 56px 20px 28px;
+    }
+    .proy-label-wrap {
+      padding: 12px 0 28px;
+    }
     .projects-list {
-      padding: 0 12px;
-      gap: 6px;
+      padding: 0 20px;
+      gap: 28px;
     }
-    /* Override desktop rows — stack as mobile grid */
+    /* Filas normales (friso + armario): quedan lado a lado */
     .project-row {
+      gap: 10px;
+    }
+    /* Filas split (sillón+card / cómoda+card): apiladas verticalmente */
+    .proy-row-split {
       flex-direction: column;
+      gap: 14px;
+    }
+    .proy-item-img {
+      flex: none;
+      width: 100%;
+    }
+    .proy-item-img .proj-img {
+      aspect-ratio: unset;
+      height: 220px;
+      border-radius: 20px;
+      width: 100%;
+    }
+    .proj-img {
+      aspect-ratio: unset !important;
+      height: 200px;
+    }
+    /* Card de info: ancho completo, misma forma (esquinas sup/inf derechas redondeadas) */
+    .proy-item-info {
+      width: 100%;
+      flex: none;
+      min-height: 150px;
+      padding: 16px 24px 22px;
+      border-radius: 0 24px 24px 0;
+    }
+    .proy-item-info .proy-info-top {
+      margin-top: 0;
       gap: 6px;
     }
-    /* Row 1 mobile: banco wide top, sillón narrow below-left */
-    .project-row:nth-child(1) {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto;
-      gap: 6px;
+    /* Label arriba, título abajo (solo en mobile; desktop queda igual) */
+    .proy-item-info .proy-info-titulo {
+      order: 2;
+      font-size: 21px;
     }
-    .project-row:nth-child(1) .proj-item:nth-child(1) {
-      /* sillón → position 2 (top right) */
-      grid-column: 2;
-      grid-row: 1;
+    .proy-item-info .proy-info-label {
+      order: 1;
+      font-size: 11px;
     }
-    .project-row:nth-child(1) .proj-item:nth-child(2) {
-      /* banco → position 1 (top left, tall) */
-      grid-column: 1;
-      grid-row: 1 / 3;
-    }
-    .project-row:nth-child(1) .proj-item:nth-child(3) {
-      /* vitrina → hidden on mobile (shown in row 2) */
+
+    /* Friso en cedro: se elimina; armario ocupa todo el ancho, mismo border-radius que el sillón */
+    .proy-friso-wrap {
       display: none;
     }
-    /* Row 2 mobile: cómoda full width */
-    .project-row:nth-child(2) {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px;
+    .project-row .pi-wide {
+      flex: 1 1 100%;
     }
-    .project-row:nth-child(2) .proj-item:nth-child(1) {
-      /* talla → hidden, shown elsewhere */
+    #ba-armario {
+      aspect-ratio: unset !important;
+      height: 220px;
+      border-radius: 20px;
+      width: 100%;
+    }
+    /* Se reemplaza la caption chica por la card marrón completa */
+    .proy-caption {
       display: none;
     }
-    .project-row:nth-child(2) .proj-item:nth-child(2) {
-      /* armario → full width */
-      grid-column: 1 / -1;
+    .proy-armario-card {
+      display: flex;
+      width: 100%;
+      flex: none;
+      min-height: 150px;
+      padding: 16px 24px 22px;
+      border-radius: 0 24px 24px 0;
     }
-    /* Row 3 mobile: cómoda + lámpara side by side */
-    .project-row:nth-child(3) {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+    .proy-armario-card .proy-info-top {
+      margin-top: 0;
       gap: 6px;
     }
-    /* Alturas mobile */
-    .proj-img { height: 180px; aspect-ratio: unset !important; }
-    .project-row:nth-child(1) .proj-item:nth-child(2) .proj-img { height: 220px; }
-    .project-row:nth-child(2) .proj-item:nth-child(2) .proj-img { height: 200px; }
+    .proy-armario-card .proy-info-titulo {
+      order: 2;
+      font-size: 21px;
+    }
+    .proy-armario-card .proy-info-label {
+      order: 1;
+      font-size: 11px;
+    }
+    .proy-info-meta {
+      gap: 0;
+    }
+    .proy-meta-icon {
+      width: 24px;
+      height: 24px;
+    }
+    .proy-meta-title {
+      font-size: 9px;
+    }
+    .proy-meta-value {
+      font-size: 13px;
+    }
+    .proy-meta-divider {
+      height: 30px;
+      margin: 0 14px;
+    }
+    /* Friso: overlay se revela al tocar (mismo sistema tap que las captions) */
+    .proy-friso-overlay .proy-info-titulo {
+      font-size: 17px;
+    }
+    .proy-friso-overlay .proy-info-label {
+      font-size: 10px;
+    }
+    .proy-friso-wrap:active .proy-friso-overlay,
+    .proy-friso-wrap.tapped .proy-friso-overlay {
+      opacity: 1;
+    }
     /* Captions: tap to reveal on mobile */
     .proj-item:active .proy-caption,
     .proj-item.tapped .proy-caption { opacity: 1; }
+
+    /* CTA */
+    .proy-cta {
+      padding: 8px 20px 48px;
+    }
+    .btn-light {
+      width: 100%;
+      justify-content: center;
+    }
 
     /* ── VETAS ── */
     #material {
