@@ -529,3 +529,65 @@ const navbar = document.getElementById('navbar');
       });
     });
   })();
+
+  // ─── SERVICIO: carrusel de imágenes con flechas (loop infinito) ───────────────────
+  (function () {
+    const carousels = document.querySelectorAll('[data-srv-carousel]');
+    carousels.forEach(carousel => {
+      const track = carousel.querySelector('.srv-carousel-track');
+      const realSlides = Array.from(track.children);
+      const total = realSlides.length;
+
+      if (total <= 1) return;
+
+      // Clonamos el primero al final y el último al principio para loop infinito seamless
+      const firstClone = realSlides[0].cloneNode(true);
+      const lastClone = realSlides[total - 1].cloneNode(true);
+      track.appendChild(firstClone);
+      track.insertBefore(lastClone, realSlides[0]);
+
+      let index = 1; // arranca en la primera imagen real (posición 1, luego del clon del último)
+      let isJumping = false;
+
+      function setTransform(withTransition) {
+        track.style.transition = withTransition ? '' : 'none';
+        track.style.transform = `translateX(-${index * 100}%)`;
+      }
+
+      setTransform(false);
+      // Forzar reflow para que el transition:none tome efecto antes de reactivar transiciones
+      track.offsetHeight;
+      track.style.transition = '';
+
+      track.addEventListener('transitionend', () => {
+        if (isJumping) return;
+        if (index === total + 1) {
+          isJumping = true;
+          index = 1;
+          setTransform(false);
+          track.offsetHeight;
+          track.style.transition = '';
+          isJumping = false;
+        } else if (index === 0) {
+          isJumping = true;
+          index = total;
+          setTransform(false);
+          track.offsetHeight;
+          track.style.transition = '';
+          isJumping = false;
+        }
+      });
+
+      carousel.querySelectorAll('.srv-carousel-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (btn.dataset.dir === 'next') {
+            index++;
+          } else {
+            index--;
+          }
+          setTransform(true);
+        });
+      });
+    });
+  })();
+

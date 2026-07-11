@@ -869,12 +869,13 @@
     align-items: stretch;
     gap: 16px;
     overflow: hidden;
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
   }
 
   .srv-block-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 16px 32px rgba(57,47,40,0.12);
+    border-color: #b24610;
   }
 
   .srv-block-badge {
@@ -943,7 +944,8 @@
     color: #332116;
   }
 
-  .srv-block-img {
+  .srv-carousel {
+    position: relative;
     flex: 0.92 1 0;
     align-self: stretch;
     height: 460px;
@@ -951,11 +953,54 @@
     overflow: hidden;
     background: #241a12;
   }
-  .srv-block-img img {
+  .srv-carousel-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .srv-carousel-slide {
+    flex: 0 0 100%;
+    height: 100%;
+  }
+  .srv-carousel-slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+  }
+
+  .srv-carousel-nav {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 5;
+  }
+  .srv-carousel-nav--left {
+    right: auto;
+    left: 20px;
+  }
+  .srv-carousel-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(239,236,227,0.92);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+  .srv-carousel-btn:hover {
+    background: #efece3;
+    transform: scale(1.08);
+  }
+  .srv-carousel-btn:active {
+    transform: scale(0.96);
   }
 
   /* Rows */
@@ -1433,11 +1478,11 @@
     color: rgba(239,236,227,0.7);
   }
   .proy-caption-nombre {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Raleway', sans-serif;
     font-size: 17px;
     font-weight: 500;
     color: #efece3;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.05em;
   }
 
   /* ── LAYOUT: 3 filas flex manuales ── */
@@ -1646,15 +1691,14 @@
 
   .mat-tab {
     font-family: 'Raleway', sans-serif;
-    font-size: 35px;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
+    font-size: 44px;
+    font-weight: 400;
+    letter-spacing: -0.05em;
     color: var(--espresso);
     background: var(--cream);
     border: 1.5px solid rgba(57,47,40,0.3);
     border-radius: 999px;
-    padding: 26px 32px;
+    padding: 16px 32px;
     text-align: center;
     cursor: pointer;
     transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease;
@@ -1841,8 +1885,11 @@
 
   .crs-grid .crs-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 40px 64px -18px rgba(57,47,40,0.26);
     border-color: #b24610;
+  }
+
+  .crs-grid .crs-card--featured:hover {
+    box-shadow: 0 0 30px 8px rgba(178,70,16,0.30);
   }
 
   .crs-card-topbar {
@@ -2301,7 +2348,7 @@
 
   .ctc-hero-label {
     font-family: 'Raleway', sans-serif;
-    font-size: 12px;
+    font-size: 17px;
     font-weight: 600;
     letter-spacing: 0.03em;
     text-transform: uppercase;
@@ -2423,12 +2470,6 @@
   .ctc-hablemos-wrap {
     padding: 40px 0;
   }
-  .ctc-hablemos-link {
-    text-decoration: none;
-    transition: opacity 0.25s;
-    display: block;
-  }
-  .ctc-hablemos-link:hover { opacity: 0.75; }
   .ctc-hablemos {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
