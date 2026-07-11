@@ -518,3 +518,14 @@ const navbar = document.getElementById('navbar');
       });
     });
   })();
+
+  // ─── NAV ACTIVE LINK ON CLICK ───────────────────
+  (function () {
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+  })();
