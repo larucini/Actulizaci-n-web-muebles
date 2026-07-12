@@ -2431,7 +2431,7 @@
   .ctc-cols {
     display: flex;
     flex: 0 0 44%;
-    gap: 64px;
+    gap: 48px;
   }
   .ctc-col {
     display: flex;
@@ -2475,6 +2475,28 @@
   .ctc-col-link:hover::after {
     opacity: 1;
     transform: translateX(0);
+  }
+  .ctc-col-link--biblioteca {
+    display: inline-block;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+    letter-spacing: 0;
+    color: #b24610;
+    white-space: nowrap;
+    transform-origin: left center;
+    transition: color 0.25s ease, transform 0.25s ease;
+  }
+  .ctc-col-link--biblioteca::after {
+    display: none;
+  }
+  .ctc-col-link--biblioteca:hover {
+    color: #b24610;
+    transform: scale(1.08);
+  }
+  .ctc-col--biblioteca {
+    margin-left: -32px;
   }
 
   .ctc-divider {
@@ -2964,6 +2986,9 @@
     .ctc-cols {
       gap: 32px;
       flex-wrap: wrap;
+    }
+    .ctc-col--biblioteca {
+      margin-left: 0;
     }
     .ctc-hablemos {
       font-size: clamp(64px, 20vw, 88px);
