@@ -2398,6 +2398,27 @@
   .ctc-search-input::placeholder {
     color: rgba(51,33,22,0.4);
   }
+  .ctc-send-btn {
+    align-self: center;
+    margin-top: 8px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--espresso);
+    background: var(--cream);
+    border: 1px solid rgba(57,47,40,0.4);
+    border-radius: 999px;
+    padding: 14px 40px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  .ctc-send-btn:hover {
+    background: var(--espresso);
+    border-color: var(--espresso);
+    color: var(--cream);
+  }
 
   /* Footer main: brand + link columns */
   .ctc-footer-main {
